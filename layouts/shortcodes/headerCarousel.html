@@ -1,0 +1,45 @@
+<div id="carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_542291608_205616.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://www.crushpixel.com/big-static15/preview4/diy-woodworking-furniture-making-craftsmanship-1937111.jpg" class="d-block w-100" alt="...">
+        </div>
+        <!-- <div class="carousel-caption d-none d-md-block">
+            <h1>Exklusive Hybrid-Events<br>im Schloss Herrenhausen</h1>
+        </div> -->
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<style>
+    #carousel {
+        text-align: center;
+    }
+
+    #carousel img {
+        object-fit: cover !important;
+        height: 40vh;
+    }
+
+    #carousel h1 {
+        font-weight: 700;
+        line-height: 1.5em;
+    }
+
+    @media only screen and (min-width: 600px) {
+        #carousel img {
+            object-fit: cover;
+            height: auto;
+            height: 90vh !important;
+        }
+    }
+</style>

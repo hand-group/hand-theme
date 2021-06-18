@@ -1,0 +1,11 @@
+html {
+	font-family: 'Montserrat', 'Helvetica', 'Arial';
+}
+
+.content h2 {
+	margin-top: 1.5em;
+}
+
+p {
+	line-height: 1.3em;
+}

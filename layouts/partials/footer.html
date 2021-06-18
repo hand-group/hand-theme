@@ -1,0 +1,76 @@
+<footer id="footer">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-xs-12 col-md-8">
+            <div class="footer-address-div">
+                <h4>{{ .Site.Data.meta.name }}</h4>
+                <p class="footer-address">
+                    {{ .Site.Data.meta.street }}<br>
+                    {{ .Site.Data.meta.zip }} {{ .Site.Data.meta.city }}
+                </p>
+            </div>
+            <div class="footer-links-div">
+                <div class="btn-group" role="group">
+                    {{ range .Site.Data.meta.footerLinks }}
+                        <a class="btn btn-outline-primary" href="{{ .url }}">{{ .name }}</a>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</footer>
+
+<style>
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        height: 8rem;
+        padding: 3em 0;
+        color: white;
+        background-color: #1f2125;
+    }
+
+    footer .row {
+        width: 100vw;
+        margin: 0;
+    }
+
+    footer h4 {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .footer-address-div {
+        padding-left: 1em;
+    }
+
+    .footer-address {
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    footer .btn-group a {
+        border-color: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none;
+        outline: 0;
+        color: white;
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    @media only screen and (min-width: 600px) {
+        .footer-address-div {
+            float: left;
+            margin: auto 0;
+        }
+
+        .footer-links-div {
+            margin-top: 2em;
+            float: right;
+        }
+    }
+</style>

@@ -1,0 +1,137 @@
+<div id="navbar">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-xs-12 col-md-8">
+            <a href="/">
+                <div id="navbar-badge">
+                    <img id="navbar-logo" src="/images/logo.png" alt="{{ .Site.Data.meta.name }} Logo" />
+                    {{ if eq .Site.Params.MadeByHandLogo true }}
+                        <img id="navbar-made-by-hand-logo" src="/images/made_by_hand.png" alt="MADE BY HAND">
+                    {{ end }}
+                </div>
+            </a>
+            <div id="navbar-menu">
+                <div class="btn-group" role="group">
+                    {{ range .Site.Data.meta.navLinks }}
+                        <a type="button" class="btn btn-outline-primary" href="{{ .url }}">{{ .name }}</a>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<div id="height-adjustment"></div>
+
+<style>
+    #height-adjustment {
+        height: 10vh;    /* Footer height */
+    }
+
+    #navbar {
+        position: fixed;
+        width: 100vw;
+        height: 10vh;
+        color: white;
+        background-color: #1f2125;
+        border-bottom: 2px solid #b18d2f;
+        z-index: 2;
+    }
+
+    #navbar .row {
+        width: 100vw;
+        margin: 0;
+    }
+
+    #navbar-badge {
+        background-color: white;
+        border-radius: 0 0 10px 10px;
+        height: 14vh;
+        width: 200px;
+        position: relative;
+        color: black;
+        padding: 1.5em 0;
+        margin: 0 auto;
+        z-index: 1;
+    }
+
+    #navbar-logo {
+        display: block;
+        object-fit: contain;
+        margin: 0 auto;
+        height: 4em;
+    }
+
+    #navbar-made-by-hand-logo {
+        width: 80px;
+        margin: 1.3em 3.5em;
+    }
+
+    #navbar-menu {
+        display: none;
+        float: right;
+        position: relative;
+        padding-right: 2em;
+        top: 7vh;
+    }
+
+    #navbar .btn-group a {
+        border-color: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none;
+        outline: 0;
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: white;
+    }
+    
+    @media only screen and (min-width: 600px) {
+        #navbar-badge {
+            float: left;
+        }
+        
+        #navbar-menu {
+            display: block;
+        }
+
+        @media only screen and (min-width: 600px) {
+            #navbar-badge {
+                height: 12vh;
+            }
+
+            #navbar-logo {
+                margin-top: 0.5em;
+                height: 5.5em;
+            }
+        }
+    }
+</style>
+
+{{ if eq .Site.Params.MadeByHandLogo true }}
+    <style>
+        #navbar-badge {
+            padding-bottom: 7em;
+            width: 200px;
+            height: 16vh;
+        }
+
+        #navbar-logo {
+            height: 4em;
+        }
+
+        #navbar-made-by-hand-logo {
+            margin: 1em 3.5em;
+        }
+
+        @media only screen and (min-width: 600px) {
+            #navbar-badge {
+                height: 13vh;
+            }
+
+            #navbar-logo {
+                margin-top: 0em;
+                height: 5.5em;
+            }
+        }
+    </style>
+{{ end }}

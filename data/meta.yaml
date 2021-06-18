@@ -1,0 +1,33 @@
+title: "Titel"
+description: "Willkommen..."
+name: Company Name
+company: Muster GmbH
+street: Musterstraße 1
+zip: "12345"
+city: Musterstadt
+
+navLinks:
+  - name: Lorem
+    url: /lorem
+
+footerLinks:
+  - name: IMPRESSUM
+    url: /impressum
+  - name: DATENSCHUTZ
+    url: /impressum
+  - name: HAFTUNGSAUSSCHLUSS
+    url: /impressum
+
+socialLinks:
+  - name: Instagram
+    icon: instagram
+    url: https://www.instagram.com/instagram/
+  - name: Facebook
+    icon: facebook
+    url: https://www.facebook.com/
+  - name: Spotify
+    icon: spotify
+    url: https://spotify.com/
+  - name: Github
+    icon: github
+    url: https://github.com/

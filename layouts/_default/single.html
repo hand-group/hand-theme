@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+
+    <body>
+        <div id="page-container">
+            <div id="content-wrap">
+                {{ partial "navbar.html" . }}
+                {{ if isset .Params "image" }}
+                    <img class="header-image" src="{{ .Params.image }}" alt="Titelbild" />
+                {{ end }}
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-xs-12 col-md-8">
+                        <div class="content">
+                            {{ .Content }}
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            {{ partial "footer.html" . }}
+        </div>
+    </body>
+</html>
+
+<style>
+    html, body {
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    #page-container {
+        min-height: 100vh;
+        position: relative;
+    }
+
+    #content-wrap {
+        padding-bottom: 8rem;    /* Footer height */
+    }
+    
+    .header-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .content {
+        padding: 2em 0;
+    }
+</style>

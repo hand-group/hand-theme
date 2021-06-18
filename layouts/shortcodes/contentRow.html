@@ -1,0 +1,36 @@
+<div class="contentrow">
+    {{ .Inner | markdownify }}
+</div>
+
+<style>
+    .contentrow {
+        margin: 0 auto;
+        padding: 4em 0;
+        max-width: 900px;
+        color: white;
+        text-align: center;
+    }
+
+    .contentrow h1 {
+        font-size: 2em;
+        font-family: Nothing You Could Do;
+        font-weight: bold;
+        line-height: 1.5em;
+        color: #b18d2f;
+        margin-bottom: 1.5em;
+        transform: rotate(-15deg);
+    }
+
+    .contentrow p {
+        color: #b18d2f;
+        line-height: 2em;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    @media only screen and (min-width: 600px) {
+        .contentrow h1 {
+            font-size: 4em;
+        }
+    }
+</style>
