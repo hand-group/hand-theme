@@ -1,6 +1,7 @@
-title: "Titel"
-description: "Willkommen..."
+title: Metadaten
+
 name: Company Name
+description: "Willkommen..."
 company: Muster GmbH
 street: Musterstraße 1
 zip: "12345"
