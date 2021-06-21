@@ -6,7 +6,7 @@ draft: true
 ---
 {{< headerCarousel >}}
 
-{{< contentRow >}}
+{{< contentRow theme="light" >}}
 
 # Willkommen
 
