@@ -1,33 +1,26 @@
-<div class="contentrow-wrapper">
+<div class='contentrow-wrapper-{{ .Get `theme` }}'>
     <div class="contentrow">
         {{ .Inner | markdownify }}
     </div>
 </div>
 
-{{ if eq (.Get `theme`) "light" }}
-    <style>
-        .contentrow-wrapper {
-        background-color: white;}
-
-        .contentrow {
-            margin: 0 auto;
-            padding: 4em 0;
-            max-width: 900px;
-            color: #1f2125;
-        }
-    </style>
-{{ else }}
-    <style>
-        .contentrow {
-            margin: 0 auto;
-            padding: 4em 0;
-            max-width: 900px;
-            color: white;
-        }
-    </style>
-{{ end }}
-
 <style>
+    .contentrow-wrapper-light {
+        background-color: white;
+        color: #1f2125;
+    }
+
+    .contentrow-wrapper-dark {
+        background-color: #1f2125;
+        color: white;
+    }
+
+    .contentrow {
+        margin: 0 auto;
+        padding: 4em 0;
+        max-width: 900px;
+    }
+
     .contentrow img {
         max-width: 100%;
     }
