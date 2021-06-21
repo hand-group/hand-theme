@@ -8,12 +8,16 @@
         <div id="page-container">
             <div id="content-wrap">
                 {{ partial "navbar.html" . }}
+                {{ partial "socialbuttons.html" . }}
                 {{ if isset .Params "image" }}
                     <img class="header-image" src="{{ .Params.image }}" alt="Titelbild" />
                 {{ end }}
                 <div class="row">
                     <div class="col"></div>
                     <div class="col-xs-12 col-md-8">
+                        <div id="single-site-title">
+                            <span>{{ .Params.Title }}</span>
+                        </div>
                         <div class="content">
                             {{ .Content }}
                         </div>
@@ -40,6 +44,18 @@
     #content-wrap {
         padding-bottom: 8rem;    /* Footer height */
     }
+
+    #single-site-title {
+        display: inline-block;
+        position: relative;
+        bottom: 1.5em;
+        height: 3em;
+        padding: 1em;
+        border-radius: 12px;
+        background-color: #1f2125;
+        color: #b18d2f;
+        font-weight: 700;
+    }
     
     .header-image {
         width: 100%;
@@ -48,6 +64,6 @@
     }
 
     .content {
-        padding: 2em 0;
+        padding: 1em 0 2em 0;
     }
 </style>
