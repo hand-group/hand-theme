@@ -2,6 +2,7 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_542291608_205616.jpg" class="d-block w-100" alt="...">
+            <img class="coursel-caption-img" src="/images/carousel_caption_1.png" />
         </div>
         <div class="carousel-item">
             <img src="https://www.crushpixel.com/big-static15/preview4/diy-woodworking-furniture-making-craftsmanship-1937111.jpg" class="d-block w-100" alt="...">
@@ -25,9 +26,20 @@
         text-align: center;
     }
 
+    .carousel-item {
+        position: relative;
+    }
+
     #carousel img {
         object-fit: cover !important;
         height: 40vh;
+    }
+
+    #carousel .coursel-caption-img {
+        position: absolute;
+        height: 50vh !important;
+        bottom: 2em;
+        right: 10%;
     }
 
     #carousel h1 {
