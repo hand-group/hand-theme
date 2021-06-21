@@ -11,7 +11,7 @@
             </div>
             <div class="footer-links-div">
                 <div class="btn-group" role="group">
-                    {{ range .Site.Data.meta.footerLinks }}
+                    {{ range .Site.Data.links.footerLinks }}
                         <a class="btn btn-outline-primary" href="{{ .url }}">{{ .name }}</a>
                     {{ end }}
                 </div>

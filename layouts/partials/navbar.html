@@ -5,14 +5,14 @@
             <a href="/">
                 <div id="navbar-badge">
                     <img id="navbar-logo" src="/images/logo.png" alt="{{ .Site.Data.meta.name }} Logo" />
-                    {{ if eq .Site.Params.MadeByHandLogo true }}
+                    {{ if eq .Site.Data.meta.MadeByHandLogo true }}
                         <img id="navbar-made-by-hand-logo" src="/images/made_by_hand.png" alt="MADE BY HAND">
                     {{ end }}
                 </div>
             </a>
             <div id="navbar-menu">
                 <div class="btn-group" role="group">
-                    {{ range .Site.Data.meta.navLinks }}
+                    {{ range .Site.Data.links.navLinks }}
                         <a type="button" class="btn btn-outline-primary" href="{{ .url }}">{{ .name }}</a>
                     {{ end }}
                 </div>
@@ -107,7 +107,7 @@
     }
 </style>
 
-{{ if eq .Site.Params.MadeByHandLogo true }}
+{{ if eq .Site.Data.meta.MadeByHandLogo true }}
     <style>
         #navbar-badge {
             padding-bottom: 7em;

@@ -1,10 +1,6 @@
 baseURL: "http://example.org/"
 languageCode: "de-DE"
 
-params:
-  MadeByHandLogo: false
-  SocialButtons: true
-
 markup:
   goldmark:
     renderer:
