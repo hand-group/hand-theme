@@ -1,4 +1,8 @@
-<div class='contentrow-wrapper-{{ .Get `theme` }}'>
+{{ if eq (.Get `theme`) "light" }}
+<div class='contentrow-wrapper-light'>
+{{ else }}
+<div class='contentrow-wrapper-dark'>
+{{ end }}
     <div class="contentrow">
         {{ .Inner | markdownify }}
     </div>
