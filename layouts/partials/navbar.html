@@ -25,13 +25,13 @@
 
 <style>
     #height-adjustment {
-        height: 10vh;    /* Footer height */
+        height: 80px;    /* Navbar height */
     }
 
     #navbar {
         position: fixed;
         width: 100vw;
-        height: 10vh;
+        height: 80px;
         color: white;
         background-color: #1f2125;
         border-bottom: 2px solid #b18d2f;
@@ -46,11 +46,11 @@
     #navbar-badge {
         background-color: white;
         border-radius: 0 0 10px 10px;
-        height: 14vh;
-        width: 200px;
+        height: 100px;
+        width: 180px;
         position: relative;
         color: black;
-        padding: 1.5em 0;
+        padding: 1em 0;
         margin: 0 auto;
         z-index: 1;
     }
@@ -59,12 +59,7 @@
         display: block;
         object-fit: contain;
         margin: 0 auto;
-        height: 4em;
-    }
-
-    #navbar-made-by-hand-logo {
-        width: 80px;
-        margin: 1.3em 3.5em;
+        height: 100%;
     }
 
     #navbar-menu {
@@ -72,7 +67,7 @@
         float: right;
         position: relative;
         padding-right: 2em;
-        top: 7vh;
+        top: 70px;
     }
 
     #navbar .btn-group a {
@@ -86,23 +81,22 @@
     }
     
     @media only screen and (min-width: 600px) {
+        #height-adjustment {
+            height: 100px;    /* Navbar height */
+        }
+
+        #navbar {
+            height: 100px;
+        }
+
         #navbar-badge {
             float: left;
+            height: 130px;
+            padding: 1.5em 0;
         }
         
         #navbar-menu {
             display: block;
-        }
-
-        @media only screen and (min-width: 600px) {
-            #navbar-badge {
-                height: 12vh;
-            }
-
-            #navbar-logo {
-                margin-top: 0.5em;
-                height: 5.5em;
-            }
         }
     }
 </style>
@@ -110,27 +104,28 @@
 {{ if eq .Site.Data.meta.MadeByHandLogo true }}
     <style>
         #navbar-badge {
-            padding-bottom: 7em;
-            width: 200px;
-            height: 16vh;
+            height: 110px;
+            padding: 0.5em 0;
         }
 
         #navbar-logo {
-            height: 4em;
+            height: 70%;
         }
 
         #navbar-made-by-hand-logo {
-            margin: 1em 3.5em;
+            width: 80px;
+            margin-top: 15px;
+            margin-left: 50px;
         }
 
         @media only screen and (min-width: 600px) {
             #navbar-badge {
-                height: 13vh;
+                height: 130px;
+                padding: 1em 0;
             }
 
             #navbar-logo {
-                margin-top: 0em;
-                height: 5.5em;
+                height: 80%;
             }
         }
     </style>
