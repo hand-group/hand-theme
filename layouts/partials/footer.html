@@ -2,14 +2,14 @@
     <div class="row">
         <div class="col"></div>
         <div class="col-xs-12 col-md-8">
-            <div class="footer-address-div">
+            <div id="footer-address-div">
                 <h4>{{ .Site.Data.meta.name }}</h4>
-                <p class="footer-address">
+                <p id="footer-address">
                     {{ .Site.Data.meta.street }}<br>
                     {{ .Site.Data.meta.zip }} {{ .Site.Data.meta.city }}
                 </p>
             </div>
-            <div class="footer-links-div">
+            <div id="footer-links-div">
                 <div class="btn-group" role="group">
                     {{ range .Site.Data.links.footerLinks }}
                         <a class="btn btn-outline-primary" href="{{ .url }}">{{ .name }}</a>
@@ -43,16 +43,20 @@
         letter-spacing: 2px;
     }
 
-    .footer-address-div {
+    #footer-address-div {
         padding-left: 1em;
     }
 
-    .footer-address {
+    #footer-address {
         font-size: 10px;
         line-height: 16px;
     }
 
-    footer .btn-group a {
+    #footer-links-div .btn-group {
+        display: none;
+    }
+
+    #footer-links-div .btn-group a {
         border-color: transparent !important;
         background-color: transparent !important;
         box-shadow: none;
@@ -63,12 +67,16 @@
     }
 
     @media only screen and (min-width: 600px) {
-        .footer-address-div {
+        #footer-address-div {
             float: left;
             margin: auto 0;
         }
 
-        .footer-links-div {
+        #footer-links-div .btn-group {
+            display: block;
+        }
+
+        #footer-links-div {
             margin-top: 2em;
             float: right;
         }

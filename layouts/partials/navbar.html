@@ -63,14 +63,30 @@
     }
 
     #navbar-menu {
-        display: none;
         float: right;
         position: relative;
         padding-right: 2em;
         top: 70px;
     }
 
-    #navbar .btn-group a {
+    #navbar-menu .burger-button {
+        position: absolute;
+        top: -155px;
+        right: 9px;
+        border: 1px solid white;
+        border-radius: 4px;
+    }
+
+    #navbar-menu .burger-button svg {
+        color: white;
+        width: 3em;
+    }
+
+    #navbar-menu .btn-group {
+        display: none;
+    }
+
+    #navbar-menu .btn-group a {
         border-color: transparent !important;
         background-color: transparent !important;
         box-shadow: none;
@@ -80,7 +96,7 @@
         color: white;
     }
     
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1000px) {
         #height-adjustment {
             height: 100px;    /* Navbar height */
         }
@@ -94,8 +110,8 @@
             height: 130px;
             padding: 1.5em 0;
         }
-        
-        #navbar-menu {
+
+        #navbar-menu .btn-group {
             display: block;
         }
     }
@@ -118,7 +134,7 @@
             margin-left: 50px;
         }
 
-        @media only screen and (min-width: 600px) {
+        @media only screen and (min-width: 1000px) {
             #navbar-badge {
                 height: 130px;
                 padding: 1em 0;
