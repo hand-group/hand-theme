@@ -1,8 +1,8 @@
-navLinks:
+navbar:
   - name: LOREM
     url: /lorem
 
-footerLinks:
+footer:
   - name: IMPRESSUM
     url: /impressum
   - name: DATENSCHUTZ
@@ -10,7 +10,7 @@ footerLinks:
   - name: HAFTUNGSAUSSCHLUSS
     url: /impressum
 
-socialLinks:
+social:
   - name: Instagram
     icon: instagram
     url: https://www.instagram.com/instagram/

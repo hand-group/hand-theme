@@ -52,11 +52,17 @@
         #carousel img {
             object-fit: cover;
             height: auto;
-            height: 90vh !important;
+            height: calc(100vh - 80px) !important; /* Navbar height */
         }
 
         #carousel .coursel-caption-img {
             display: block;
+        }
+    }
+
+    @media only screen and (min-width: 1000px) {
+        #carousel img {
+            height: calc(100vh - 100px) !important; /* Navbar height */
         }
     }
 </style>
