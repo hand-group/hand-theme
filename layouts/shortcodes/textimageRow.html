@@ -1,0 +1,86 @@
+<div class='textimagerow {{ if eq .Params.align "right" }}textimagerow-dark{{ else }}textimagerow-light{{ end }}'>
+    <div class="row">
+        {{ if eq .Params.align "right" }}
+        <div class="col-lg-6">
+            <img class="textimagerow-image" src="{{ .Params.image }}" alt="display" />
+        </div>
+        {{ end }}
+        <div class="col-lg-6">
+            <div class="textimagerow-text">
+                <div style="text-align: center;">
+                    <img class="textimagerow-logo" src="{{ .Params.logo }}" alt="logo" />
+                </div>
+                {{ .Inner | markdownify }}
+                <div style="text-align: center;">
+                    <a class="textimagerow-button" href="{{ .Params.link }}">MEHR</a>
+                </div>
+            </div>
+        </div>
+        {{ if eq .Params.align "left" }}
+        <div class="col-lg-6">
+            <img class="textimagerow-image" src="{{ .Params.image }}" alt="display" />
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<style>
+    .textimagerow {
+        width: 100%;
+        padding: 2em 0;
+    }
+
+    .textimagerow-dark {
+        background-color: #eeeeee;
+    }
+
+    .textimagerow .row {
+        height: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .textimagerow-image {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
+
+    .textimagerow-logo {
+        max-width: 100px !important;
+        max-height: 80px !important;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 1.5em;
+    }
+
+    .textimagerow-text {
+        font-size: 0.9em;
+        line-height: 1.3em;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .textimagerow-button {
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+        text-decoration: none;
+
+        background-color: #b18d2f;
+        color: #1f2125;
+        font-size: 0.7em;
+        font-weight: bold;
+        padding: 0.4em 1.5em;
+        border-radius: 6px;
+        margin: 1.5em 0;
+    }
+
+    .textimagerow-button:hover {
+        color: #1f2125;
+        background-color: #9e7d29;
+    }
+</style>

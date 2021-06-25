@@ -1,9 +1,6 @@
-{{ if eq (.Get `theme`) "light" }}
-<div class='contentrow-wrapper-light'>
-{{ else }}
-<div class='contentrow-wrapper-dark'>
-{{ end }}
-    <div class="contentrow">
+
+<div class='contentrow-wrapper-{{ if isset .Params "theme" }}{{.Params.theme}}{{ else }}light{{ end }}'>
+    <div class='contentrow {{ if isset .Params "width" }}{{.Params.width}}{{ else }}m{{ end }}'>
         {{ .Inner | markdownify }}
     </div>
 </div>
@@ -19,23 +16,43 @@
         color: white;
     }
 
-    .contentrow {
-        margin: 0 auto;
-        padding: 3em 1em;
-        max-width: 900px;
+    .contentrow.xxl {
+        max-width: 100%;
+        padding: 3em 0;
     }
 
+    .contentrow.xl {
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 3em 1em;
+    }
+
+    .contentrow.l {
+        margin: 0 auto;
+        max-width: 900px;
+        padding: 3em 1em;
+    }
+
+    .contentrow.m {
+        margin: 0 auto;
+        max-width: 700px;
+        padding: 3em 1em;
+    }
+
+    .contentrow.s {
+        margin: 0 auto;
+        max-width: 500px;
+        padding: 3em 1em;
+    }
+
+
+
     .contentrow img {
+        width: auto;
         max-width: 100%;
     }
 
     .contentrow p {
         line-height: 1.5em;
-    }
-
-    @media only screen and (min-width: 600px) {
-        .contentrow h1 {
-            font-size: 4em;
-        }
     }
 </style>
