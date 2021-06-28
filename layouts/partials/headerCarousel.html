@@ -1,12 +1,11 @@
 <div id="carousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_542291608_205616.jpg" class="d-block w-100" alt="...">
-            <img class="coursel-caption-img" src="/images/carousel_caption_1.png" />
+        {{ range $index, $element := .Params.carousel }}
+        <div class="carousel-item {{ if eq $index 0 }}active{{ end }}">
+            <img src="{{ $element.image }}" class="d-block w-100" alt="{{ $element.name }}">
+            {{ if isset $element "caption" }}<img class="coursel-caption-img" src="{{ $element.caption }}" alt="{{ .name }} Caption" />{{ end }}
         </div>
-        <div class="carousel-item">
-            <img src="https://www.crushpixel.com/big-static15/preview4/diy-woodworking-furniture-making-craftsmanship-1937111.jpg" class="d-block w-100" alt="...">
-        </div>
+        {{ end }}
         <!-- <div class="carousel-caption d-none d-md-block">
             <h1>Exklusive Hybrid-Events<br>im Schloss Herrenhausen</h1>
         </div> -->
