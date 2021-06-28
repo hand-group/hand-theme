@@ -10,7 +10,7 @@
                 {{ partial "navbar.html" . }}
                 {{ partial "socialbuttons.html" . }}
                 {{ if isset .Params "image" }}
-                    <img class="header-image" src="{{ .Params.image }}" alt="Titelbild" />
+                    <img class="header-image" src='{{ .Params.image }}' alt="Titelbild" />
                 {{ end }}
                 <div id="single-site-title">
                     <span>{{ .Params.Title }}</span>
