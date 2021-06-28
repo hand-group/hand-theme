@@ -1,7 +1,7 @@
 <div class='textimagerow textimagerow-{{ if eq .Params.align "right" }}light{{ else }}dark{{ end }}'>
     <div class="row">
         {{ if eq .Params.align "right" }}
-        <div class="col-lg-6 order-1">
+        <div class="col-lg-6 order-1 order-lg-1">
             <img class="textimagerow-image" src="{{ .Params.image }}" alt="display" />
         </div>
         {{ end }}
@@ -21,7 +21,7 @@
             </div>
         </div>
         {{ if eq .Params.align "left" }}
-        <div class="col-lg-6 order-1">
+        <div class="col-lg-6 order-1 order-lg-2">
             <img class="textimagerow-image" src="{{ .Params.image }}" alt="display" />
         </div>
         {{ end }}

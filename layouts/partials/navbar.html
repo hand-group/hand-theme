@@ -29,20 +29,22 @@
                         <a type="button" class="btn btn-outline-primary" href="{{ .url }}">{{ .name }}</a>
                     {{ end }}
                 </div>
-                <div id="navbar-menu-mobile">
-                    <i id="navbar-menu-mobile-button" class="bi bi-list" onclick="toggleMobileMenu()" data-bs-toggle="collapse" href="#navbar-menu-mobile-collapse" role="button" aria-expanded="false" aria-controls="navbar-menu-mobile-collapse"></i>
-                </div>
             </div>
         </div>
         <div class="col"></div>
     </div>
 </div>
 <div id="height-adjustment"></div>
+
+<div id="navbar-menu-mobile">
+    <i id="navbar-menu-mobile-button" class="bi bi-list" onclick="toggleMobileMenu()" data-bs-toggle="collapse" href="#navbar-menu-mobile-collapse" role="button" aria-expanded="false" aria-controls="navbar-menu-mobile-collapse"></i>
+</div>
 <div id="navbar-menu-mobile-collapse" class="collapse">
     <ul class="list-group">
         {{ range .Site.Data.links.navbar }}
             <a href="{{ .url }}"><li class="list-group-item">{{ .name }}</li></a>
         {{ end }}
+        <a href="/impressum" style="font-size: 0.3em"><li class="list-group-item">IMPRESSUM</li></a>
     </ul>
 </div>
 
@@ -53,6 +55,7 @@
 
     #navbar {
         position: fixed;
+        top: 0;
         width: 101vw;
         height: 80px;
         color: white;
@@ -96,9 +99,11 @@
 
     #navbar-menu-mobile {
         font-size: 2em;
-        position: absolute;
-        top: -148px;
-        right: 20px;
+        position: fixed;
+        top: 22px;
+        right: 30px;
+        z-index: 2;
+        color: white;
     }
 
     #navbar-menu-mobile-collapse {
@@ -113,7 +118,7 @@
     }
 
     #navbar-menu-mobile-collapse .list-group-item {
-        padding: 1em 0;
+        padding: 16px 0;
         width: 100vw;
         border: none;
         text-align: center;
