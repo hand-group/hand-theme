@@ -8,6 +8,7 @@
         <div id="page-container">
             <div id="page-content">
                 {{ partial "navbar.html" . }}
+                {{ partial "cookie.html" . }}
                 {{ partial "socialbuttons.html" . }}
                 {{ if isset .Params "image" }}
                     <img class="header-image" src='{{ .Params.image }}' alt="Titelbild" />
