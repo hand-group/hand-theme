@@ -1,3 +1,16 @@
+<script>
+    function toggleMobileMenu() {
+        var button = document.getElementById('navbar-menu-mobile-button')
+        if (button.classList.contains('bi-list')) {
+            button.classList.remove('bi-list')
+            button.classList.add('bi-x')
+        } else {
+            button.classList.remove('bi-x')
+            button.classList.add('bi-list')
+        }
+    }
+</script>
+
 <div id="navbar">
     <div class="row">
         <div class="col"></div>
@@ -11,10 +24,13 @@
                 </div>
             </a>
             <div id="navbar-menu">
-                <div class="btn-group" role="group">
+                <div id="navbar-menu-desktop" class="btn-group" role="group">
                     {{ range .Site.Data.links.navbar }}
                         <a type="button" class="btn btn-outline-primary" href="{{ .url }}">{{ .name }}</a>
                     {{ end }}
+                </div>
+                <div id="navbar-menu-mobile">
+                    <i id="navbar-menu-mobile-button" class="bi bi-list" onclick="toggleMobileMenu()" data-bs-toggle="collapse" href="#navbar-menu-mobile-collapse" role="button" aria-expanded="false" aria-controls="navbar-menu-mobile-collapse"></i>
                 </div>
             </div>
         </div>
@@ -22,6 +38,13 @@
     </div>
 </div>
 <div id="height-adjustment"></div>
+<div id="navbar-menu-mobile-collapse" class="collapse">
+    <ul class="list-group">
+        {{ range .Site.Data.links.navbar }}
+            <a href="{{ .url }}"><li class="list-group-item">{{ .name }}</li></a>
+        {{ end }}
+    </ul>
+</div>
 
 <style>
     #height-adjustment {
@@ -69,24 +92,38 @@
         top: 70px;
     }
 
-    #navbar-menu .burger-button {
+    #navbar-menu-mobile {
+        font-size: 2em;
         position: absolute;
-        top: -155px;
-        right: 9px;
-        border: 1px solid white;
-        border-radius: 4px;
+        top: -148px;
+        right: 20px;
     }
 
-    #navbar-menu .burger-button svg {
+    #navbar-menu-mobile-collapse {
+        position: fixed;
+        z-index: 1;
+        padding: 1em 0;
+        background-color: #1f2125;
+    }
+
+    #navbar-menu-mobile-collapse .list-group, .list-group-item {
+        border-radius: 0;
+        width: 100vw;
+        padding: 1em;
+        background-color: #1f2125;
         color: white;
-        width: 3em;
+        border: none;
     }
 
-    #navbar-menu .btn-group {
+    #navbar-menu-mobile-collapse a {
+        text-decoration: none;
+    }
+
+    #navbar-menu-desktop {
         display: none;
     }
 
-    #navbar-menu .btn-group a {
+    #navbar-menu-desktop a {
         border-color: transparent !important;
         background-color: transparent !important;
         box-shadow: none;
@@ -111,8 +148,12 @@
             padding: 1.5em 0;
         }
 
-        #navbar-menu .btn-group {
+        #navbar-menu-desktop {
             display: block;
+        }
+
+        #navbar-menu-mobile {
+            display: none;
         }
     }
 </style>
