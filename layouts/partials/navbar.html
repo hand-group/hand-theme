@@ -76,6 +76,8 @@
         padding: 1em 0;
         margin: 0 auto;
         z-index: 1;
+        -webkit-box-shadow: 0px 0px 15px 0px #1F2125; 
+        box-shadow: 0px 0px 15px 0px #1F2125;
     }
 
     #navbar-logo {
@@ -100,19 +102,23 @@
     }
 
     #navbar-menu-mobile-collapse {
-        position: fixed;
         z-index: 1;
-        padding: 1em 0;
+        position: fixed;
         background-color: #1f2125;
     }
 
-    #navbar-menu-mobile-collapse .list-group, .list-group-item {
-        border-radius: 0;
+    #navbar-menu-mobile-collapse .list-group {
+        padding: 2em 0 1em 0;
         width: 100vw;
-        padding: 1em;
+    }
+
+    #navbar-menu-mobile-collapse .list-group-item {
+        padding: 1em 0;
+        width: 100vw;
+        border: none;
+        text-align: center;
         background-color: #1f2125;
         color: white;
-        border: none;
     }
 
     #navbar-menu-mobile-collapse a {
