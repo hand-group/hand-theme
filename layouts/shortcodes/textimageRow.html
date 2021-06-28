@@ -52,7 +52,6 @@
         width: 100% !important;
         height: 100% !important;
         object-fit: cover;
-        margin-bottom: 1em;
     }
 
     .textimagerow-logo {
@@ -74,8 +73,8 @@
     }
 
     .textimagerow-button {
-        -webkit-appearance: button;
-        -moz-appearance: button;
+        -webkit-appearance: none;
+        -moz-appearance: none;
         appearance: button;
         text-decoration: none;
 
@@ -95,7 +94,11 @@
     
     @media only screen and (min-width: 1000px) {
         .textimagerow .order-1 {
-            margin-bottom: none;
+            margin-bottom: 0 !important;
+        }
+
+        .textimagerow-image {
+            height: 300px !important;
         }
     }
 </style>
