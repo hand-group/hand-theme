@@ -1,0 +1,7 @@
+@font-face {
+    font-family: "BetterTimes";
+    src: url("/fonts/set_sail_studios_-_better_times-webfont.eot");
+    src: url("/fonts/set_sail_studios_-_better_times-webfont.woff") format("woff"),
+    url("/fonts/set_sail_studios_-_better_times-webfont.woff2") format("woff2"),
+    url("/fonts/set_sail_studios_-_better_times-webfont.svg#filename") format("svg");
+}    

@@ -2,7 +2,7 @@
     <div id="socialbuttons">
         {{ range .Site.Data.links.social }}
         <div class="socialbutton">
-            <a href="{{ .url }}" target="blank_">
+            <a href="{{ .url }}" target="blank_" aria-label="{{ .name }}">
                 <i class="bi bi-{{ .icon }}"></i>
             </a>
         </div>

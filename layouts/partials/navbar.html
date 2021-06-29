@@ -1,12 +1,12 @@
 <script>
     function toggleMobileMenu() {
-        var button = document.getElementById('navbar-menu-mobile-button')
-        if (button.classList.contains('bi-list')) {
-            button.classList.remove('bi-list')
-            button.classList.add('bi-x')
+        var icon = document.getElementById('navbar-menu-mobile-icon')
+        if (icon.classList.contains('bi-list')) {
+            icon.classList.remove('bi-list')
+            icon.classList.add('bi-x')
         } else {
-            button.classList.remove('bi-x')
-            button.classList.add('bi-list')
+            icon.classList.remove('bi-x')
+            icon.classList.add('bi-list')
         }
     }
 </script>
@@ -34,8 +34,8 @@
 </div>
 <div id="height-adjustment"></div>
 
-<div id="navbar-menu-mobile">
-    <i id="navbar-menu-mobile-button" class="bi bi-list" onclick="toggleMobileMenu()" data-bs-toggle="collapse" href="#navbar-menu-mobile-collapse" role="button" aria-expanded="false" aria-controls="navbar-menu-mobile-collapse"></i>
+<div id="navbar-menu-mobile-button" onclick="toggleMobileMenu()">
+    <i id="navbar-menu-mobile-icon" class="bi bi-list" aria-label="toggleMenu" data-bs-toggle="collapse" href="#navbar-menu-mobile-collapse" role="button" aria-expanded="false" aria-controls="navbar-menu-mobile-collapse"></i>
 </div>
 <div id="navbar-menu-mobile-collapse" class="collapse">
     <ul class="list-group">
@@ -95,7 +95,7 @@
         top: 70px;
     }
 
-    #navbar-menu-mobile {
+    #navbar-menu-mobile-button {
         font-size: 2em;
         position: fixed;
         top: 22px;
@@ -161,7 +161,7 @@
             display: block;
         }
 
-        #navbar-menu-mobile {
+        #navbar-menu-mobile-button {
             display: none;
         }
     }

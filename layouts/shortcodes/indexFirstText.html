@@ -1,0 +1,65 @@
+<div class="indexFirstElement">
+    <h1>Die Group,</h1>
+    <div class="row">
+        <div class="col-lg-4">
+            <br>
+            <h2>
+                DIE KEINE<br class="indexFirstElement-linebreak">
+                WÜNSCHE<br class="indexFirstElement-linebreak">
+                OFFENLÄSST
+            </h2>
+        </div>
+        <div class="col-lg-8">
+            <p>{{ .Inner | markdownify }}</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .indexFirstElement {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 5em 1em;
+    }
+
+    .indexFirstElement h1 {
+        font-size: 10em;
+        font-family: 'BetterTimes';
+        color: #b18d2f;
+        transform: rotate(-8deg);
+        margin-top: -0.3em;
+        text-align: center;
+    }
+
+    .indexFirstElement h2 {
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    .indexFirstElement p {
+        line-height: 1.2em;
+    }
+
+    .indexFirstElement-linebreak {
+        display: none;
+    }
+    
+    @media only screen and (min-width: 1000px) {
+        .indexFirstElement h1 {
+            position: relative;
+            right: 80px;
+            top: 20px;
+            text-align: inherit;
+        }
+
+        .indexFirstElement h2 {
+            text-align: right;
+            float: none;
+        }
+
+        .indexFirstElement-linebreak {
+            display: block;
+        }
+    }
+</style>

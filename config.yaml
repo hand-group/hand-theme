@@ -1,4 +1,5 @@
 baseURL: "http://example.org/"
+defaultContentLanguage: de
 languageCode: "de-DE"
 
 markup:
