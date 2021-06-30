@@ -1,7 +1,8 @@
 @font-face {
     font-family: "BetterTimes";
-    src: url("/fonts/set_sail_studios_-_better_times-webfont.eot");
-    src: url("/fonts/set_sail_studios_-_better_times-webfont.woff") format("woff"),
+    src: url("/fonts/set_sail_studios_-_better_times-webfont.eot") format('embedded-opentype'); /* IE9 + later */
+    src: url("/fonts/set_sail_studios_-_better_times-webfont.woff") format("woff"),             /* Newer browsers */
     url("/fonts/set_sail_studios_-_better_times-webfont.woff2") format("woff2"),
-    url("/fonts/set_sail_studios_-_better_times-webfont.svg#filename") format("svg");
+    url("/fonts/set_sail_studios_-_better_times-webfont.ttf") format("truetype"),               /* Safari og iOS, Chrome, Android, Firefox and Opera except Opera Mini  */
+    url("/fonts/set_sail_studios_-_better_times-webfont.svg#filename") format("svg");           /* IE og iOS earlier than version 5 */
 }    
