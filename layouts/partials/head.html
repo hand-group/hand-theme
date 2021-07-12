@@ -13,10 +13,13 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
+
 {{ if .Site.Data.meta.description }}
     <meta name="description" content="{{ .Site.Data.meta.description }}">
 {{ end }}
+
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
 <title>
     {{ .Title | markdownify }}
 </title>
