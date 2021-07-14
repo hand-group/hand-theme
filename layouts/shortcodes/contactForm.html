@@ -1,8 +1,9 @@
 <script>
     function handleSubmit() {
         const button = document.getElementById('contact-form-submit')
-        {{/*  if (button.classList.contains('button-disabled')) return  */}}
+        if (button.classList.contains('button-disabled')) return
         button.classList.add('button-disabled')
+        button.innerHTML = '<div class="spinner-border" style="height: 16px; width: 16px; font-size: .5em;" role="status"></div>'
 
         const inputs = [
             {name: 'salutation', required: true, check: value => !(!value)},
@@ -21,6 +22,7 @@
                 const element = document.getElementById(`${input.name}Input`)
                 if (input.required && !input.check(element.value)) {
                     element.classList.add('contact-form-input-error')
+                    button.classList.remove('button-disabled')
                     check = false
                 } else {
                     element.classList.remove('contact-form-input-error')
@@ -30,18 +32,25 @@
 
             console.log(data)
             if (check) {
-                fetch('https://hand-backend.capr.akmnn.de/www/contact-form-submit', {
+                fetch('http://localhost:3000/www/contact-form-submit', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(data)
                 }).then(response => {
-                    console.log(response)
+                    if (response.status === 200) {
+                        setTimeout(() => button.innerText = 'Abgeschickt', 1000)
+                    } else {
+                        throw 'Something went wrong.'
+                    }
                 })
+            } else {
+                throw 'Missing data.'
             }
         } catch(error) {
             button.classList.remove('button-disabled')
+            button.innerText = 'Absenden'
             console.log(error)
         }
     }
@@ -100,7 +109,7 @@
         max-width: 800px;
         margin: 4em auto;
         padding: 1em;
-        background-color: #eeeeee;
+        background-color: var(--color-grey-5);
     }
 
 
@@ -115,15 +124,11 @@
     }
 
     .contact-form-input-error {
-        border: 1px solid red !important;
+        box-shadow: 0 0 0 1px red;
     }
 
     .contact-form input, select, textarea {
         border-radius: 12px !important;
-        border: none;
-    }
-
-    .contact-form select, textarea {
         border: none !important;
     }
 
@@ -141,6 +146,7 @@
         border-radius: 6px;
         margin-bottom: 1.5em;
         margin-top: 1.5em;
+        min-width: 80px;
     }
 
     .contact-form-button:hover {

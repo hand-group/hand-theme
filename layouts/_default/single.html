@@ -12,10 +12,10 @@
                 {{ partial "socialbuttons.html" . }}
                 {{ if isset .Params "image" }}
                     <img class="header-image" src='{{ .Params.image }}' alt="{{ .Params.Title }} Titelbild" />
+                    <div id="single-site-title">
+                        <span>{{ .Params.Title }}</span>
+                    </div>
                 {{ end }}
-                <div id="single-site-title">
-                    <span>{{ .Params.Title }}</span>
-                </div>
                 {{ .Content }}
             </div>
             {{ partial "footer.html" . }}
@@ -53,8 +53,8 @@
         padding: 1em;
         margin-bottom: -1em;
         border-radius: 12px;
-        background-color: #1f2125;
-        color: #b18d2f;
+        background-color: var(--color-black);
+        color: var(--color-gold);
         font-weight: 700;
     }
 </style>

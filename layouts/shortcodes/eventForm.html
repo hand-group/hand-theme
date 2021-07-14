@@ -1,0 +1,111 @@
+<script>
+    let formData = {}
+
+    function handleClick(element) {
+        switch (element.dataset.type) {
+            case 'event-type':
+                document.querySelectorAll(`[data-type=${element.dataset.type}]`).forEach(item => {
+                    if (element.dataset.value === item.dataset.value) {
+                        item.classList.add('active')
+                    } else {
+                        item.classList.remove('active')
+                    }
+                })
+                new bootstrap.Collapse(document.getElementById('collapseExample'), { show: true })
+                break
+            case 'guests':
+                document.querySelectorAll(`[data-type=${element.dataset.type}]`).forEach(item => {
+                    if (element.dataset.value === item.dataset.value) {
+                        item.classList.add('active')
+                    } else {
+                        item.classList.remove('active')
+                    }
+                })
+                break
+        }
+    }
+</script>
+
+<form class="event-form">
+    <div id="event-type-row" class="row">
+        <div class="col-6">
+            <h3>Was für eine Veranstaltung planst du?</h3>
+        </div>
+        <div class="col-6">
+            <div class="list-group">
+                <a data-type="event-type" data-value="wedding" onclick="handleClick(this)" class="list-group-item list-group-item-action">Hochzeit</a>
+                <a data-type="event-type" data-value="company" onclick="handleClick(this)" class="list-group-item list-group-item-action">Firmenfeier</a>
+                <a data-type="event-type" data-value="birthday" onclick="handleClick(this)" class="list-group-item list-group-item-action">Geburtstag</a>
+                <a data-type="event-type" data-value="breakfast" onclick="handleClick(this)" class="list-group-item list-group-item-action">Frühstück</a>
+            </div>
+        </div>
+    </div>
+    <div class="collapse" id="collapseExample">
+        <hr>
+        <div id="guests-row" class="row">
+            <div class="col-6">
+                <h3 style="font-size: 22px;">Mit wie vielen Gästen planst du?</h3>
+            </div>
+            <div class="col-6">
+                <div class="list-group">
+                    <a data-type="guests" data-value="250-500+" onclick="handleClick(this)" class="list-group-item list-group-item-action">250 bis 500+</a>
+                    <a data-type="guests" data-value="100-250" onclick="handleClick(this)" class="list-group-item list-group-item-action">100 bis 250</a>
+                    <a data-type="guests" data-value="50-100" onclick="handleClick(this)" class="list-group-item list-group-item-action">50 bis 100</a>
+                    <a data-type="guests" data-value="custom" onclick="handleClick(this)" class="list-group-item list-group-item-action">
+                        <input type="number" placeholder="Anzahl..." name="Anzahl Gäste">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<style>
+    .event-form h1, h2, h3, h4, h5 {
+        margin-top: 0 !important;
+    }
+
+    .event-form .row {
+        margin: 3em 0;
+    }
+
+    .event-form h3 {
+        font-size: 20px;
+        position: relative;
+        top: calc(50% - (1em / 2));
+    }
+
+    .list-group-item.active {
+        background-color: var(--color-gold);
+        border-color: var(--color-gold);
+    }
+
+    .list-group-item:hover {
+        background-color: var(--color-gold);
+    }
+
+    .list-group-item input {
+        color: white;
+        background-color: transparent;
+        border: none;
+        width: 100%;
+    }
+
+    .list-group-item input:focus {
+        outline: none;
+    }
+
+    .list-group-item.active input::placeholder {
+        color: white
+    }
+
+    .list-group-item input::-webkit-outer-spin-button,
+    .list-group-item input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .list-group-item input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>

@@ -1,3 +1,47 @@
+:root {
+	--color-gold: #b28d2f;
+	--color-black: #212322;
+	--color-grey-80: rgba(33, 35, 34, 0.8);
+	--color-grey-60: rgba(33, 35, 34, 0.6);
+	--color-grey-40: rgba(33, 35, 34, 0.4);
+	--color-grey-25: rgba(33, 35, 34, 0.25);
+	--color-grey-15: rgba(33, 35, 34, 0.15);
+	--color-grey-5: rgba(33, 35, 34, 0.05);
+}
+
+.gold {
+	color: var(--color-gold);
+}
+
+.black {
+	color: var(--color-black);
+}
+
 html {
 	font-family: 'Montserrat', 'Helvetica', 'Arial';
+}
+
+h1 {
+	font-size: 60px;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 24px;
+	font-weight: 300;
+}
+
+h4 {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+h5 {
+	font-size: 16px;
+	font-weight: bold;
 }
