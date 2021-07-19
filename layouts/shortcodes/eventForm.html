@@ -75,13 +75,17 @@
         top: calc(50% - (1em / 2));
     }
 
+    .list-group-item {
+        cursor: pointer;
+    }
+
     .list-group-item.active {
         background-color: var(--color-gold);
         border-color: var(--color-gold);
     }
 
-    .list-group-item:hover {
-        background-color: var(--color-gold);
+    .list-group-item:hover:not(.active) {
+        background-color: var(--color-gold-80);
     }
 
     .list-group-item input {
