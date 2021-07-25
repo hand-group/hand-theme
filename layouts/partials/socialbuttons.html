@@ -3,7 +3,11 @@
         {{ range .Site.Data.links.social }}
         <div class="socialbutton">
             <a href="{{ .url }}" target="blank_" aria-label="{{ .name }}">
-                <i class="bi bi-{{ .icon }}"></i>
+                {{ if eq .name "Spotify" }}
+                    <img src="/icons/spotify-64.png" alt="{{ .name }}" width="24" />
+                {{ else }}
+                    <i class="bi bi-{{ .icon }}"></i>
+                {{ end }}
             </a>
         </div>
         {{ end }}
