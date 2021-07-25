@@ -21,5 +21,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
 <title>
-    {{ .Title | markdownify }}
+    {{ .Site.Data.meta.name }}
+    {{ if isset .Site.Data.meta "slogan" }}
+        | {{ .Site.Data.meta.slogan }}
+    {{ end }}
 </title>
