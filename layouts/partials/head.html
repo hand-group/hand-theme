@@ -22,7 +22,7 @@
 
 <title>
     {{ .Site.Data.meta.name }}
-    {{ if isset .Site.Data.meta "slogan" }}
+    {{ if .Site.Data.meta.slogan }}
         | {{ .Site.Data.meta.slogan }}
     {{ end }}
 </title>
