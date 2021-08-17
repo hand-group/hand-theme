@@ -1,6 +1,16 @@
-baseURL: "http://example.org/"
+baseURL: https://example.com/
 defaultContentLanguage: de
-languageCode: "de-DE"
+languageCode: de-DE
+theme: hugo-theme
+
+taxonomies:
+  tag: tags
+  category: categories
+  languages: languages
+
+params:
+  MadeByHandLogo: false
+  SocialButtons: true
 
 markup:
   goldmark:
