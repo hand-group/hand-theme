@@ -1,7 +1,7 @@
 
 <div class='contentrow-wrapper-{{ if isset .Params "theme" }}{{.Params.theme}}{{ else }}light{{ end }}'>
     <div class='contentrow {{ if isset .Params "width" }}{{.Params.width}}{{ else }}m{{ end }}'>
-        {{ .Inner | markdownify }}
+        {{ .Inner }}
     </div>
 </div>
 
