@@ -1,3 +1,13 @@
 <div class="md-text">
     {{ .Inner | markdownify }}
 </div>
+
+<style>
+    .md-text h2,h3,h4 {
+        margin-top: 2em;
+    }
+
+    .md-text img {
+        max-width: 100%;
+    }
+</style>
