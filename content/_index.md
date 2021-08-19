@@ -8,10 +8,10 @@ carousel:
     caption: /images/carousel_caption_1.png
 ---
 
-{{< contentRow theme="light" >}}
+{{< row theme="light" >}}
 
 # Willkommen
 
 ...
 
- {{< /contentRow >}}
+ {{< /row >}}
