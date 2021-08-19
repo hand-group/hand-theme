@@ -1,0 +1,27 @@
+{{- $width := .Get "width" -}}
+{{- $height := .Get "height" -}}
+{{- $query := .Get "query" -}}
+<iframe
+    class="sc-gmaps"
+    width="{{ if $width }}{{ $width }}{{ else }}600{{ end }}"
+    height="{{ if $height }}{{ $height }}{{ else }}450{{ end }}"
+    style="border: 0"
+    allowfullscreen=""
+    loading="lazy"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBdanO51ibHQTi0fFcyug3upt2I3SqCVVI
+    &q={{$query}}"
+></iframe>
+
+<style>
+.sc-gmaps {
+    margin: 2em 0;
+}
+</style>
+
+{{ if not $width}}
+<style>
+.sc-gmaps {
+    width: 100%;
+}
+</style>
+{{ end }}
