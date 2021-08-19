@@ -9,9 +9,9 @@ carousel:
 ---
 
 {{< row theme="light" >}}
-
+{{< text >}}
 # Willkommen
 
 ...
-
- {{< /row >}}
+{{< /text >}}
+{{< /row >}}
