@@ -6,6 +6,7 @@
         button.innerHTML = '<div class="spinner-border" style="height: 16px; width: 16px; font-size: .5em;" role="status"></div>'
 
         const inputs = [
+            {name: 'website'},
             {name: 'salutation', required: true, check: value => !(!value)},
             {name: 'firstname', required: true, check: value => value.length >= 2},
             {name: 'lastname', required: true, check: value => value.length >= 2},
@@ -30,7 +31,6 @@
                 }
             })
 
-            console.log(data)
             if (check) {
                 fetch('https://hand-backend.capr.akmnn.de/www/contact-form-submit', {
                     method: 'POST',
@@ -57,6 +57,7 @@
 </script>
 
 <form class="contact-form">
+    <input type="hidden" id="websiteInput" value="{{ .Site.Data.meta.www }}" />
     <div class="row align-items-center">
         <div class="col-md-2">
             <label for="salutationInput" class="form-label">Anrede</label>

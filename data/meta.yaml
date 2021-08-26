@@ -5,6 +5,8 @@ company: Muster GmbH
 street: Musterstraße 1
 zip: "12345"
 city: Musterstadt
+www: company.com
+email: info@company.com
 
 MadeByHandLogo: false
 SocialButtons: true
