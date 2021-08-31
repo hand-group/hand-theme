@@ -1,24 +1,27 @@
 <script>
 function toggleShowMore(btn) {
     if (btn.dataset.status !== 'open') {
+        document.getElementById(`${btn.dataset.id}-collapse`).classList.add('show')
         btn.innerHTML = ((btn.innerHTML).replace('MEHR', 'WENIGER')).replace('down', 'up')
         btn.dataset.status = 'open'
     } else {
+        document.getElementById(`${btn.dataset.id}-collapse`).classList.remove('show')
         btn.innerHTML = ((btn.innerHTML).replace('WENIGER', 'MEHR')).replace('up', 'down')
         btn.dataset.status = 'closed'
     }
+
 }
 </script>
 
 {{- $id := .Get "id" -}}
 <div class="sc-showmore">
     <div class="collapse-button-div">
-        <a id="{{$id}}-collapse-button" class="btn" onclick="toggleShowMore(this)" data-id="{{$id}}" data-status="closed" data-toggle="collapse" href="#{{$id}}-collapse" role="button" aria-expanded="false" aria-controls="{{$id}}-collapse">
+        <button id="{{$id}}-collapse-button" class="btn" onclick="toggleShowMore(this)" data-id="{{$id}}" data-status="closed" href="#{{$id}}-collapse">
             MEHR ANZEIGEN<br>
             <i class="bi bi-caret-down"></i>
-        </a>
+        </button>
     </div>
-    <div class="collapse" id="{{$id}}-collapse">
+    <div id="{{$id}}-collapse" class="collapse">
         {{ .Inner }}
     </div>
 </div>
