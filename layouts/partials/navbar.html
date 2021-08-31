@@ -24,7 +24,7 @@
             <div id="navbar-menu">
                 <div id="navbar-menu-desktop" class="btn-group" role="group">
                     {{ range .Site.Data.links.navbar }}
-                        <a class="btn btn-outline-primary" href="{{ .url }}">{{ .name }}</a>
+                        <a class="btn btn-outline-primary" href="{{ .url }}" target="{{ if .newTab }}_blank{{ end }}">{{ .name }}</a>
                     {{ end }}
                 </div>
             </div>

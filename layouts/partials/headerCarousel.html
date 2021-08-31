@@ -1,4 +1,4 @@
-<div id="carousel" class="carousel slide" data-bs-ride="carousel">
+<div id="sc-carousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {{ range $index, $element := .Params.carousel }}
         <div class="carousel-item {{ if eq $index 0 }}active{{ end }}">
@@ -6,9 +6,6 @@
             {{ if isset $element "caption" }}<img class="coursel-caption-img" src="{{ $element.caption }}" alt="{{ .name }} Caption" />{{ end }}
         </div>
         {{ end }}
-        <!-- <div class="carousel-caption d-none d-md-block">
-            <h1>Exklusive Hybrid-Events<br>im Schloss Herrenhausen</h1>
-        </div> -->
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -21,20 +18,16 @@
 </div>
 
 <style>
-    #carousel {
-        text-align: center;
-    }
-
-    #carousel .carousel-item {
+    #sc-carousel .carousel-item {
         position: relative;
     }
 
-    #carousel img {
+    #sc-carousel img {
         object-fit: cover !important;
         height: 40vh;
     }
 
-    #carousel .coursel-caption-img {
+    #sc-carousel .coursel-caption-img {
         display: none;
         position: absolute;
         height: 50vh !important;
@@ -42,29 +35,29 @@
         right: 10%;
     }
 
-    #carousel .carousel-control-next, .carousel-control-prev {
+    #sc-carousel .carousel-control-next, .carousel-control-prev {
         z-index: 0;
     }
 
-    #carousel h1 {
+    #sc-carousel h1 {
         font-weight: 700;
         line-height: 1.5em;
     }
 
     @media only screen and (min-width: 600px) {
-        #carousel img {
+        #sc-carousel img {
             object-fit: cover;
             height: auto;
             height: calc(100vh - 80px) !important; /* Navbar height */
         }
 
-        #carousel .coursel-caption-img {
+        #sc-carousel .coursel-caption-img {
             display: block;
         }
     }
 
     @media only screen and (min-width: 1000px) {
-        #carousel img {
+        #sc-carousel img {
             height: calc(100vh - 100px) !important; /* Navbar height */
         }
     }
