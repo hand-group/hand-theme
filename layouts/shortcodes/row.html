@@ -1,6 +1,5 @@
-
 <div class='contentrow-wrapper-{{ if isset .Params "theme" }}{{.Params.theme}}{{ else }}light{{ end }}'>
-    <div class='contentrow {{ if isset .Params "width" }}{{.Params.width}}{{ else }}m{{ end }}'>
+    <div class='row contentrow {{ if isset .Params "width" }}{{.Params.width}}{{ else }}m{{ end }}'>
         {{ .Inner }}
     </div>
 </div>
@@ -22,30 +21,30 @@
 
     .contentrow.xxl {
         max-width: 100%;
-        padding: 5em 0;
+        padding: 6em 0;
     }
 
     .contentrow.xl {
         margin: 0 auto;
         max-width: 1200px;
-        padding: 5em 1em;
+        padding: 6em 1em;
     }
 
     .contentrow.l {
         margin: 0 auto;
         max-width: 900px;
-        padding: 5em 1em;
+        padding: 6em 1em;
     }
 
     .contentrow.m {
         margin: 0 auto;
         max-width: 700px;
-        padding: 5em 1em;
+        padding: 6em 1em;
     }
 
     .contentrow.s {
         margin: 0 auto;
         max-width: 500px;
-        padding: 5em 1em;
+        padding: 6em 1em;
     }
 </style>

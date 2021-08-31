@@ -1,17 +1,27 @@
-<div class="md-text">
+<div class="sc-text">
     {{ .Inner | markdownify }}
 </div>
 
 <style>
-    .md-text h1,h2,h3,h4 {
+    .sc-text h1:first-child {
+        font-family: 'BetterTimes';
+        font-size: max(10vw, 7em);
+        font-weight: normal;
+        text-align: center;
+        color: var(--color-gold);
+        transform: rotate(-7deg);
+        margin-bottom: 16px;
+    }
+
+    .sc-text h1,h2,h3,h4 {
         margin-bottom: 0.5em;
     }
 
-    .md-text h2,h3,h4 {
-        margin-top: 2em;
+    .sc-text h2,h3,h4,p {
+        margin-top: 1em;
     }
 
-    .md-text img {
+    .sc-text img {
         max-width: 100%;
     }
 </style>

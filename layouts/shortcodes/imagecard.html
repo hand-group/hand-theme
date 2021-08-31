@@ -1,0 +1,46 @@
+{{- $text := .Get "text" -}}
+{{- $image := .Get "image" -}}
+{{- $link := .Get "link" -}}
+<div class="sc-imagecard">
+    <div class="card">
+        <img class="sc-imagecard-image" src="{{$image}}" class="card-img-top" alt="{{$text}}">
+        <div class="card-img-overlay">
+            <a class="card-title" href="{{$link}}">{{$text}}</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .sc-imagecard {
+        width: 18rem;
+        height: 400px;
+    }
+
+    .sc-imagecard .card-img-overlay {
+        display: none;
+    }
+
+    .sc-imagecard img {
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .sc-imagecard a {
+        color: var(--color-black);
+        text-decoration: none;
+        margin-top: 50px;
+        text-align: center;
+        width: 100%;
+        font-size: 1.5em;
+        font-weight: 800;
+        line-height: 1.3em;
+    }
+
+    .sc-imagecard .card:hover > img {
+        opacity: 0.5;
+    }
+
+    .sc-imagecard .card:hover > .card-img-overlay {
+        display: inherit;
+    }
+</style>
