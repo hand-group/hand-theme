@@ -1,48 +1,48 @@
-<div class='contentrow-wrapper-{{ if isset .Params "theme" }}{{.Params.theme}}{{ else }}light{{ end }}'>
-    <div class='row contentrow {{ if isset .Params "width" }}{{.Params.width}}{{ else }}m{{ end }}'>
+<div class='row-wrapper {{ if isset .Params "theme" }}{{.Params.theme}}{{ else }}light{{ end }}'>
+    <div class='row justify-content-center {{ if isset .Params "width" }}{{.Params.width}}{{ else }}m{{ end }}'>
         {{ .Inner }}
     </div>
 </div>
 
 <style>
-    .contentrow-wrapper-light {
+    .row-wrapper.light {
         background-color: white;
         color: var(--color-black);
     }
 
-    .contentrow-wrapper-dark {
+    .row-wrapper.dark {
         background-color: var(--color-black);
         color: white;
     }
 
-    .contentrow {
+    .row-wrapper .row {
         line-height: 1.5em;
     }
 
-    .contentrow.xxl {
+    .row.xxl {
         max-width: 100%;
         padding: 6em 0;
     }
 
-    .contentrow.xl {
+    .row.xl {
         margin: 0 auto;
         max-width: 1200px;
         padding: 6em 1em;
     }
 
-    .contentrow.l {
+    .row.l {
         margin: 0 auto;
         max-width: 900px;
         padding: 6em 1em;
     }
 
-    .contentrow.m {
+    .row.m {
         margin: 0 auto;
         max-width: 700px;
         padding: 6em 1em;
     }
 
-    .contentrow.s {
+    .row.s {
         margin: 0 auto;
         max-width: 500px;
         padding: 6em 1em;

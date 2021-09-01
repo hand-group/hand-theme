@@ -3,9 +3,14 @@
 </div>
 
 <style>
+    .sc-text {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     .sc-text h1:first-child {
         font-family: 'BetterTimes';
-        font-size: 7em;
+        font-size: 5em;
         font-weight: normal;
         text-align: center;
         color: var(--color-gold);
@@ -22,5 +27,11 @@
 
     .sc-text img {
         max-width: 100%;
+    }
+
+    @media only screen and (min-width: 1030px) {
+        .sc-text h1:first-child {
+            font-size: 7em;
+        }
     }
 </style>

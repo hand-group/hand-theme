@@ -2,10 +2,11 @@
 {{- $alt := .Get "alt" -}}
 {{- $width := .Get "width" -}}
 {{- $height := .Get "height" -}}
-<img class="sc-img" src="{{$src}}" alt="{{$alt}}" />
+<img class="sc-img" src="{{$src}}" alt="{{$alt}}" width="{{$width}}" height="{{$height}}" />
 
 <style>
     .sc-img {
         max-width: 100%;
+        margin: 1em 0;
     }
 </style>
