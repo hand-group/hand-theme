@@ -1,0 +1,55 @@
+{{- $text := .Get "text" -}}
+{{- $sub := .Get "sub" -}}
+{{- $size := .Get "size" -}}
+<div class="sc-title">
+    <h1 class="{{if $size}}{{$size}}{{end}}">{{$text}}</h1>
+    <h2>{{$sub}}</h2>
+</div>
+
+<style>
+.sc-title {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sc-title h1 {
+    font-family: 'BetterTimes';
+    font-size: 5em;
+    font-weight: normal;
+    text-align: center;
+    color: var(--color-gold);
+    transform: rotate(-7deg);
+}
+
+.sc-title h1.s {
+    font-size: 3em;
+}
+
+.sc-title h1.m {
+    font-size: 4em;
+}
+
+.sc-title h1.l {
+    font-size: 5em;
+}
+
+.sc-title h1.xl {
+    font-size: 6em;
+}
+
+.sc-title h2 {
+    text-align: center;
+}
+
+@media only screen and (min-width: 1000px) {
+    .sc-title h1 {
+        font-size: 7em !important;
+    }
+
+    .sc-title h2 {
+        position: relative;
+        left: 1.5em;
+        bottom: 10px;
+    }
+}
+</style>
