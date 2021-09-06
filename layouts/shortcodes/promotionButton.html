@@ -1,4 +1,5 @@
 {{- $text := .Get "text" -}}
+{{- $link := .Get "link" -}}
 <div class="sc-promotion-button">
     <a class='promotion-button {{ if isset .Params "theme" }}{{.Params.theme}}{{ else }}light{{ end }}' href="{{$link}}">
         {{$text}}
