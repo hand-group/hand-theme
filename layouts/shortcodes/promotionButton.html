@@ -1,7 +1,7 @@
 {{- $text := .Get "text" -}}
 {{- $link := .Get "link" -}}
 <div class="sc-promotion-button">
-    <a class='promotion-button {{ if isset .Params "theme" }}{{.Params.theme}}{{ else }}light{{ end }}' href="{{$link}}">
+    <a class="promotion-button" href="{{$link}}" target='{{ if isset .Params "newTab" }}_blank{{ end }}' >
         {{$text}}
     </a>
 </div>
@@ -18,29 +18,18 @@
         padding: 1em 2em;
         text-align: center;
         text-decoration: none;
+        font-weight: bold;
         cursor: pointer;
         -webkit-box-shadow: 0px 0px 10px 0px var(--color-black); 
         box-shadow: 0px 0px 10px 0px var(--color-black);
-    }
-
-    .promotion-button.light {
-        background-color: transparent;
-        border-color: var(--color-black);
+        background-color: var(--color-gold);
+        border-color: var(--color-gold);
         color: var(--color-black);
     }
 
-    .promotion-button.dark {
-        background-color: var(--color-black);
-        border-color: var(--color-black);
-        color: white;
-    }
-
-    .promotion-button.light:hover {
-        background-color: var(--color-grey-80);
-    }
-
-    .promotion-button.dark:hover {
-        background-color: var(--color-grey-80);
-        border-color: var(--color-grey-80);
+    .promotion-button:hover {
+        background-color: var(--color-gold-80);
+        border-color: var(--color-gold-80);
+        color: var(--color-black);
     }
 </style>
