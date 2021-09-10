@@ -46,3 +46,25 @@ h5 {
 	font-size: 16px;
 	font-weight: bold;
 }
+
+.btn-primary {
+	color: var(--color-black);
+	background-color: var(--color-gold);
+	border-color: var(--color-gold);
+}
+
+.btn-primary:hover {
+	color: var(--color-black);
+	background-color: var(--color-gold-80);
+	border-color: var(--color-gold-80);
+}
+
+.btn-dark {
+	background-color: var(--color-black);
+	border-color: var(--color-black);
+}
+
+.btn-dark:hover {
+	background-color: var(--color-grey-80);
+	border-color: var(--color-grey-80);
+}

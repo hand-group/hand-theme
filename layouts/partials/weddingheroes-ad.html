@@ -1,0 +1,87 @@
+{{ if eq .Site.Data.meta.weddingheroesAd true }}
+<script>
+    function toggleAd(mode) {
+        var whAdModal = new bootstrap.Modal(document.getElementById('weddingheroes-ad'), {})
+        if (mode === 'goto') window.open('https://www.wedding-heroes.de/box-bestellen/', '_blank').focus()
+        if (mode === 'goto' || mode === 'close') localStorage.setItem('whAd', 'done')
+        if (!mode) {
+            localStorage.setItem('whAd', 'shown')
+            whAdModal.toggle()
+        }
+    }
+
+    function toggleAdLoop() {
+        if (!localStorage.getItem('whAd')) {
+            const firstVisit = localStorage.getItem('firstVisit')
+            const now = (new Date()).getTime()
+            const timespan = now - firstVisit
+            if (timespan > 140000) {
+                setTimeout(toggleAd, 30000)
+            } else {
+                setTimeout(toggleAdLoop, 5000)
+            }
+        }
+    }
+
+    toggleAdLoop()
+</script>
+
+<div id="weddingheroes-ad" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img alt="Made by H.AND" src="/images/made_by_hand.png" width="100" />
+                <br>
+                <br>
+                <br>
+                <h2>Die kostenlose Hochzeitsmesse für Zuhause</h2>
+                <div class="row">
+                    <div class="col">
+                        <p>
+                            <b>Planen Sie aktuell eine Hochzeit?</b>
+                        </p>
+                        <p>
+                            Die <b>kostenlose</b> wedding heroes Box by MARRY JANE stellt Ihnen verschiedenste Hochzeitsdienstleister aus der Umgebung vor.
+                        </p>
+                        <p>
+                            Die Box kommt mit einer für Sie gestalteten Auswahl an <b>Goodie-Tickets</b>, welche Ihnen <b>Vergünstigungen</b> bei unseren wedding heroes bringen.
+                        </p>
+                        <p>
+                            Bestellen Sie die Box <b>kostenlos nach Hause!</b>
+                        </p>
+                    </div>
+                    <div class="col">
+                        <div style="text-align: center;">
+                            <img id="weddingheroes-ad-image" alt="wedding heroes Box" src="/images/wedding-heroes-box.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal" onclick="toggleAd('close')">ZURÜCK</button>
+                <a type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="toggleAd('goto')">ZU DEN HEROES</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #weddingheroes-ad {
+        color: var(--color-black);
+    }
+
+    #weddingheroes-ad p {
+        line-height: 1.5em;
+    }
+
+    #weddingheroes-ad-image {
+        height: 200px;
+    }
+    
+    @media only screen and (min-width: 1200px) {
+        #weddingheroes-ad-image {
+            height: 300px;
+        }
+    }
+</style>
+{{ end }}

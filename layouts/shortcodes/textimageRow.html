@@ -12,7 +12,7 @@
                     <img class="textimagerow-logo" src="{{ .Params.logo }}" alt="logo" />
                 </div>
                 {{ end }}
-                {{ .Inner | markdownify }}
+                    {{ .Inner | markdownify }}
                 {{ if isset .Params "link" }}
                 <div style="text-align: center;">
                     <a class="textimagerow-button" href="{{ .Params.link }}">MEHR</a>
@@ -32,6 +32,10 @@
     .textimagerow {
         width: 100%;
         padding: 2em 0;
+    }
+
+    .textimagerow-text a:not(.textimagerow-button) {
+        color: var(--color-gold);
     }
 
     .textimagerow-dark {

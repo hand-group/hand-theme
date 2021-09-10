@@ -11,10 +11,14 @@
     }
 
     setTimeout(() => {
-        if (localStorage.getItem('cookie-consent')) {
-            document.getElementById('cookie-consent').remove()
-        }
+      if (localStorage.getItem('cookie-consent')) {
+          document.getElementById('cookie-consent').remove()
+      }
     }, 0)
+
+    if (!localStorage.getItem('firstVisit')) {
+      localStorage.setItem('firstVisit', (new Date()).getTime())
+    }
 </script>
 
 <div id="cookie-consent">
