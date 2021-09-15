@@ -1,4 +1,7 @@
-<div class='textimagerow textimagerow-{{ if eq .Params.align "right" }}light{{ else }}dark{{ end }}'>
+<div class='textimagerow textimagerow-{{ if eq .Params.align "right" }}light{{ else }}dark{{ end }}'
+    data-aos="fade-up"
+    data-aos-duration="1500"
+    data-aos-anchor-placement="top-bottom">
     <div class="row">
         {{ if eq .Params.align "right" }}
         <div class="col-lg-6 order-1 order-lg-1">
