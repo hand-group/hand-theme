@@ -12,17 +12,16 @@
 
 <style>
     .sc-imagecard {
-        width: 18rem;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 24rem;
         height: 400px;
-    }
-
-    .sc-imagecard .card-img-overlay {
-        display: none;
     }
 
     .sc-imagecard img {
         height: 250px;
         object-fit: cover;
+        opacity: 0.5;
     }
 
     .sc-imagecard a {
@@ -36,11 +35,21 @@
         line-height: 1.3em;
     }
 
-    .sc-imagecard .card:hover > img {
-        opacity: 0.5;
-    }
+    @media only screen and (min-width: 1000px) {
+        .sc-imagecard img {
+            opacity: 1;
+        }
 
-    .sc-imagecard .card:hover > .card-img-overlay {
-        display: inherit;
+        .sc-imagecard .card:hover > img {
+            opacity: 0.5;
+        }
+
+        .sc-imagecard .card-img-overlay {
+            display: none;
+        }
+
+        .sc-imagecard .card:hover > .card-img-overlay {
+            display: inherit;
+        }
     }
 </style>
