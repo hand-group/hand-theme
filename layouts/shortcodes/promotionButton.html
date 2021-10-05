@@ -1,7 +1,7 @@
 {{- $text := .Get "text" -}}
 {{- $link := .Get "link" -}}
 <div class="sc-promotion-button">
-    <a class="promotion-button" href="{{$link}}" target='{{ if isset .Params "newTab" }}_blank{{ end }}' >
+    <a type="button" class="promotion-button" href="{{$link}}" target='{{ if isset .Params "newTab" }}_blank{{ end }}' >
         {{$text}}
     </a>
 </div>
@@ -13,6 +13,7 @@
     }
 
     .promotion-button {
+        max-width: 80%;
         border-radius: 4px;
         border: 1px solid;
         padding: 1em 2em;

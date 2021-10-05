@@ -64,12 +64,12 @@
     <ul class="list-group">
         {{ range .Site.Data.links.navbar }}
             {{ if .urls }}
-                <hr>
+                <br style="font-size: 14px;">
                 <span class="mobile-dropdown-label">{{ .name }}</span>
                 {{ range .urls }}
                     <a href="{{ .url }}"><li class="list-group-item">{{ .name }}</li></a>
                 {{ end }}
-                <hr>
+                <br style="font-size: 14px;">
             {{ else }}
                 <a href="{{ .url }}"><li class="list-group-item">{{ .name }}</li></a>
             {{ end }}
@@ -166,7 +166,7 @@
         text-align: center;
         font-weight: lighter;
         font-size: 12px;
-        margin-bottom: 1em;
+        margin: 1em 0;
         color: var(--color-gold);
     }
 
