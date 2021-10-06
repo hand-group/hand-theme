@@ -3,9 +3,9 @@
 
 name = "HAND Theme"
 license = "MIT"
-licenselink = "https://github.com/hand-group/hugo-theme/blob/master/LICENSE"
+licenselink = "https://github.com/hand-group/hand-theme/blob/master/LICENSE"
 description = "Custom hugo theme for H.AND GROUP websites."
-homepage = "https://github.com/hand-group/hugo-theme"
+homepage = "https://github.com/hand-group/hand-theme"
 tags = []
 features = []
 min_version = "0.62.0"

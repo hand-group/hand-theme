@@ -1,7 +1,7 @@
 baseURL: https://example.com/
 defaultContentLanguage: de
 languageCode: de-DE
-theme: hugo-theme
+theme: hand-theme
 
 taxonomies:
   tag: tags
