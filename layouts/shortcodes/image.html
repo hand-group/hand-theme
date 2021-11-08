@@ -3,10 +3,10 @@
 {{- $width := .Get "width" -}}
 {{- $height := .Get "height" -}}
 {{- $border := .Get "border" -}}
-<img class="sc-img {{ if $border }}{{ $border }}-border{{ end }}" src="{{$src}}" alt="{{$alt}}" width="{{$width}}" height="{{$height}}" />
+<img class="sc-image {{ if $border }}{{ $border }}-border{{ end }}" src="{{$src}}" alt="{{$alt}}" width="{{$width}}" height="{{$height}}" />
 
 <style>
-    .sc-img {
+    .sc-image {
         max-width: 100%;
         margin: 1em 0;
     }
