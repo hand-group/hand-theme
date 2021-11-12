@@ -68,3 +68,8 @@ h5 {
 	background-color: var(--color-grey-80);
 	border-color: var(--color-grey-80);
 }
+
+.form-check-input:checked {
+	background-color: var(--color-gold);
+	border-color: var(--color-gold);
+}

@@ -1,9 +1,15 @@
 {{- $theme := .Get "theme" -}}
 {{- $width := .Get "width" -}}
+{{- $style := .Get "style" -}}
 {{- $noPadding := .Get "noPadding" -}}
-<div
-    class="row-wrapper {{ if $theme }}{{ $theme }}{{ else }}light{{ end }}">
-    <div class="row justify-content-center {{ if $width }}{{ $width }}{{ else }}md{{ end }} {{ if $noPadding }}no-padding{{end}}"
+{{- $classes := .Get "classes" -}}
+<div class="row-wrapper {{ if $theme }}{{ $theme }}{{ else }}light{{ end }}">
+    <div 
+        class=" row 
+                justify-content-center 
+                {{ if $width }}{{ $width }}{{ else }}md{{ end }} 
+                {{ if $noPadding }}no-padding{{end}}
+                {{ if $classes }}{{ $classes }}{{ end }}"
         data-aos="fade-up"
         data-aos-duration="1500"
         data-aos-anchor-placement="top-bottom">
