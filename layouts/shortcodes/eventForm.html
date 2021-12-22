@@ -1,26 +1,31 @@
 <script>
     let formData = {}
+    let once = {
+        guests: true,
+        // ...
+    }
 
     function handleClick(element) {
+        // get value and set active class
+        document.querySelectorAll(`[data-type=${element.dataset.type}]`).forEach(item => {
+            if (element.dataset.value === item.dataset.value) {
+                item.classList.add('active')
+                formData[element.dataset.type] = element.dataset.value
+            } else {
+                item.classList.remove('active')
+            }
+        })
+
+        // toggle collapse
         switch (element.dataset.type) {
             case 'event-type':
-                document.querySelectorAll(`[data-type=${element.dataset.type}]`).forEach(item => {
-                    if (element.dataset.value === item.dataset.value) {
-                        item.classList.add('active')
-                    } else {
-                        item.classList.remove('active')
-                    }
-                })
-                new bootstrap.Collapse(document.getElementById('collapseExample'), { show: true })
+                if (once.guests) {
+                    new bootstrap.Collapse(document.getElementById('guestsCollapse'), { show: true })
+                    once.guests = false
+                }
                 break
             case 'guests':
-                document.querySelectorAll(`[data-type=${element.dataset.type}]`).forEach(item => {
-                    if (element.dataset.value === item.dataset.value) {
-                        item.classList.add('active')
-                    } else {
-                        item.classList.remove('active')
-                    }
-                })
+                
                 break
         }
     }
@@ -29,7 +34,7 @@
 <form class="event-form">
     <div id="event-type-row" class="row">
         <div class="col-6">
-            <h3>Was für eine Veranstaltung planst du?</h3>
+            <h3>Was ist der Anlass Ihrer Veranstaltung?</h3>
         </div>
         <div class="col-6">
             <div class="list-group">
@@ -37,23 +42,24 @@
                 <a data-type="event-type" data-value="company" onclick="handleClick(this)" class="list-group-item list-group-item-action">Firmenfeier</a>
                 <a data-type="event-type" data-value="birthday" onclick="handleClick(this)" class="list-group-item list-group-item-action">Geburtstag</a>
                 <a data-type="event-type" data-value="breakfast" onclick="handleClick(this)" class="list-group-item list-group-item-action">Frühstück</a>
+                <a data-type="event-type" data-value="other" onclick="handleClick(this)" class="list-group-item list-group-item-action">Sonstiges (Privat)</a>
             </div>
         </div>
     </div>
-    <div class="collapse" id="collapseExample">
+    <div class="collapse" id="guestsCollapse">
         <hr>
         <div id="guests-row" class="row">
             <div class="col-6">
-                <h3 style="font-size: 22px;">Mit wie vielen Gästen planst du?</h3>
+                <h3 style="font-size: 22px;">Wie viele Gäste sind geplant?</h3>
             </div>
             <div class="col-6">
                 <div class="list-group">
-                    <a data-type="guests" data-value="250-500+" onclick="handleClick(this)" class="list-group-item list-group-item-action">250 bis 500+</a>
-                    <a data-type="guests" data-value="100-250" onclick="handleClick(this)" class="list-group-item list-group-item-action">100 bis 250</a>
-                    <a data-type="guests" data-value="50-100" onclick="handleClick(this)" class="list-group-item list-group-item-action">50 bis 100</a>
-                    <a data-type="guests" data-value="custom" onclick="handleClick(this)" class="list-group-item list-group-item-action">
-                        <input type="number" placeholder="Anzahl..." name="Anzahl Gäste">
-                    </a>
+                    <a data-type="guests" data-value="500+" onclick="handleClick(this)" class="list-group-item list-group-item-action">500+ Personen</a>
+                    <a data-type="guests" data-value="250-500" onclick="handleClick(this)" class="list-group-item list-group-item-action">250 bis 500 Personen</a>
+                    <a data-type="guests" data-value="100-250" onclick="handleClick(this)" class="list-group-item list-group-item-action">100 bis 250 Personen</a>
+                    <a data-type="guests" data-value="50-100" onclick="handleClick(this)" class="list-group-item list-group-item-action">50 bis 100 Personen</a>
+                    <a data-type="guests" data-value="20-50" onclick="handleClick(this)" class="list-group-item list-group-item-action">20 bis 50 Personen</a>
+                    <a data-type="guests" data-value="0-20" onclick="handleClick(this)" class="list-group-item list-group-item-action">bis 20 Personen</a>
                 </div>
             </div>
         </div>
