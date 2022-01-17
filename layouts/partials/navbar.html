@@ -43,9 +43,11 @@
                             <span onmouseenter="toggleDropdown(this)" onmouseleave="toggleDropdown(this)" data-name="{{ .name }}" style="position: relative;">
                                 <a class="btn btn-outline-primary dropdown" data-bs-toggle="dropdown" aria-expanded="false" href="#">{{ .name }}</a>
                                 <ul id="navbar-dropdown-{{ .name }}" class="dropdown-menu">
+                                    <div>
                                     {{ range .urls }}
                                         <li><a class="dropdown-item" href="{{ .url }}">{{ .name }}</a></li>
                                     {{ end }}
+                                </div>
                                 </ul>
                             </span>
                         {{ else }}
@@ -223,9 +225,18 @@
 
     #navbar-menu-desktop .dropdown-menu {
         background-color: var(--color-black);
+        border-top: 1px solid var(--color-black);
+        border-radius: 0 0 12px 12px;
+        padding: 0;
+    }
+
+    #navbar-menu-desktop .dropdown-menu div {
+        height: 100%;
+        position: relative;
+        top: 1px;
         border: 2px solid var(--color-gold);
-        border-top: none;
-        border-radius: 0 0 0.25rem 0.25rem;
+        border-radius: 0 0 12px 12px;
+        border-top: transparent;
     }
 
     #navbar-menu-desktop .dropdown-menu.show {
