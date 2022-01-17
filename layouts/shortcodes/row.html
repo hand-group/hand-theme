@@ -5,16 +5,18 @@
 {{- $noPadding := .Get "noPadding" -}}
 {{- $noAnimation := .Get "noAnimation" -}}
 {{- $class := .Get "class" -}}
-<div class="row-wrapper {{ if $theme }}{{ $theme }}{{ else }}light{{ end }}">
+<div
+    class="row-wrapper {{ if $theme }}{{ $theme }}{{ else }}light{{ end }}"
+    data-aos="{{ if $noAnimation }}{{ else }}fade-up{{ end }}"
+    data-aos-duration="1500"
+    data-aos-anchor-placement="top-bottom"
+>
     <div
         class=" row 
                 justify-content-center 
                 {{ if $width }}{{ $width }}{{ else }}md{{ end }} 
                 {{ if $noPadding }}no-padding{{end}}
                 {{ if $class }}{{ $class }}{{ end }}"
-        data-aos="{{ if $noAnimation }}{{ else }}fade-up{{ end }}"
-        data-aos-duration="1500"
-        data-aos-anchor-placement="top-bottom"
     >
         {{ .Inner }}
     </div>
