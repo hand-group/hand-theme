@@ -82,7 +82,9 @@
         {{ end }}
         <br style="font-size: 14px" />
         {{ else }}
-        <a href="{{ .url }}"><li class="list-group-item">{{ .name }}</li></a>
+        <a href="{{ .url }}" type="{{ .type }}"
+            ><li class="list-group-item">{{ .name }}</li></a
+        >
         {{ end }} {{ end }}
         <a href="/impressum" style="font-size: 0.7em"
             ><li class="list-group-item">IMPRESSUM</li></a
@@ -174,6 +176,12 @@
         text-decoration: none;
     }
 
+    #navbar-menu-mobile-collapse a[type="button"] li {
+        background-color: var(--color-gold);
+        color: var(--color-black);
+        font-weight: bold;
+    }
+
     #navbar-menu-mobile-collapse .mobile-dropdown-label {
         text-align: center;
         font-weight: lighter;
@@ -206,6 +214,11 @@
 
     #navbar-menu-desktop a:hover {
         color: var(--color-gold);
+    }
+
+    #navbar-menu-desktop a[type="button"]:hover {
+        background-color: var(--color-gold-80) !important;
+        color: var(--color-black);
     }
 
     #navbar-menu-desktop .dropdown-menu {
