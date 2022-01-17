@@ -1,28 +1,31 @@
 <script>
     function toggleMobileMenu() {
-        var icon = document.getElementById('navbar-menu-mobile-icon')
-        if (icon.classList.contains('bi-list')) {
-            icon.classList.remove('bi-list')
-            icon.classList.add('bi-x')
+        var icon = document.getElementById("navbar-menu-mobile-icon")
+        if (icon.classList.contains("bi-list")) {
+            icon.classList.remove("bi-list")
+            icon.classList.add("bi-x")
         } else {
-            icon.classList.remove('bi-x')
-            icon.classList.add('bi-list')
+            icon.classList.remove("bi-x")
+            icon.classList.add("bi-list")
         }
     }
 
     function toggleDropdown(element) {
-        const dropdownMenu = document.getElementById(`navbar-dropdown-${element.dataset.name}`)
-        
-        if (dropdownMenu.classList.contains('show')) {
-            dropdownMenu.classList.remove('show')
-            console.log('remove')
+        const dropdownMenu = document.getElementById(
+            `navbar-dropdown-${element.dataset.name}`
+        )
+
+        if (dropdownMenu.classList.contains("show")) {
+            dropdownMenu.classList.remove("show")
+            console.log("remove")
         } else {
-            dropdownMenu.classList.add('show')
-            console.log('add')
+            dropdownMenu.classList.add("show")
+            console.log("add")
         }
     }
 </script>
 
+<!-- prettier-ignore -->
 <div id="navbar">
     <div class="row">
         <div class="col"></div>
@@ -46,7 +49,7 @@
                                 </ul>
                             </span>
                         {{ else }}
-                            <a class="btn btn-outline-primary" data-test="qwe" href="{{ .url }}" target="{{ if .newTab }}_blank{{ end }}">{{ .name }} {{ .Title }}</a>
+                            <a class="btn btn-outline-primary" type="{{ .type }}" href="{{ .url }}" target="{{ if .newTab }}_blank{{ end }}">{{ .name }} {{ .Title }}</a>
                         {{ end }}
                     {{ end }}
                 </div>
@@ -58,29 +61,38 @@
 <div id="height-adjustment"></div>
 
 <div id="navbar-menu-mobile-button" onclick="toggleMobileMenu()">
-    <i id="navbar-menu-mobile-icon" class="bi bi-list" aria-label="toggleMenu" data-bs-toggle="collapse" href="#navbar-menu-mobile-collapse" role="button" aria-expanded="false" aria-controls="navbar-menu-mobile-collapse"></i>
+    <i
+        id="navbar-menu-mobile-icon"
+        class="bi bi-list"
+        aria-label="toggleMenu"
+        data-bs-toggle="collapse"
+        href="#navbar-menu-mobile-collapse"
+        role="button"
+        aria-expanded="false"
+        aria-controls="navbar-menu-mobile-collapse"
+    ></i>
 </div>
 <div id="navbar-menu-mobile-collapse" class="collapse">
     <ul class="list-group">
-        {{ range .Site.Data.links.navbar }}
-            {{ if .urls }}
-                <br style="font-size: 14px;">
-                <span class="mobile-dropdown-label">{{ .name }}</span>
-                {{ range .urls }}
-                    <a href="{{ .url }}"><li class="list-group-item">{{ .name }}</li></a>
-                {{ end }}
-                <br style="font-size: 14px;">
-            {{ else }}
-                <a href="{{ .url }}"><li class="list-group-item">{{ .name }}</li></a>
-            {{ end }}
+        {{ range .Site.Data.links.navbar }} {{ if .urls }}
+        <br style="font-size: 14px" />
+        <span class="mobile-dropdown-label">{{ .name }}</span>
+        {{ range .urls }}
+        <a href="{{ .url }}"><li class="list-group-item">{{ .name }}</li></a>
         {{ end }}
-        <a href="/impressum" style="font-size: 0.7em"><li class="list-group-item">IMPRESSUM</li></a>
+        <br style="font-size: 14px" />
+        {{ else }}
+        <a href="{{ .url }}"><li class="list-group-item">{{ .name }}</li></a>
+        {{ end }} {{ end }}
+        <a href="/impressum" style="font-size: 0.7em"
+            ><li class="list-group-item">IMPRESSUM</li></a
+        >
     </ul>
 </div>
 
 <style>
     #height-adjustment {
-        height: 80px;    /* Navbar height */
+        height: 80px; /* Navbar height */
         background-color: var(--color-black);
     }
 
@@ -110,7 +122,7 @@
         padding: 1em 0;
         margin: 0 auto;
         z-index: 1;
-        -webkit-box-shadow: 0px 0px 15px 0px var(--color-black); 
+        -webkit-box-shadow: 0px 0px 15px 0px var(--color-black);
         box-shadow: 0px 0px 15px 0px var(--color-black);
     }
 
@@ -184,6 +196,14 @@
         color: white;
     }
 
+    #navbar-menu-desktop a[type="button"] {
+        background-color: var(--color-gold) !important;
+        border-radius: 6px;
+        color: var(--color-black);
+        font-weight: bold;
+        margin-top: -8px;
+    }
+
     #navbar-menu-desktop a:hover {
         color: var(--color-gold);
     }
@@ -192,7 +212,7 @@
         background-color: var(--color-black);
         border: 2px solid var(--color-gold);
         border-top: none;
-        border-radius: 0 0 .25rem .25rem;
+        border-radius: 0 0 0.25rem 0.25rem;
     }
 
     #navbar-menu-desktop .dropdown-menu.show {
@@ -202,17 +222,17 @@
         margin: 0px;
     }
 
-    #navbar-menu-desktop .dropdown[aria-expanded=true] {
+    #navbar-menu-desktop .dropdown[aria-expanded="true"] {
         color: var(--color-gold);
     }
 
     #navbar-menu-desktop .dropdown-menu li {
         padding: 0.5em;
     }
-    
+
     @media only screen and (min-width: 1200px) {
         #height-adjustment {
-            height: 100px;    /* Navbar height */
+            height: 100px; /* Navbar height */
         }
 
         #navbar {
@@ -236,31 +256,31 @@
 </style>
 
 {{ if eq .Site.Data.meta.MadeByHandLogo true }}
-    <style>
+<style>
+    #navbar-badge {
+        height: 110px;
+        padding: 0.5em 0;
+    }
+
+    #navbar-logo {
+        height: 70%;
+    }
+
+    #navbar-made-by-hand-logo {
+        width: 80px;
+        margin-top: 20px;
+        margin-left: 50px;
+    }
+
+    @media only screen and (min-width: 1200px) {
         #navbar-badge {
-            height: 110px;
-            padding: 0.5em 0;
+            height: 130px;
+            padding: 1em 0;
         }
 
         #navbar-logo {
             height: 70%;
         }
-
-        #navbar-made-by-hand-logo {
-            width: 80px;
-            margin-top: 20px;
-            margin-left: 50px;
-        }
-
-        @media only screen and (min-width: 1200px) {
-            #navbar-badge {
-                height: 130px;
-                padding: 1em 0;
-            }
-
-            #navbar-logo {
-                height: 70%;
-            }
-        }
-    </style>
+    }
+</style>
 {{ end }}
