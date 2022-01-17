@@ -8,7 +8,7 @@
                 <p id="footer-address">
                     {{ .Site.Data.meta.street }}<br />
                     {{ .Site.Data.meta.zip }} {{ .Site.Data.meta.city }}<br />
-                    {{ if .Site.Data.meta.email }}<a href="mailto:{{ .Site.Data.meta.phone }}">{{ .Site.Data.meta.email }}</a>{{ end }} - 
+                    {{ if .Site.Data.meta.email }}<a href="mailto:{{ .Site.Data.meta.phone }}">{{ .Site.Data.meta.email }}</a> - {{ end }}
                     {{ if .Site.Data.meta.phone }}<a href="tel:{{ .Site.Data.meta.phone }}">{{ .Site.Data.meta.phone }}</a>{{ end }}
                 </p>
             </div>
