@@ -1,13 +1,23 @@
+<!-- prettier-ignore -->
+{{- $title := .Get "title" -}}
 {{- $text := .Get "text" -}}
 {{- $image := .Get "image" -}}
 {{- $link := .Get "link" -}}
 <div class="sc-imagecard">
-    <div class="card">
-        <img class="sc-imagecard-image" src="{{$image}}" class="card-img-top" alt="{{$text}}">
-        <div class="card-img-overlay">
-            <a class="card-title" href="{{$link}}">{{$text}}</a>
+    <a href="{{ $link }}">
+        <div class="card">
+            <img
+                class="sc-imagecard-image"
+                src="{{$image}}"
+                class="card-img-top"
+                alt="{{$text}}"
+            />
+            <div class="card-img-overlay">
+                <span class="imagecard-title" href="{{$link}}">{{$title}}</span>
+                <p class="imagecard-text">{{$text | markdownify }}</p>
+            </div>
         </div>
-    </div>
+    </a>
 </div>
 
 <style>
@@ -21,10 +31,10 @@
     .sc-imagecard img {
         height: 250px;
         object-fit: cover;
-        opacity: 0.5;
+        opacity: 0.3;
     }
 
-    .sc-imagecard a {
+    .sc-imagecard .imagecard-title {
         color: var(--color-black);
         text-decoration: none;
         margin-top: 50px;
@@ -35,21 +45,9 @@
         line-height: 1.3em;
     }
 
-    @media only screen and (min-width: 1000px) {
-        .sc-imagecard img {
-            opacity: 1;
-        }
-
-        .sc-imagecard .card:hover > img {
-            opacity: 0.5;
-        }
-
-        .sc-imagecard .card-img-overlay {
-            display: none;
-        }
-
-        .sc-imagecard .card:hover > .card-img-overlay {
-            display: inherit;
-        }
+    .sc-imagecard .imagecard-text {
+        color: var(--color-black);
+        margin-top: 1em;
+        line-height: 1.3em;
     }
 </style>

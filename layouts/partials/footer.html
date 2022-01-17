@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <footer id="footer">
     <div class="row">
         <div class="col"></div>
@@ -5,14 +6,16 @@
             <div id="footer-address-div">
                 <h1>{{ .Site.Data.meta.name }}</h1>
                 <p id="footer-address">
-                    {{ .Site.Data.meta.street }}<br>
-                    {{ .Site.Data.meta.zip }} {{ .Site.Data.meta.city }}
+                    {{ .Site.Data.meta.street }}<br />
+                    {{ .Site.Data.meta.zip }} {{ .Site.Data.meta.city }}<br />
+                    {{ if .Site.Data.meta.email }}<a href="mailto:{{ .Site.Data.meta.phone }}">{{ .Site.Data.meta.email }}</a>{{ end }} - 
+                    {{ if .Site.Data.meta.phone }}<a href="tel:{{ .Site.Data.meta.phone }}">{{ .Site.Data.meta.phone }}</a>{{ end }}
                 </p>
             </div>
             <div id="footer-links-div">
                 <div class="btn-group" role="group">
                     {{ range .Site.Data.links.footer }}
-                        <a class="btn btn-outline-primary" href="{{ .url }}">{{ .name }}</a>
+                    <a class="btn btn-outline-primary" href="{{ .url }}">{{ .name }}</a>
                     {{ end }}
                 </div>
             </div>
@@ -50,6 +53,11 @@
     #footer-address {
         font-size: 10px;
         line-height: 16px;
+    }
+
+    #footer-address a {
+        text-decoration: none;
+        color: white;
     }
 
     #footer-links-div .btn-group {

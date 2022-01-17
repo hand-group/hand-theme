@@ -1,18 +1,21 @@
+<!-- prettier-ignore -->
 {{- $theme := .Get "theme" -}}
 {{- $width := .Get "width" -}}
 {{- $style := .Get "style" -}}
 {{- $noPadding := .Get "noPadding" -}}
+{{- $noAnimation := .Get "noAnimation" -}}
 {{- $class := .Get "class" -}}
 <div class="row-wrapper {{ if $theme }}{{ $theme }}{{ else }}light{{ end }}">
-    <div 
+    <div
         class=" row 
                 justify-content-center 
                 {{ if $width }}{{ $width }}{{ else }}md{{ end }} 
                 {{ if $noPadding }}no-padding{{end}}
                 {{ if $class }}{{ $class }}{{ end }}"
-        data-aos="fade-up"
+        data-aos="{{ if $noAnimation }}{{ else }}fade-up{{ end }}"
         data-aos-duration="1500"
-        data-aos-anchor-placement="top-bottom">
+        data-aos-anchor-placement="top-bottom"
+    >
         {{ .Inner }}
     </div>
 </div>
@@ -60,9 +63,14 @@
         max-width: 500px;
         padding: 3em 1em;
     }
-    
+
     @media only screen and (min-width: 1200px) {
-        .row.xxl, .row.xl, .row.lg, .row.md, .row.sm, .row.xs {
+        .row.xxl,
+        .row.xl,
+        .row.lg,
+        .row.md,
+        .row.sm,
+        .row.xs {
             padding-top: 6em;
             padding-bottom: 6em;
         }

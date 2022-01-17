@@ -1,75 +1,75 @@
 :root {
-	--color-gold: #b28d2f;
-	--color-gold-80: #9e7d29;
-	--color-black: #212322;
-	--color-grey-80: rgba(33, 35, 34, 0.8);
-	--color-grey-60: rgba(33, 35, 34, 0.6);
-	--color-grey-40: rgba(33, 35, 34, 0.4);
-	--color-grey-25: rgba(33, 35, 34, 0.25);
-	--color-grey-15: rgba(33, 35, 34, 0.15);
-	--color-grey-5: rgba(33, 35, 34, 0.05);
+    --color-gold: #b28d2f;
+    --color-gold-80: #9e7d29;
+    --color-black: #212322;
+    --color-grey-80: rgba(33, 35, 34, 0.8);
+    --color-grey-60: rgba(33, 35, 34, 0.6);
+    --color-grey-40: rgba(33, 35, 34, 0.4);
+    --color-grey-25: rgba(33, 35, 34, 0.25);
+    --color-grey-15: rgba(33, 35, 34, 0.15);
+    --color-grey-5: rgba(33, 35, 34, 0.05);
 }
 
 .gold {
-	color: var(--color-gold);
+    color: var(--color-gold);
 }
 
 .black {
-	color: var(--color-black);
+    color: var(--color-black);
 }
 
 html {
-	font-family: 'Montserrat', 'Helvetica', 'Arial';
+    font-family: "Montserrat", "Helvetica", "Arial";
 }
 
 h1 {
-	font-size: 42px;
-	font-weight: bold;
+    font-size: 42px;
+    font-weight: bold;
 }
 
 h2 {
-	font-size: 24px;
-	font-weight: bold;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 h3 {
-	font-size: 24px;
-	font-weight: 300;
+    font-size: 24px;
+    font-weight: 300;
 }
 
 h4 {
-	font-size: 20px;
-	font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 h5 {
-	font-size: 16px;
-	font-weight: bold;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .btn-primary {
-	color: var(--color-black);
-	background-color: var(--color-gold);
-	border-color: var(--color-gold);
+    color: var(--color-black);
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
 }
 
 .btn-primary:hover {
-	color: var(--color-black);
-	background-color: var(--color-gold-80);
-	border-color: var(--color-gold-80);
+    color: var(--color-black);
+    background-color: var(--color-gold-80);
+    border-color: var(--color-gold-80);
 }
 
 .btn-dark {
-	background-color: var(--color-black);
-	border-color: var(--color-black);
+    background-color: var(--color-black);
+    border-color: var(--color-black);
 }
 
 .btn-dark:hover {
-	background-color: var(--color-grey-80);
-	border-color: var(--color-grey-80);
+    background-color: var(--color-grey-80);
+    border-color: var(--color-grey-80);
 }
 
 .form-check-input:checked {
-	background-color: var(--color-gold);
-	border-color: var(--color-gold);
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
 }
