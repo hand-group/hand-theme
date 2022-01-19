@@ -1,56 +1,80 @@
 <script>
     function handleSubmit() {
-        const button = document.getElementById('contact-form-submit')
-        if (button.classList.contains('button-disabled')) return
-        button.classList.add('button-disabled')
-        button.innerHTML = '<div class="spinner-border" style="height: 16px; width: 16px; font-size: .5em;" role="status"></div>'
+        const button = document.getElementById("contact-form-submit")
+        if (button.classList.contains("button-disabled")) return
+        button.classList.add("button-disabled")
+        button.innerHTML =
+            '<div class="spinner-border" style="height: 16px; width: 16px; font-size: .5em;" role="status"></div>'
 
         const inputs = [
-            {name: 'website'},
-            {name: 'salutation', required: true, check: value => !(!value)},
-            {name: 'firstname', required: true, check: value => value.length >= 2},
-            {name: 'lastname', required: true, check: value => value.length >= 2},
-            {name: 'company'},
-            {name: 'phone'},
-            {name: 'email', required: true, check: value => value.includes('@')},
-            {name: 'text', required: true, check: value => !(!value)}
+            { name: "website" },
+            {
+                name: "salutation",
+                required: true,
+                check: (value) => Boolean(value),
+            },
+            {
+                name: "firstname",
+                required: true,
+                check: (value) => value.length >= 2,
+            },
+            {
+                name: "lastname",
+                required: true,
+                check: (value) => value.length >= 2,
+            },
+            { name: "company" },
+            { name: "phone", required: true, check: (value) => Boolean(value) },
+            {
+                name: "email",
+                required: true,
+                check: (value) => value.includes("@"),
+            },
+            { name: "text", required: true, check: (value) => Boolean(value) },
         ]
 
         try {
-            let check = true, data = {}
+            let check = true,
+                data = {}
 
-            inputs.forEach(input => {
+            inputs.forEach((input) => {
                 const element = document.getElementById(`${input.name}Input`)
                 if (input.required && !input.check(element.value)) {
-                    element.classList.add('contact-form-input-error')
-                    button.classList.remove('button-disabled')
+                    element.classList.add("contact-form-input-error")
+                    button.classList.remove("button-disabled")
                     check = false
                 } else {
-                    element.classList.remove('contact-form-input-error')
+                    element.classList.remove("contact-form-input-error")
                     data[input.name] = element.value
                 }
             })
 
             if (check) {
-                fetch('https://hand-backend.capr.hand.group/www/contact-form-submit', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                }).then(response => {
+                fetch(
+                    "https://hand-backend.capr.hand.group/www/contact-form-submit",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    }
+                ).then((response) => {
                     if (response.status === 200) {
-                        setTimeout(() => button.innerText = 'Abgeschickt', 1000)
+                        setTimeout(
+                            () => (button.innerText = "Abgeschickt"),
+                            1000
+                        )
                     } else {
-                        throw 'Something went wrong.'
+                        throw "Something went wrong."
                     }
                 })
             } else {
-                throw 'Missing data.'
+                throw "Missing data."
             }
-        } catch(error) {
-            button.classList.remove('button-disabled')
-            button.innerText = 'Absenden'
+        } catch (error) {
+            button.classList.remove("button-disabled")
+            button.innerText = "Absenden"
             console.log(error)
         }
     }
@@ -68,39 +92,74 @@
         </div>
         <div class="col-md-5">
             <label for="firstnameInput" class="form-label">Vorname*</label>
-            <input type="text" id="firstnameInput" class="form-control"  aria-describedby="firstnameHelp">
+            <input
+                type="text"
+                id="firstnameInput"
+                class="form-control"
+                aria-describedby="firstnameHelp"
+            />
         </div>
         <div class="col-md-5">
             <label for="lastnameInput" class="form-label">Nachname*</label>
-            <input type="email" id="lastnameInput" class="form-control" aria-describedby="lastnameHelp">
+            <input
+                type="text"
+                id="lastnameInput"
+                class="form-control"
+                aria-describedby="lastnameHelp"
+            />
         </div>
     </div>
     <div class="row align-items-center">
         <div class="col-12">
             <label for="companyInput" class="form-label">Firma</label>
-            <input type="email" id="companyInput" class="form-control" aria-describedby="companyHelp">
+            <input
+                type="email"
+                id="companyInput"
+                class="form-control"
+                aria-describedby="companyHelp"
+            />
         </div>
     </div>
     <div class="row align-items-center">
         <div class="col-md-6">
             <label for="emailInput" class="form-label">Email*</label>
-            <input type="email" id="emailInput" class="form-control" aria-describedby="emailHelp">
+            <input
+                type="email"
+                id="emailInput"
+                class="form-control"
+                aria-describedby="emailHelp"
+            />
         </div>
         <div class="col-md-6">
-            <label for="phoneInput" class="form-label">Telefon</label>
-            <input type="email" id="phoneInput" class="form-control" aria-describedby="phoneHelp">
+            <label for="phoneInput" class="form-label">Telefon*</label>
+            <input
+                type="email"
+                id="phoneInput"
+                class="form-control"
+                aria-describedby="phoneHelp"
+            />
         </div>
     </div>
     <div class="row align-items-center">
         <div class="col-12">
             <label for="textInput" class="form-label">Anfrage*</label>
-            <textarea id="textInput" class="form-control" rows="6" placeholder="Ihre Anfrage..."></textarea>
+            <textarea
+                id="textInput"
+                class="form-control"
+                rows="6"
+                placeholder="Ihre Anfrage..."
+            ></textarea>
         </div>
     </div>
     <div>
         <span class="necessary-notice">* Pflichtfelder</span>
-        <div style="text-align: center;">
-            <a id="contact-form-submit" class="contact-form-button" onclick="handleSubmit()">Absenden</a>
+        <div style="text-align: center">
+            <a
+                id="contact-form-submit"
+                class="contact-form-button"
+                onclick="handleSubmit()"
+                >Absenden</a
+            >
         </div>
     </div>
 </form>
@@ -113,22 +172,23 @@
         background-color: var(--color-grey-5);
     }
 
-
-    .contact-form div[class*='col-'] {
+    .contact-form div[class*="col-"] {
         margin-bottom: 1em;
     }
 
     .contact-form label {
         font-size: 0.8em;
         position: relative;
-        left: .5em;
+        left: 0.5em;
     }
 
     .contact-form-input-error {
         box-shadow: 0 0 0 1px red;
     }
 
-    .contact-form input, select, textarea {
+    .contact-form input,
+    select,
+    textarea {
         border-radius: 12px !important;
         border: none !important;
     }
@@ -163,14 +223,14 @@
     }
 
     @media only screen and (min-width: 845px) {
-        div[class*=' col-'] {
+        div[class*=" col-"] {
             margin-bottom: 0em;
         }
 
         .necessary-notice {
             position: absolute;
             margin-top: 70px;
-            font-size: .8em;
+            font-size: 0.8em;
         }
     }
 </style>
