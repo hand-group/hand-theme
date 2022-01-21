@@ -1,31 +1,47 @@
-<div class='textimagerow textimagerow-{{ if eq .Params.align "right" }}light{{ else }}dark{{ end }}'
-    data-aos="fade-up"
+<!-- prettier-ignore -->
+<div
+    class='textimagerow textimagerow-{{ if eq .Params.align "right" }}light{{ else }}dark{{ end }}'
+    data-aos='{{ if eq .Params.align "right" }}fade-right{{ else }}fade-left{{ end }}'
     data-aos-duration="1500"
     data-aos-anchor-placement="top-bottom">
     <div class="row">
         {{ if eq .Params.align "right" }}
         <div class="col-lg-6 order-1 order-lg-1">
-            <img class="textimagerow-image" src="{{ .Params.image }}" alt="display" />
+            <img
+                class="textimagerow-image"
+                src="{{ .Params.image }}"
+                alt="display"
+            />
         </div>
         {{ end }}
         <div class="col-lg-6 order-2">
             <div class="textimagerow-text">
                 {{ if isset .Params "logo" }}
-                <div style="text-align: center;">
-                    <img class="textimagerow-logo" src="{{ .Params.logo }}" alt="logo" />
+                <div style="text-align: center">
+                    <img
+                        class="textimagerow-logo"
+                        src="{{ .Params.logo }}"
+                        alt="logo"
+                    />
                 </div>
-                {{ end }}
-                    {{ .Inner | markdownify }}
-                {{ if isset .Params "link" }}
-                <div style="text-align: center;">
-                    <a class="textimagerow-button" href="{{ .Params.link }}" target="_blank">MEHR</a>
+                {{ end }} {{ .Inner | markdownify }} {{ if isset .Params "link" }}
+                <div style="text-align: center">
+                    <a class="textimagerow-button"
+                        href="{{ .Params.link }}"
+                        target="_blank">
+                        MEHR
+                    </a>
                 </div>
                 {{ end }}
             </div>
         </div>
         {{ if eq .Params.align "left" }}
         <div class="col-lg-6 order-1 order-lg-2">
-            <img class="textimagerow-image" src="{{ .Params.image }}" alt="display" />
+            <img
+                class="textimagerow-image"
+                src="{{ .Params.image }}"
+                alt="display"
+            />
         </div>
         {{ end }}
     </div>
@@ -98,7 +114,7 @@
         color: #1f2125;
         background-color: #9e7d29;
     }
-    
+
     @media only screen and (min-width: 1000px) {
         .textimagerow .order-1 {
             margin-bottom: 0 !important;
