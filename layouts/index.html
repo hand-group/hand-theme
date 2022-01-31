@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+<!-- prettier-ignore -->
 <html lang="de">
     <head>
         {{ partial "head.html" . }}
+        {{ partial "gtag.html" . }}
     </head>
 
     <body>
@@ -20,7 +22,8 @@
 </html>
 
 <style>
-    html, body {
+    html,
+    body {
         min-height: 100vh;
         background-color: var(--color-black);
         color: white;
@@ -32,6 +35,6 @@
     }
 
     #content-wrap {
-        padding-bottom: 8rem;    /* Footer height */
+        padding-bottom: 8rem; /* Footer height */
     }
 </style>

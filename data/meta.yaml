@@ -7,6 +7,7 @@ zip: "12345"
 city: Musterstadt
 www: company.com
 email: info@company.com
+gtag: G-XXXXXXXXXX
 
 MadeByHandLogo: false
 SocialButtons: true
