@@ -1,12 +1,13 @@
 ---
-title: "Impressum"
-image: "https://www.eic-federation.eu/sites/default/files/styles/header/public/fields/header-images/imprintformat_0.jpg"
+title: IMPRESSUM
+image: https://handgroup.b-cdn.net/header/rechtliches.jpg
 date: 2021-06-04T11:19:03+02:00
 draft: false
 ---
 
 {{<row theme="light">}}
 {{<text>}}
+
 # Impressum
 
 Angaben gemäß § 5 TMG
