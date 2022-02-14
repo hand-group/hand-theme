@@ -8,21 +8,19 @@
     </head>
 
     <body>
+        {{ partial "navbar.html" . }}
+        {{ partial "cookie.html" . }}
+        {{ partial "socialbuttons.html" . }}
+        {{ partial "weddingheroes-ad.html" . }}
         <div id="page-container">
             <div id="page-content">
-                {{ partial "navbar.html" . }}
-                {{ partial "cookie.html" . }}
-                {{ partial "socialbuttons.html" . }}
-                {{ partial "weddingheroes-ad.html" . }}
-                <div id="single-content">
-                    {{ if isset .Params "image" }}
+                {{ if isset .Params "image" }}
                     <img id="single-header-image" src='{{ .Params.image }}' alt="{{ .Params.Title }} Titelbild" />
                     <div id="single-title">
                         <span>{{ .Params.Title }}</span>
                     </div>
-                    {{ end }}
-                    {{ .Content }}
-                </div>
+                {{ end }}
+                {{ .Content }}
             </div>
             {{ partial "footer.html" . }}
         </div>

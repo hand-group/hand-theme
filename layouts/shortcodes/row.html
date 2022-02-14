@@ -1,85 +1,66 @@
 <!-- prettier-ignore -->
-{{- $theme := .Get "theme" -}}
-{{- $width := .Get "width" -}}
-{{- $style := .Get "style" -}}
-{{- $noPadding := .Get "noPadding" -}}
-{{- $noAnimation := .Get "noAnimation" -}}
-{{- $class := .Get "class" -}}
+{{ $theme := default "light" (.Get "theme") }}
+{{ $width := default "md" (.Get "width") }}
+{{ $animation := default "fade-up" (.Get "animation") }}
+{{ $animationDuration := default "1500" (.Get "animationDuration") }}
+{{ $animationAnchorPlacement := default "top-bottom" (.Get "animationAnchorPlacement") }}
 <div
-    class="row-wrapper {{ if $theme }}{{ $theme }}{{ else }}light{{ end }}"
-    data-aos="{{ if $noAnimation }}{{ else }}fade-up{{ end }}"
-    data-aos-duration="1500"
-    data-aos-anchor-placement="top-bottom"
+    class="content-row-wrapper {{ $theme }}"
+    data-aos="{{ $animation }}"
+    data-aos-duration="{{ $animationDuration }}"
+    data-aos-anchor-placement="{{ $animationAnchorPlacement }}"
 >
-    <div
-        class=" row 
-                justify-content-center 
-                {{ if $width }}{{ $width }}{{ else }}md{{ end }} 
-                {{ if $noPadding }}no-padding{{end}}
-                {{ if $class }}{{ $class }}{{ end }}"
-    >
-        {{ .Inner }}
-    </div>
+    <div class="content-row {{ $width }}">{{ .Inner }}</div>
 </div>
 
 <style>
-    .row-wrapper.light {
+    .content-row-wrapper {
+        width: 100%;
+        padding: 3em 0;
+    }
+
+    .content-row-wrapper.light {
         background-color: white;
         color: var(--color-black);
     }
 
-    .row-wrapper.dark {
+    .content-row-wrapper.dark {
         background-color: var(--color-black);
         color: white;
     }
 
-    .row-wrapper .row {
-        line-height: 1.5em;
+    .content-row {
+        margin: 0 auto;
+        padding: 0 1em;
     }
 
-    .row.xxl {
+    .content-row.xxl {
         max-width: 100%;
-        padding: 3em 0;
     }
 
-    .row.xl {
-        margin: 0 auto;
+    .content-row.xl {
         max-width: 1200px;
-        padding: 3em 1em;
     }
 
-    .row.lg {
-        margin: 0 auto;
+    .content-row.lg {
         max-width: 900px;
-        padding: 3em 1em;
     }
 
-    .row.md {
-        margin: 0 auto;
+    .content-row.md {
         max-width: 700px;
-        padding: 3em 1em;
     }
 
-    .row.sm {
-        margin: 0 auto;
+    .content-row.sm {
         max-width: 500px;
-        padding: 3em 1em;
+    }
+
+    .content-row.xs {
+        max-width: 300px;
     }
 
     @media only screen and (min-width: 1200px) {
-        .row.xxl,
-        .row.xl,
-        .row.lg,
-        .row.md,
-        .row.sm,
-        .row.xs {
-            padding-top: 6em;
-            padding-bottom: 6em;
+        .content-row-wrapper {
+            padding: 6em 0;
         }
-    }
-
-    .no-padding {
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
     }
 </style>

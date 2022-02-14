@@ -7,12 +7,12 @@
     </head>
 
     <body>
+        {{ partial "navbar.html" . }}
+        {{ partial "cookie.html" . }}
+        {{ partial "socialbuttons.html" . }}
+        {{ partial "weddingheroes-ad.html" . }}
         <div id="page-container">
-            <div id="content-wrap">
-                {{ partial "navbar.html" . }}
-                {{ partial "cookie.html" . }}
-                {{ partial "socialbuttons.html" . }}
-                {{ partial "weddingheroes-ad.html" . }}
+            <div id="page-content">
                 {{ partial "headerCarousel.html" . }}
                 {{ .Content }}
             </div>
@@ -34,7 +34,7 @@
         position: relative;
     }
 
-    #content-wrap {
+    #page-content {
         padding-bottom: 8rem; /* Footer height */
     }
 </style>
