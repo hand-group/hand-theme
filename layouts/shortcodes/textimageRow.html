@@ -27,8 +27,7 @@
                 {{ end }} {{ .Inner | markdownify }} {{ if isset .Params "link" }}
                 <div style="text-align: center">
                     <a class="textimagerow-button"
-                        href="{{ .Params.link }}"
-                        target="_blank">
+                        href="{{ .Params.link }}">
                         MEHR
                     </a>
                 </div>
