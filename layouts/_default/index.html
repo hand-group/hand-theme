@@ -4,6 +4,8 @@
     <head>
         {{ partial "head.html" . }}
         {{ partial "gtag.html" . }}
+        <title>{{ .Site.Data.meta.name }}{{ if .Site.Data.meta.slogan }} | {{ .Site.Data.meta.slogan }}{{ end }}</title>
+        <meta name="description" content="{{ .Site.Data.meta.description }}" />
     </head>
 
     <body>
