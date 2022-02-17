@@ -74,23 +74,26 @@
         aria-controls="navbar-menu-mobile-collapse"
     ></i>
 </div>
+<!-- prettier-ignore -->
 <div id="navbar-menu-mobile-collapse" class="collapse">
     <ul class="list-group">
-        {{ range .Site.Data.links.navbar }} {{ if .urls }}
-        <br style="font-size: 14px" />
-        <span class="mobile-dropdown-label">{{ .name }}</span>
-        {{ range .urls }}
-        <a href="{{ .url }}"><li class="list-group-item">{{ .name }}</li></a>
+        {{ range .Site.Data.links.navbar }}
+            {{ if .urls }}
+                <br style="font-size: 14px" />
+                <span class="mobile-dropdown-label">{{ .name }}</span>
+                    {{ range .urls }}
+                        <a href="{{ .url }}"><li class="list-group-item">{{ .name }}</li></a>
+                    {{ end }}
+                <br style="font-size: 14px" />
+            {{ else }}
+                <a href="{{ .url }}" type="{{ .type }}">
+                    <li class="list-group-item">{{ .name }}</li>
+                </a>
+            {{ end }}
         {{ end }}
-        <br style="font-size: 14px" />
-        {{ else }}
-        <a href="{{ .url }}" type="{{ .type }}"
-            ><li class="list-group-item">{{ .name }}</li></a
-        >
-        {{ end }} {{ end }}
-        <a href="/impressum" style="font-size: 0.7em"
-            ><li class="list-group-item">IMPRESSUM</li></a
-        >
+        <li class="list-group-item">
+            <a href="/impressum" style="font-size: 0.7em">IMPRESSUM</a> • <a href="/impressum" style="font-size: 0.7em">Datenschutz</a> • <a href="/agb" style="font-size: 0.7em">AGB</a>
+        </li>
     </ul>
 </div>
 
@@ -176,6 +179,7 @@
 
     #navbar-menu-mobile-collapse a {
         text-decoration: none;
+        color: white;
     }
 
     #navbar-menu-mobile-collapse a[type="button"] li {
