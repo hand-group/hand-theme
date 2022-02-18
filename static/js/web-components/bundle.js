@@ -6392,8 +6392,8 @@ var app = (function (exports) {
     	let button;
     	let mounted;
     	let dispose;
-    	let if_block0 = /*inquiry*/ ctx[3].company && create_if_block_2(ctx);
-    	let if_block1 = /*inquiry*/ ctx[3].text && create_if_block_1(ctx);
+    	let if_block0 = /*inquiry*/ ctx[3].company && create_if_block_2$1(ctx);
+    	let if_block1 = /*inquiry*/ ctx[3].text && create_if_block_1$1(ctx);
 
     	const block = {
     		c: function create() {
@@ -6657,7 +6657,7 @@ var app = (function (exports) {
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
     				} else {
-    					if_block0 = create_if_block_2(ctx);
+    					if_block0 = create_if_block_2$1(ctx);
     					if_block0.c();
     					if_block0.m(div25, t16);
     				}
@@ -6684,7 +6684,7 @@ var app = (function (exports) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
-    					if_block1 = create_if_block_1(ctx);
+    					if_block1 = create_if_block_1$1(ctx);
     					if_block1.c();
     					if_block1.m(div25, null);
     				}
@@ -8293,7 +8293,7 @@ var app = (function (exports) {
     }
 
     // (233:16) {#if inquiry.company}
-    function create_if_block_2(ctx) {
+    function create_if_block_2$1(ctx) {
     	let div2;
     	let div0;
     	let b;
@@ -8337,7 +8337,7 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2.name,
+    		id: create_if_block_2$1.name,
     		type: "if",
     		source: "(233:16) {#if inquiry.company}",
     		ctx
@@ -8347,7 +8347,7 @@ var app = (function (exports) {
     }
 
     // (289:16) {#if inquiry.text}
-    function create_if_block_1(ctx) {
+    function create_if_block_1$1(ctx) {
     	let br;
     	let t0;
     	let div2;
@@ -8400,7 +8400,7 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1.name,
+    		id: create_if_block_1$1.name,
     		type: "if",
     		source: "(289:16) {#if inquiry.text}",
     		ctx
@@ -8844,21 +8844,21 @@ var app = (function (exports) {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[10] = list[i];
-    	child_ctx[12] = i;
+    	child_ctx[11] = list[i];
+    	child_ctx[13] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[13] = list[i];
+    	child_ctx[14] = list[i];
     	return child_ctx;
     }
 
-    // (67:16) {#each companies as company}
+    // (70:16) {#each companies as company}
     function create_each_block_1(ctx) {
     	let option;
-    	let t_value = /*company*/ ctx[13].shortname + "";
+    	let t_value = /*company*/ ctx[14].shortname + "";
     	let t;
     	let option_value_value;
 
@@ -8866,18 +8866,18 @@ var app = (function (exports) {
     		c: function create() {
     			option = element("option");
     			t = text(t_value);
-    			option.__value = option_value_value = /*company*/ ctx[13].id;
+    			option.__value = option_value_value = /*company*/ ctx[14].id;
     			option.value = option.__value;
-    			add_location(option, file, 67, 20, 1811);
+    			add_location(option, file, 70, 20, 1858);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
     			append_dev(option, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*companies*/ 8 && t_value !== (t_value = /*company*/ ctx[13].shortname + "")) set_data_dev(t, t_value);
+    			if (dirty & /*companies*/ 16 && t_value !== (t_value = /*company*/ ctx[14].shortname + "")) set_data_dev(t, t_value);
 
-    			if (dirty & /*companies*/ 8 && option_value_value !== (option_value_value = /*company*/ ctx[13].id)) {
+    			if (dirty & /*companies*/ 16 && option_value_value !== (option_value_value = /*company*/ ctx[14].id)) {
     				prop_dev(option, "__value", option_value_value);
     				option.value = option.__value;
     			}
@@ -8891,20 +8891,116 @@ var app = (function (exports) {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(67:16) {#each companies as company}",
+    		source: "(70:16) {#each companies as company}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (130:16) {#if showDetails === job.id}
-    function create_if_block(ctx) {
+    // (102:12) {#if !loading}
+    function create_if_block_1(ctx) {
+    	let each_1_anchor;
+    	let current;
+    	let each_value = /*jobs*/ ctx[2];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	const block = {
+    		c: function create() {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*showDetails, jobs, toggleDetails*/ 69) {
+    				each_value = /*jobs*/ ctx[2];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				group_outros();
+
+    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    					out(i);
+    				}
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(each_1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1.name,
+    		type: "if",
+    		source: "(102:12) {#if !loading}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (134:20) {#if showDetails === job.id}
+    function create_if_block_2(ctx) {
     	let tr;
     	let td;
     	let h30;
     	let t1;
-    	let t2_value = /*job*/ ctx[10].description + "";
+    	let t2_value = /*job*/ ctx[11].description + "";
     	let t2;
     	let t3;
     	let br0;
@@ -8914,19 +9010,19 @@ var app = (function (exports) {
     	let h31;
     	let t7;
     	let pre0;
-    	let t8_value = /*job*/ ctx[10].todos + "";
+    	let t8_value = /*job*/ ctx[11].todos + "";
     	let t8;
     	let t9;
     	let h32;
     	let t11;
     	let pre1;
-    	let t12_value = /*job*/ ctx[10].benefits + "";
+    	let t12_value = /*job*/ ctx[11].benefits + "";
     	let t12;
     	let t13;
     	let h33;
     	let t15;
     	let pre2;
-    	let t16_value = /*job*/ ctx[10].requirements + "";
+    	let t16_value = /*job*/ ctx[11].requirements + "";
     	let t16;
     	let t17;
     	let tr_class_value;
@@ -8962,23 +9058,23 @@ var app = (function (exports) {
     			pre2 = element("pre");
     			t16 = text(t16_value);
     			t17 = space();
-    			add_location(h30, file, 136, 28, 4241);
-    			add_location(br0, file, 138, 28, 4337);
-    			add_location(br1, file, 139, 28, 4372);
-    			add_location(h31, file, 140, 28, 4407);
-    			add_location(pre0, file, 141, 28, 4459);
-    			add_location(h32, file, 142, 28, 4510);
-    			add_location(pre1, file, 143, 28, 4570);
-    			add_location(h33, file, 144, 28, 4624);
-    			add_location(pre2, file, 145, 28, 4688);
+    			add_location(h30, file, 140, 32, 4471);
+    			add_location(br0, file, 142, 32, 4575);
+    			add_location(br1, file, 143, 32, 4614);
+    			add_location(h31, file, 144, 32, 4653);
+    			add_location(pre0, file, 145, 32, 4709);
+    			add_location(h32, file, 146, 32, 4764);
+    			add_location(pre1, file, 147, 32, 4828);
+    			add_location(h33, file, 148, 32, 4886);
+    			add_location(pre2, file, 149, 32, 4954);
     			attr_dev(td, "colspan", "12");
-    			add_location(td, file, 135, 24, 4195);
+    			add_location(td, file, 139, 28, 4421);
 
-    			attr_dev(tr, "class", tr_class_value = /*showDetails*/ ctx[0] === /*job*/ ctx[10].id
+    			attr_dev(tr, "class", tr_class_value = /*showDetails*/ ctx[0] === /*job*/ ctx[11].id
     			? "details-row expanded"
     			: "details-row");
 
-    			add_location(tr, file, 130, 20, 3993);
+    			add_location(tr, file, 134, 24, 4199);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -9008,12 +9104,12 @@ var app = (function (exports) {
     			append_dev(tr, t17);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*jobs*/ 4 && t2_value !== (t2_value = /*job*/ ctx[10].description + "")) set_data_dev(t2, t2_value);
-    			if (dirty & /*jobs*/ 4 && t8_value !== (t8_value = /*job*/ ctx[10].todos + "")) set_data_dev(t8, t8_value);
-    			if (dirty & /*jobs*/ 4 && t12_value !== (t12_value = /*job*/ ctx[10].benefits + "")) set_data_dev(t12, t12_value);
-    			if (dirty & /*jobs*/ 4 && t16_value !== (t16_value = /*job*/ ctx[10].requirements + "")) set_data_dev(t16, t16_value);
+    			if (dirty & /*jobs*/ 4 && t2_value !== (t2_value = /*job*/ ctx[11].description + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*jobs*/ 4 && t8_value !== (t8_value = /*job*/ ctx[11].todos + "")) set_data_dev(t8, t8_value);
+    			if (dirty & /*jobs*/ 4 && t12_value !== (t12_value = /*job*/ ctx[11].benefits + "")) set_data_dev(t12, t12_value);
+    			if (dirty & /*jobs*/ 4 && t16_value !== (t16_value = /*job*/ ctx[11].requirements + "")) set_data_dev(t16, t16_value);
 
-    			if (dirty & /*showDetails, jobs*/ 5 && tr_class_value !== (tr_class_value = /*showDetails*/ ctx[0] === /*job*/ ctx[10].id
+    			if (dirty & /*showDetails, jobs*/ 5 && tr_class_value !== (tr_class_value = /*showDetails*/ ctx[0] === /*job*/ ctx[11].id
     			? "details-row expanded"
     			: "details-row")) {
     				attr_dev(tr, "class", tr_class_value);
@@ -9026,31 +9122,31 @@ var app = (function (exports) {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block.name,
+    		id: create_if_block_2.name,
     		type: "if",
-    		source: "(130:16) {#if showDetails === job.id}",
+    		source: "(134:20) {#if showDetails === job.id}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (99:12) {#each jobs as job, index}
+    // (103:16) {#each jobs as job, index}
     function create_each_block(ctx) {
     	let tr;
     	let td0;
     	let strong;
-    	let t0_value = /*job*/ ctx[10].title + "";
+    	let t0_value = /*job*/ ctx[11].title + "";
     	let t0;
     	let t1;
     	let t2;
     	let td1;
-    	let t3_value = /*job*/ ctx[10].type + "";
+    	let t3_value = /*job*/ ctx[11].type + "";
     	let t3;
     	let t4;
     	let td2;
     	let a;
-    	let t5_value = /*job*/ ctx[10].company.shortname + "";
+    	let t5_value = /*job*/ ctx[11].company.shortname + "";
     	let t5;
     	let a_href_value;
     	let t6;
@@ -9065,10 +9161,10 @@ var app = (function (exports) {
     	let dispose;
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[8](/*job*/ ctx[10]);
+    		return /*click_handler*/ ctx[9](/*job*/ ctx[11]);
     	}
 
-    	let if_block = /*showDetails*/ ctx[0] === /*job*/ ctx[10].id && create_if_block(ctx);
+    	let if_block = /*showDetails*/ ctx[0] === /*job*/ ctx[11].id && create_if_block_2(ctx);
 
     	const block = {
     		c: function create() {
@@ -9091,28 +9187,28 @@ var app = (function (exports) {
     			t8 = space();
     			if (if_block) if_block.c();
     			if_block_anchor = empty();
-    			add_location(strong, file, 104, 24, 3032);
+    			add_location(strong, file, 108, 28, 3134);
     			set_style(td0, "padding-left", "1em");
-    			add_location(td0, file, 103, 20, 2977);
-    			add_location(td1, file, 108, 20, 3169);
+    			add_location(td0, file, 107, 24, 3075);
+    			add_location(td1, file, 112, 24, 3287);
 
-    			attr_dev(a, "href", a_href_value = /*job*/ ctx[10].company.website
-    			? /*job*/ ctx[10].company.website
+    			attr_dev(a, "href", a_href_value = /*job*/ ctx[11].company.website
+    			? /*job*/ ctx[11].company.website
     			: "#");
 
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file, 110, 24, 3238);
-    			add_location(td2, file, 109, 20, 3209);
+    			add_location(a, file, 114, 28, 3364);
+    			add_location(td2, file, 113, 24, 3331);
     			attr_dev(button, "type", "button");
     			attr_dev(button, "class", "btn btn-link pt-0 pb-0");
-    			add_location(button, file, 120, 24, 3614);
-    			add_location(td3, file, 119, 20, 3585);
+    			add_location(button, file, 124, 28, 3780);
+    			add_location(td3, file, 123, 24, 3747);
 
-    			attr_dev(tr, "class", tr_class_value = /*showDetails*/ ctx[0] === /*job*/ ctx[10].id
+    			attr_dev(tr, "class", tr_class_value = /*showDetails*/ ctx[0] === /*job*/ ctx[11].id
     			? "expanded"
     			: "");
 
-    			add_location(tr, file, 99, 16, 2830);
+    			add_location(tr, file, 103, 20, 2912);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -9142,27 +9238,27 @@ var app = (function (exports) {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if ((!current || dirty & /*jobs*/ 4) && t0_value !== (t0_value = /*job*/ ctx[10].title + "")) set_data_dev(t0, t0_value);
-    			if ((!current || dirty & /*jobs*/ 4) && t3_value !== (t3_value = /*job*/ ctx[10].type + "")) set_data_dev(t3, t3_value);
-    			if ((!current || dirty & /*jobs*/ 4) && t5_value !== (t5_value = /*job*/ ctx[10].company.shortname + "")) set_data_dev(t5, t5_value);
+    			if ((!current || dirty & /*jobs*/ 4) && t0_value !== (t0_value = /*job*/ ctx[11].title + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty & /*jobs*/ 4) && t3_value !== (t3_value = /*job*/ ctx[11].type + "")) set_data_dev(t3, t3_value);
+    			if ((!current || dirty & /*jobs*/ 4) && t5_value !== (t5_value = /*job*/ ctx[11].company.shortname + "")) set_data_dev(t5, t5_value);
 
-    			if (!current || dirty & /*jobs*/ 4 && a_href_value !== (a_href_value = /*job*/ ctx[10].company.website
-    			? /*job*/ ctx[10].company.website
+    			if (!current || dirty & /*jobs*/ 4 && a_href_value !== (a_href_value = /*job*/ ctx[11].company.website
+    			? /*job*/ ctx[11].company.website
     			: "#")) {
     				attr_dev(a, "href", a_href_value);
     			}
 
-    			if (!current || dirty & /*showDetails, jobs*/ 5 && tr_class_value !== (tr_class_value = /*showDetails*/ ctx[0] === /*job*/ ctx[10].id
+    			if (!current || dirty & /*showDetails, jobs*/ 5 && tr_class_value !== (tr_class_value = /*showDetails*/ ctx[0] === /*job*/ ctx[11].id
     			? "expanded"
     			: "")) {
     				attr_dev(tr, "class", tr_class_value);
     			}
 
-    			if (/*showDetails*/ ctx[0] === /*job*/ ctx[10].id) {
+    			if (/*showDetails*/ ctx[0] === /*job*/ ctx[11].id) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block(ctx);
+    					if_block = create_if_block_2(ctx);
     					if_block.c();
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
     				}
@@ -9201,7 +9297,42 @@ var app = (function (exports) {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(99:12) {#each jobs as job, index}",
+    		source: "(103:16) {#each jobs as job, index}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (158:4) {#if loading}
+    function create_if_block(ctx) {
+    	let div1;
+    	let div0;
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			attr_dev(div0, "class", "spinner-border");
+    			attr_dev(div0, "role", "status");
+    			add_location(div0, file, 159, 12, 5215);
+    			attr_dev(div1, "class", "text-center mt-5");
+    			add_location(div1, file, 158, 8, 5172);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(158:4) {#if loading}",
     		ctx
     	});
 
@@ -9243,28 +9374,20 @@ var app = (function (exports) {
     	let th3;
     	let t20;
     	let tbody;
+    	let t21;
     	let current;
     	let mounted;
     	let dispose;
-    	let each_value_1 = /*companies*/ ctx[3];
+    	let each_value_1 = /*companies*/ ctx[4];
     	validate_each_argument(each_value_1);
-    	let each_blocks_1 = [];
-
-    	for (let i = 0; i < each_value_1.length; i += 1) {
-    		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
-    	}
-
-    	let each_value = /*jobs*/ ctx[2];
-    	validate_each_argument(each_value);
     	let each_blocks = [];
 
-    	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
     	}
 
-    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
-    		each_blocks[i] = null;
-    	});
+    	let if_block0 = !/*loading*/ ctx[3] && create_if_block_1(ctx);
+    	let if_block1 = /*loading*/ ctx[3] && create_if_block(ctx);
 
     	const block = {
     		c: function create() {
@@ -9282,8 +9405,8 @@ var app = (function (exports) {
     			option0 = element("option");
     			option0.textContent = "Alle";
 
-    			for (let i = 0; i < each_blocks_1.length; i += 1) {
-    				each_blocks_1[i].c();
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
     			}
 
     			t5 = space();
@@ -9318,66 +9441,64 @@ var app = (function (exports) {
     			th3 = element("th");
     			t20 = space();
     			tbody = element("tbody");
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].c();
-    			}
-
+    			if (if_block0) if_block0.c();
+    			t21 = space();
+    			if (if_block1) if_block1.c();
     			this.c = noop;
     			attr_dev(link0, "href", "https://fonts.googleapis.com/css?family=Montserrat");
     			attr_dev(link0, "rel", "stylesheet");
-    			add_location(link0, file, 44, 0, 1038);
+    			add_location(link0, file, 47, 0, 1085);
     			attr_dev(link1, "href", "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css");
     			attr_dev(link1, "rel", "stylesheet");
     			attr_dev(link1, "integrity", "sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3");
     			attr_dev(link1, "crossorigin", "anonymous");
-    			add_location(link1, file, 48, 0, 1130);
+    			add_location(link1, file, 51, 0, 1177);
     			attr_dev(label0, "for", "company-select");
-    			add_location(label0, file, 58, 12, 1462);
+    			add_location(label0, file, 61, 12, 1509);
     			option0.__value = "";
     			option0.value = option0.__value;
-    			add_location(option0, file, 65, 16, 1715);
+    			add_location(option0, file, 68, 16, 1762);
     			attr_dev(select0, "id", "company-select");
     			attr_dev(select0, "class", "form-select");
-    			if (/*filter*/ ctx[1].company === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[6].call(select0));
-    			add_location(select0, file, 59, 12, 1522);
+    			if (/*filter*/ ctx[1].company === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[7].call(select0));
+    			add_location(select0, file, 62, 12, 1569);
     			attr_dev(div0, "class", "col-md-4");
-    			add_location(div0, file, 57, 8, 1427);
+    			add_location(div0, file, 60, 8, 1474);
     			attr_dev(label1, "for", "type-select");
-    			add_location(label1, file, 72, 12, 1971);
+    			add_location(label1, file, 75, 12, 2018);
     			option1.__value = "";
     			option1.value = option1.__value;
-    			add_location(option1, file, 79, 16, 2214);
+    			add_location(option1, file, 82, 16, 2261);
     			option2.__value = "Vollzeit";
     			option2.value = option2.__value;
-    			add_location(option2, file, 80, 16, 2261);
+    			add_location(option2, file, 83, 16, 2308);
     			option3.__value = "Teilzeit";
     			option3.value = option3.__value;
-    			add_location(option3, file, 81, 16, 2320);
+    			add_location(option3, file, 84, 16, 2367);
     			option4.__value = "Ausbildung";
     			option4.value = option4.__value;
-    			add_location(option4, file, 82, 16, 2379);
+    			add_location(option4, file, 85, 16, 2426);
     			option5.__value = "Minijob";
     			option5.value = option5.__value;
-    			add_location(option5, file, 83, 16, 2442);
+    			add_location(option5, file, 86, 16, 2489);
     			attr_dev(select1, "id", "type-select");
     			attr_dev(select1, "class", "form-select");
-    			if (/*filter*/ ctx[1].type === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[7].call(select1));
-    			add_location(select1, file, 73, 12, 2027);
+    			if (/*filter*/ ctx[1].type === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[8].call(select1));
+    			add_location(select1, file, 76, 12, 2074);
     			attr_dev(div1, "class", "col-md-4");
-    			add_location(div1, file, 71, 8, 1936);
+    			add_location(div1, file, 74, 8, 1983);
     			attr_dev(div2, "class", "header row justify-content-center");
-    			add_location(div2, file, 56, 4, 1371);
-    			add_location(th0, file, 91, 16, 2607);
-    			add_location(th1, file, 92, 16, 2644);
-    			add_location(th2, file, 93, 16, 2680);
-    			add_location(th3, file, 94, 16, 2717);
-    			add_location(tr, file, 90, 12, 2586);
-    			add_location(thead, file, 89, 8, 2566);
-    			add_location(tbody, file, 97, 8, 2767);
+    			add_location(div2, file, 59, 4, 1418);
+    			add_location(th0, file, 94, 16, 2654);
+    			add_location(th1, file, 95, 16, 2691);
+    			add_location(th2, file, 96, 16, 2727);
+    			add_location(th3, file, 97, 16, 2764);
+    			add_location(tr, file, 93, 12, 2633);
+    			add_location(thead, file, 92, 8, 2613);
+    			add_location(tbody, file, 100, 8, 2814);
     			attr_dev(table, "class", "table");
-    			add_location(table, file, 88, 4, 2536);
-    			add_location(main, file, 55, 0, 1360);
+    			add_location(table, file, 91, 4, 2583);
+    			add_location(main, file, 58, 0, 1407);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9395,8 +9516,8 @@ var app = (function (exports) {
     			append_dev(div0, select0);
     			append_dev(select0, option0);
 
-    			for (let i = 0; i < each_blocks_1.length; i += 1) {
-    				each_blocks_1[i].m(select0, null);
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(select0, null);
     			}
 
     			select_option(select0, /*filter*/ ctx[1].company);
@@ -9424,101 +9545,96 @@ var app = (function (exports) {
     			append_dev(tr, th3);
     			append_dev(table, t20);
     			append_dev(table, tbody);
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(tbody, null);
-    			}
-
+    			if (if_block0) if_block0.m(tbody, null);
+    			append_dev(main, t21);
+    			if (if_block1) if_block1.m(main, null);
     			current = true;
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(select0, "change", /*select0_change_handler*/ ctx[6]),
-    					listen_dev(select0, "change", /*filterJobs*/ ctx[4], false, false, false),
-    					listen_dev(select1, "change", /*select1_change_handler*/ ctx[7]),
-    					listen_dev(select1, "change", /*filterJobs*/ ctx[4], false, false, false)
+    					listen_dev(select0, "change", /*select0_change_handler*/ ctx[7]),
+    					listen_dev(select0, "change", /*filterJobs*/ ctx[5], false, false, false),
+    					listen_dev(select1, "change", /*select1_change_handler*/ ctx[8]),
+    					listen_dev(select1, "change", /*filterJobs*/ ctx[5], false, false, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*companies*/ 8) {
-    				each_value_1 = /*companies*/ ctx[3];
+    			if (dirty & /*companies*/ 16) {
+    				each_value_1 = /*companies*/ ctx[4];
     				validate_each_argument(each_value_1);
     				let i;
 
     				for (i = 0; i < each_value_1.length; i += 1) {
     					const child_ctx = get_each_context_1(ctx, each_value_1, i);
 
-    					if (each_blocks_1[i]) {
-    						each_blocks_1[i].p(child_ctx, dirty);
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks_1[i] = create_each_block_1(child_ctx);
-    						each_blocks_1[i].c();
-    						each_blocks_1[i].m(select0, null);
+    						each_blocks[i] = create_each_block_1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(select0, null);
     					}
     				}
 
-    				for (; i < each_blocks_1.length; i += 1) {
-    					each_blocks_1[i].d(1);
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
     				}
 
-    				each_blocks_1.length = each_value_1.length;
+    				each_blocks.length = each_value_1.length;
     			}
 
-    			if (dirty & /*filter, companies*/ 10) {
+    			if (dirty & /*filter, companies*/ 18) {
     				select_option(select0, /*filter*/ ctx[1].company);
     			}
 
-    			if (dirty & /*filter, companies*/ 10) {
+    			if (dirty & /*filter, companies*/ 18) {
     				select_option(select1, /*filter*/ ctx[1].type);
     			}
 
-    			if (dirty & /*showDetails, jobs, toggleDetails*/ 37) {
-    				each_value = /*jobs*/ ctx[2];
-    				validate_each_argument(each_value);
-    				let i;
+    			if (!/*loading*/ ctx[3]) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
 
-    				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context(ctx, each_value, i);
-
-    					if (each_blocks[i]) {
-    						each_blocks[i].p(child_ctx, dirty);
-    						transition_in(each_blocks[i], 1);
-    					} else {
-    						each_blocks[i] = create_each_block(child_ctx);
-    						each_blocks[i].c();
-    						transition_in(each_blocks[i], 1);
-    						each_blocks[i].m(tbody, null);
+    					if (dirty & /*loading*/ 8) {
+    						transition_in(if_block0, 1);
     					}
+    				} else {
+    					if_block0 = create_if_block_1(ctx);
+    					if_block0.c();
+    					transition_in(if_block0, 1);
+    					if_block0.m(tbody, null);
     				}
-
+    			} else if (if_block0) {
     				group_outros();
 
-    				for (i = each_value.length; i < each_blocks.length; i += 1) {
-    					out(i);
-    				}
+    				transition_out(if_block0, 1, 1, () => {
+    					if_block0 = null;
+    				});
 
     				check_outros();
+    			}
+
+    			if (/*loading*/ ctx[3]) {
+    				if (if_block1) ; else {
+    					if_block1 = create_if_block(ctx);
+    					if_block1.c();
+    					if_block1.m(main, null);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
     			}
     		},
     		i: function intro(local) {
     			if (current) return;
-
-    			for (let i = 0; i < each_value.length; i += 1) {
-    				transition_in(each_blocks[i]);
-    			}
-
+    			transition_in(if_block0);
     			current = true;
     		},
     		o: function outro(local) {
-    			each_blocks = each_blocks.filter(Boolean);
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				transition_out(each_blocks[i]);
-    			}
-
+    			transition_out(if_block0);
     			current = false;
     		},
     		d: function destroy(detaching) {
@@ -9527,8 +9643,9 @@ var app = (function (exports) {
     			if (detaching) detach_dev(link1);
     			if (detaching) detach_dev(t1);
     			if (detaching) detach_dev(main);
-    			destroy_each(each_blocks_1, detaching);
     			destroy_each(each_blocks, detaching);
+    			if (if_block0) if_block0.d();
+    			if (if_block1) if_block1.d();
     			mounted = false;
     			run_all(dispose);
     		}
@@ -9546,6 +9663,7 @@ var app = (function (exports) {
     }
 
     function instance($$self, $$props, $$invalidate) {
+    	let loading;
     	let data;
     	let jobs;
     	let companies;
@@ -9560,9 +9678,11 @@ var app = (function (exports) {
 
     		jobs.forEach(job => {
     			if (!companies.find(company => company.id === job.company.id)) {
-    				$$invalidate(3, companies = [...companies, job.company]);
+    				$$invalidate(4, companies = [...companies, job.company]);
     			}
     		});
+
+    		$$invalidate(3, loading = false);
     	});
 
     	function filterJobs() {
@@ -9590,13 +9710,13 @@ var app = (function (exports) {
     	function select0_change_handler() {
     		filter.company = select_value(this);
     		$$invalidate(1, filter);
-    		$$invalidate(3, companies);
+    		$$invalidate(4, companies);
     	}
 
     	function select1_change_handler() {
     		filter.type = select_value(this);
     		$$invalidate(1, filter);
-    		$$invalidate(3, companies);
+    		$$invalidate(4, companies);
     	}
 
     	const click_handler = job => toggleDetails(job.id);
@@ -9611,6 +9731,7 @@ var app = (function (exports) {
     		filter,
     		data,
     		jobs,
+    		loading,
     		companies
     	});
 
@@ -9619,16 +9740,18 @@ var app = (function (exports) {
     		if ('filter' in $$props) $$invalidate(1, filter = $$props.filter);
     		if ('data' in $$props) data = $$props.data;
     		if ('jobs' in $$props) $$invalidate(2, jobs = $$props.jobs);
-    		if ('companies' in $$props) $$invalidate(3, companies = $$props.companies);
+    		if ('loading' in $$props) $$invalidate(3, loading = $$props.loading);
+    		if ('companies' in $$props) $$invalidate(4, companies = $$props.companies);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
+    	$$invalidate(3, loading = true);
     	data = [];
     	$$invalidate(2, jobs = []);
-    	$$invalidate(3, companies = []);
+    	$$invalidate(4, companies = []);
     	$$invalidate(1, filter = { company: "", type: "" });
     	$$invalidate(0, showDetails = false);
 
@@ -9636,6 +9759,7 @@ var app = (function (exports) {
     		showDetails,
     		filter,
     		jobs,
+    		loading,
     		companies,
     		filterJobs,
     		toggleDetails,
