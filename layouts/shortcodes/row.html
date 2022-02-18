@@ -1,11 +1,12 @@
 <!-- prettier-ignore -->
 {{ $theme := default "light" (.Get "theme") }}
 {{ $width := default "md" (.Get "width") }}
+{{ $class := .Get "class" }}
 {{ $animation := default "fade-up" (.Get "animation") }}
 {{ $animationDuration := default "1500" (.Get "animationDuration") }}
 {{ $animationAnchorPlacement := default "top-bottom" (.Get "animationAnchorPlacement") }}
 <div
-    class="content-row-wrapper {{ $theme }}"
+    class="content-row-wrapper {{ $theme }} {{ $class }}"
     data-aos="{{ $animation }}"
     data-aos-duration="{{ $animationDuration }}"
     data-aos-anchor-placement="{{ $animationAnchorPlacement }}"
