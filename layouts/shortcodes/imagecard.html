@@ -15,6 +15,11 @@
             <div class="card-img-overlay">
                 <span class="imagecard-title" href="{{$link}}">{{$title}}</span>
                 <p class="imagecard-text">{{$text | markdownify }}</p>
+                {{ if $link }}
+                <div class="text-center">
+                    <span class="more">MEHR</span>
+                </div>
+                {{ end }}
             </div>
         </div>
     </a>
@@ -22,23 +27,26 @@
 
 <style>
     .sc-imagecard {
-        margin: 0 auto;
+        margin: 4em auto;
         width: 100%;
         max-width: 24rem;
-        height: 400px;
+    }
+
+    .sc-imagecard .card {
+        text-align: center;
+        border: none;
     }
 
     .sc-imagecard img {
         height: 250px;
         object-fit: cover;
         opacity: 0.3;
+        border-radius: 18px;
     }
 
     .sc-imagecard .imagecard-title {
         color: var(--color-black);
         text-decoration: none;
-        margin-top: 50px;
-        text-align: center;
         width: 100%;
         font-size: 1.5em;
         font-weight: 800;
@@ -47,7 +55,23 @@
 
     .sc-imagecard .imagecard-text {
         color: var(--color-black);
-        margin-top: 1em;
         line-height: 1.3em;
+        font-weight: 600;
+        margin-top: 1em;
+        margin-bottom: 4em;
+    }
+
+    .sc-imagecard .more {
+        background-color: var(--color-gold);
+        border: 1px solid var(--color-gold);
+        border-radius: 6px;
+        color: var(--color-black);
+        font-size: 0.7em;
+        font-weight: bold;
+        padding: 8px 16px;
+    }
+
+    .sc-imagecard .card:hover .more {
+        background-color: var(--color-gold-80);
     }
 </style>

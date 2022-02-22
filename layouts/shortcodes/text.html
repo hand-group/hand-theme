@@ -1,5 +1,5 @@
 {{ $class := .Get "class" }}
-<div class="sc-text">{{ .Inner | markdownify }}</div>
+<div class="sc-text {{ $class }}">{{ .Inner | markdownify }}</div>
 
 <style>
     .sc-text {
