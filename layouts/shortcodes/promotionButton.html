@@ -1,12 +1,13 @@
 <!-- prettier-ignore -->
 {{- $text := .Get "text" -}}
 {{- $link := .Get "link" -}}
+{{- $target := .Get "target" -}}
 <div class="sc-promotion-button">
     <a
         type="button"
         class="promotion-button"
-        href="{{$link}}"
-        target='{{ if isset .Params "newTab" }}_blank{{ end }}'
+        href="{{ $link }}"
+        target="{{ $target }}"
     >
         {{$text}}
     </a>
