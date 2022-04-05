@@ -1,5 +1,6 @@
 name: Company Name
 slogan: Together with you.
+logo: https://handgroup.b-cdn.net/logos/handgroup_positiv.svg
 description: "Willkommen..."
 company: Muster GmbH
 street: Musterstraße 1
@@ -7,6 +8,7 @@ zip: "12345"
 city: Musterstadt
 www: company.com
 email: info@company.com
+gtag: G-XXXXXXXXXX
 
 MadeByHandLogo: false
 SocialButtons: true

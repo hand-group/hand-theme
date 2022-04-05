@@ -1,24 +1,21 @@
-{{- $class := .Get "class" -}}
-<div class="sc-text {{ if $class }}{{ $class }}{{ end }}">
-    {{ .Inner | markdownify }}
-</div>
+{{ $class := .Get "class" }}
+<div class="sc-text {{ $class }}">{{ .Inner | markdownify }}</div>
 
 <style>
     .sc-text {
-        padding-left: 0;
-        padding-right: 0;
+        line-height: 1.5em;
     }
 
     .sc-text h1,
-    h2,
-    h3,
-    h4 {
+    .sc-text h2,
+    .sc-text h3,
+    .sc-text h4 {
         margin-bottom: 0.5rem;
     }
 
     .sc-text h2,
-    h3,
-    h4 {
+    .sc-text h3,
+    .sc-text h4 {
         margin-top: 2rem;
     }
 

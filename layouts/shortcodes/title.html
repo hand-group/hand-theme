@@ -1,60 +1,62 @@
+<!-- prettier-ignore -->
 {{- $text := .Get "text" -}}
 {{- $sub := .Get "sub" -}}
 {{- $size := .Get "size" -}}
+{{- $class := .Get "class" -}}
 <div class="sc-title">
-    <h1 class="{{if $size}}{{$size}}{{end}}">{{$text}}</h1>
+    <h1 class="{{$size}} {{$class}}">{{$text}}</h1>
     <h2>{{$sub}}</h2>
 </div>
 
 <style>
-.sc-title {
-    padding-left: 0;
-    padding-right: 0;
-    margin-bottom: 2em;
-}
+    .sc-title {
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 2em;
+    }
 
-.sc-title h1 {
-    font-family: 'BetterTimes';
-    font-size: 5em;
-    font-weight: normal;
-    text-align: center;
-    color: var(--color-gold);
-    transform: rotate(-7deg);
-}
-
-.sc-title h1.sm {
-    font-size: 4em;
-}
-
-.sc-title h1.md {
-    font-size: 5em;
-}
-
-.sc-title h1.lg {
-    font-size: 6em;
-}
-
-.sc-title h1.xl {
-    font-size: 7em;
-}
-
-.sc-title h1.xxl {
-    font-size: 8em;
-}
-
-.sc-title h2 {
-    text-align: center;
-}
-
-@media only screen and (min-width: 1000px) {
     .sc-title h1 {
-        font-size: 7em !important;
+        font-family: "BetterTimes";
+        font-size: 5em;
+        font-weight: normal;
+        text-align: center;
+        color: var(--color-gold);
+        transform: rotate(-7deg);
+    }
+
+    .sc-title h1.sm {
+        font-size: 4em;
+    }
+
+    .sc-title h1.md {
+        font-size: 5em;
+    }
+
+    .sc-title h1.lg {
+        font-size: 6em;
+    }
+
+    .sc-title h1.xl {
+        font-size: 7em;
+    }
+
+    .sc-title h1.xxl {
+        font-size: 8em;
     }
 
     .sc-title h2 {
-        position: relative;
-        left: 1.5em;
-        bottom: 10px;
+        text-align: center;
     }
-}
+
+    @media only screen and (min-width: 1000px) {
+        .sc-title h1 {
+            font-size: 7em !important;
+        }
+
+        .sc-title h2 {
+            position: relative;
+            left: 1.5em;
+            bottom: 10px;
+        }
+    }
 </style>
