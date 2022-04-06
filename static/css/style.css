@@ -47,6 +47,10 @@ h5 {
     font-weight: bold;
 }
 
+p {
+    line-height: 1.5em;
+}
+
 .text-block {
     text-align: justify;
 }
