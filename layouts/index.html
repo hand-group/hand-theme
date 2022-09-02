@@ -1,0 +1,78 @@
+{{ define "main" }}
+    {{ if .Params.carousel }}
+        <div class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {{ range $index, $url := .Params.carousel }}
+                    <div class="carousel-item{{ if eq $index 0 }} active{{ end }}">
+                        <img src="{{ $url }}" class="w-full h-[calc(100vh-100px)] object-cover" alt="{{ $index }}">
+                    </div>
+                {{ end }}
+            </div>
+            <div class="absolute top-0 w-[100vw] h-[calc(100vh-100px)] px-4 flex flex-col justify-center">
+                <div class="mx-auto p-6 md:px-20 md:py-16 rounded-2xl text-center shadow-2xl" style="background: rgb(33, 35, 34); background: rgba(33, 35, 34, 0.8)">
+                    <span class="mb-2 text-7xl md:text-9xl text-center text-gold md:rotate-[-7deg] block" style="font-family: Better Times;">
+                        {{ .Params.name }}
+                    </span>
+                    <div class="mb-10">
+                        <h1 class="inline text-2xl text-white font-bold md:relative md:left-10">{{ .Params.title }}</h1>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:justify-center gap-2">
+                        {{ if .Params.primaryButton }}
+                            <button class="px-4 py-2 bg-gold text-black font-bold border-2 border-gold rounded-md hover:bg-gold-dark hover:border-gold-dark duration-300">
+                                {{ .Params.primaryButton.text }}
+                            </button>
+                        {{ end }}
+                        {{ if .Params.secondaryButton }}
+                            <button class="px-4 py-2 bg-black text-gold font-bold border-2 border-gold rounded-md hover:bg-gold hover:text-black duration-300">
+                                {{ .Params.secondaryButton.text }}
+                            </button>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{ end }}
+
+    <div class="py-32 w-full bg-black">
+        <div class="container mx-auto max-w-[800px] px-2">
+            <div class="content text-white leading-8">{{ .Content }}</div>
+        </div>
+    </div>
+
+    <div class="py-32 w-full bg-white">
+        <div class="container mx-auto max-w-[1200px] px-2">
+            <div class="text-center text-5xl font-bold mb-10">Unsere Zahlen</div>
+            <div class="flex flex-col md:flex-row gap-8 md:justify-around">
+                {{ range $index, $element := .Params.counters }}
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="{{ mul $index 50 }}">
+                        <span class="block text-8xl text-gold font-bold mb-4 md:mb-8">{{ $element.count }}</span>
+                        <span class="block text-xl font-light">{{ $element.text }}</span>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+    <div class="py-32 w-full bg-black">
+        <div class="max-w-[700px] mx-auto px-2">
+            <p class="mb-10 text-justify text-white">
+                <b>Sie möchten mit uns Feiern?</b> Stellen Sie uns eine Anfrage mit Ihren Wünschen über unser Anfrageformular 
+                und wir melden uns schnellstmöglich bei Ihnen mit ersten Ideen für <b>Ihr individuelles Event</b>.
+            </p>
+            <div class="text-center mb-4">
+                <a href="anfragen" class="py-4 px-6 bg-gold hover:bg-gold-dark rounded-md font-bold">ZUM ANFRAGEFORMULAR</a>
+            </div>
+        </div>
+    </div>
+
+
+    {{ if .Params.gmaps }}
+        <iframe
+            allowfullscreen=""
+            loading="lazy"
+            src="https://www.google.com/maps/embed/v1/place?key={{ .Site.Data.seo.gmapsKey }}
+            &q={{ .Params.gmaps }}"
+            class="w-full h-80"
+        ></iframe>
+    {{ end }}
+{{ end }}

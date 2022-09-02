@@ -1,92 +1,18 @@
-<!-- prettier-ignore -->
-<footer id="footer">
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-xs-12 col-lg-8">
-            <div id="footer-address-div">
-                <h1>{{ .Site.Data.meta.company }}</h1>
-                <p id="footer-address">
-                    {{ .Site.Data.meta.street }}<br />
-                    {{ .Site.Data.meta.zip }} {{ .Site.Data.meta.city }}<br />
-                    {{ if .Site.Data.meta.email }}<a href="mailto:{{ .Site.Data.meta.phone }}">{{ .Site.Data.meta.email }}</a>{{ end }}
-                    {{ if .Site.Data.meta.phone }} - <a href="tel:{{ .Site.Data.meta.phone }}">{{ .Site.Data.meta.phone }}</a>{{ end }}
-                </p>
-            </div>
-            <div id="footer-links-div">
-                <div class="btn-group" role="group">
-                    {{ range .Site.Data.links.footer }}
-                        <a class="btn btn-outline-primary" href="{{ .url }}">{{ .name }}</a>
-                    {{ end }}
-                </div>
-            </div>
+<footer class="h-[240px] md:h-[200px] p-10 bg-black border-t-2 border-gold text-white text-sm font-light leading-6 tracking-wider">
+    <div class="h-full container mx-auto max-w-[1400px] flex flex-col md:flex-row gap-6 justify-between">
+        <div>
+            <span class="block font-semibold">{{ .Site.Data.meta.legalname }}</span>
+            <p class="text-sm leading-6">
+                {{ .Site.Data.meta.street }}<br>
+                {{ .Site.Data.meta.zip }} {{ .Site.Data.meta.city }}<br>
+                <a href="mailto:{{ .Site.Data.meta.email }}" class="hover:text-gold">{{ .Site.Data.meta.email }}</a> · 
+                <a href="tel:{{ .Site.Data.meta.phone }}" class="hover:text-gold">{{ .Site.Data.meta.phone }}</a>
+            </p>
         </div>
-        <div class="col"></div>
+        <div class="flex flex-row gap-6 justify-center md:items-end">
+            <a href="/impressum" class="hover:text-gold">Impressum</a>
+            <a href="/datenschutz" class="hover:text-gold">Datenschutz</a>
+            <a href="/agb" class="hover:text-gold">AGB</a>
+        </div>
     </div>
 </footer>
-
-<style>
-    footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 8rem;
-        padding-top: 2em;
-        color: white;
-        background-color: var(--color-black);
-        border-top: 1px solid var(--color-gold);
-    }
-
-    footer .row {
-        margin: 0;
-    }
-
-    footer h1 {
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
-
-    #footer-address-div {
-        padding-left: 1em;
-    }
-
-    #footer-address {
-        font-size: 10px;
-        line-height: 16px;
-    }
-
-    #footer-address a {
-        text-decoration: none;
-        color: white;
-    }
-
-    #footer-links-div .btn-group {
-        display: none;
-    }
-
-    #footer-links-div .btn-group a {
-        border-color: transparent !important;
-        background-color: transparent !important;
-        box-shadow: none;
-        outline: 0;
-        color: white;
-        font-size: 9px;
-        letter-spacing: 1px;
-    }
-
-    @media only screen and (min-width: 600px) {
-        #footer-address-div {
-            float: left;
-            margin: auto 0;
-        }
-
-        #footer-links-div .btn-group {
-            display: block;
-        }
-
-        #footer-links-div {
-            margin-top: 3em;
-            float: right;
-        }
-    }
-</style>

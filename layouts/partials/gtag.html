@@ -1,14 +1,16 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Data.meta.gtag }}"
-></script>
-<script>
-    window.dataLayer = window.dataLayer || []
-    function gtag() {
-        dataLayer.push(arguments)
-    }
-    gtag("js", new Date())
+{{ if isset .Site.Data.seo "gtag" }}
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Data.seo.gtag }}"
+    ></script>
+    <script>
+        window.dataLayer = window.dataLayer || []
+        function gtag() {
+            dataLayer.push(arguments)
+        }
+        gtag("js", new Date())
 
-    gtag("config", "{{ .Site.Data.meta.gtag }}")
-</script>
+        gtag("config", "{{ .Site.Data.seo.gtag }}")
+    </script>
+{{ end }}

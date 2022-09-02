@@ -1,83 +1,55 @@
-:root {
-    --color-gold: #b28d2f;
-    --color-gold-80: #9e7d29;
-    --color-black: #212322;
-    --color-grey-80: rgba(33, 35, 34, 0.8);
-    --color-grey-60: rgba(33, 35, 34, 0.6);
-    --color-grey-40: rgba(33, 35, 34, 0.4);
-    --color-grey-25: rgba(33, 35, 34, 0.25);
-    --color-grey-15: rgba(33, 35, 34, 0.15);
-    --color-grey-5: rgba(33, 35, 34, 0.05);
+body {
+    font-family: 'Montserrat', serif;
 }
 
-.gold {
-    color: var(--color-gold);
+.content {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
-.black {
-    color: var(--color-black);
+.content h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
-html {
-    font-family: "Montserrat", "Helvetica", "Arial";
+.content h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
-h1 {
-    font-size: 42px;
-    font-weight: bold;
+.content h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 6px;
 }
 
-h2 {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-h3 {
-    font-size: 24px;
-    font-weight: 300;
-}
-
-h4 {
+.content h4 {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 600;
+    margin-bottom: 6px;
 }
 
-h5 {
-    font-size: 16px;
-    font-weight: bold;
+.content p {
+    margin-bottom: 12px;
 }
 
-p {
-    line-height: 1.5em;
+.content a {
+    color: #b28d2f;
 }
 
-.text-block {
-    text-align: justify;
+.better-times {
+    font-family: "Better Times";
+    font-size: 5rem;
+    font-weight: normal;
 }
 
-.btn-primary {
-    color: var(--color-black);
-    background-color: var(--color-gold);
-    border-color: var(--color-gold);
-}
-
-.btn-primary:hover {
-    color: var(--color-black);
-    background-color: var(--color-gold-80);
-    border-color: var(--color-gold-80);
-}
-
-.btn-dark {
-    background-color: var(--color-black);
-    border-color: var(--color-black);
-}
-
-.btn-dark:hover {
-    background-color: var(--color-grey-80);
-    border-color: var(--color-grey-80);
-}
-
-.form-check-input:checked {
-    background-color: var(--color-gold);
-    border-color: var(--color-gold);
+@media (min-width: 768px) {
+    .better-times {
+        font-size: 8rem;
+    }
 }

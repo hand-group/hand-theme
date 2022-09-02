@@ -1,0 +1,15 @@
+{
+    "name": "hand-theme",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "hugo -D server",
+        "tw-dev": "nodemon --ext md,html --exec npm run tw-build",
+        "tw-build": "npx tailwindcss -i themes/hand-theme/static/css/tailwind.css -o static/css/tw-build.css"
+    },
+    "keywords": [],
+    "author": "akmann",
+    "license": "ISC",
+    "devDependencies": {
+        "tailwindcss": "^3.1.8"
+    }
+}

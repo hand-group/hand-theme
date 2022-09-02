@@ -1,12 +1,7 @@
-baseURL: https://example.com/
-defaultContentLanguage: de
-languageCode: de-DE
-theme: hand-theme
-
-taxonomies:
-  tag: tags
-  category: categories
-  languages: languages
+baseURL: "https://partyloewe.de/"
+languageCode: "de-DE"
+title: "Der Party Löwe"
+theme: "hand-theme"
 
 markup:
   goldmark:

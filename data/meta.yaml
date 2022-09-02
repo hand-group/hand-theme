@@ -1,15 +1,14 @@
-name: Company Name
-slogan: Together with you.
-logo: https://handgroup.b-cdn.net/logos/handgroup_positiv.svg
-description: "Willkommen..."
-company: Muster GmbH
-street: Musterstraße 1
-zip: "12345"
-city: Musterstadt
-www: company.com
-email: info@company.com
-gtag: G-XXXXXXXXXX
+name: Der Party Löwe
+slogan: Die Eventmacher
+logo: https://handgroup.b-cdn.net/logos/partyloewe_positiv.svg
+description: "Seit über 25 Jahren sind wir Ihr Partner für Event-Catering, Business Events, Messeauftritte und Privatveranstaltungen in Hannover und Umgebung."
+legalname: Der Party Löwe GmbH & Co. KG
+street: Augsburger Straße 2
+zip: "30880"
+city: Laatzen
+www: partyloewe.de
+email: info@partyloewe.de
+phone: 0511 82077777
 
-MadeByHandLogo: false
-SocialButtons: true
-weddingheroesAd: false
+madebyhand: true
+socialbuttons: true

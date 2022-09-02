@@ -1,8 +1,6 @@
 <script>
     function handleSubmit() {
         const button = document.getElementById("contact-form-submit")
-        if (button.classList.contains("button-disabled")) return
-        button.classList.add("button-disabled")
         button.innerHTML =
             '<div class="spinner-border" style="height: 16px; width: 16px; font-size: .5em;" role="status"></div>'
 
@@ -40,11 +38,8 @@
             inputs.forEach((input) => {
                 const element = document.getElementById(`${input.name}Input`)
                 if (input.required && !input.check(element.value)) {
-                    element.classList.add("contact-form-input-error")
-                    button.classList.remove("button-disabled")
                     check = false
                 } else {
-                    element.classList.remove("contact-form-input-error")
                     data[input.name] = element.value
                 }
             })
@@ -73,164 +68,95 @@
                 throw "Missing data."
             }
         } catch (error) {
-            button.classList.remove("button-disabled")
             button.innerText = "Absenden"
             console.log(error)
         }
     }
 </script>
 
-<form class="contact-form">
+<form class="max-w-[700px] p-4 mx-auto bg-gray-50 rounded-md">
     <input type="hidden" id="websiteInput" value="{{ .Site.Data.meta.www }}" />
-    <div class="row align-items-center">
-        <div class="col-md-2">
-            <label for="salutationInput" class="form-label">Anrede</label>
-            <select id="salutationInput" class="form-select">
-                <option>Herr</option>
-                <option>Frau</option>
-            </select>
+    <div class="flex flex-col gap-4">
+        <div class="grid grid-cols-5 gap-4">
+            <div class="col-span-1">
+                <label for="salutationInput" class="block mb-1 text-sm">Anrede</label>
+                <select id="salutationInput" class="p-2 w-full bg-white rounded-md">
+                    <option>Herr</option>
+                    <option>Frau</option>
+                </select>
+            </div>
+            <div class="col-span-2">
+                <label for="firstnameInput" class="block mb-1 text-sm">Vorname*</label>
+                <input
+                    type="text"
+                    id="firstnameInput"
+                    class="p-2 w-full bg-white rounded-md"
+                    aria-describedby="firstnameHelp"
+                />
+            </div>
+            <div class="col-span-2">
+                <label for="lastnameInput" class="block mb-1 text-sm">Nachname*</label>
+                <input
+                    type="text"
+                    id="lastnameInput"
+                    class="p-2 w-full bg-white rounded-md"
+                    aria-describedby="lastnameHelp"
+                />
+            </div>
         </div>
-        <div class="col-md-5">
-            <label for="firstnameInput" class="form-label">Vorname*</label>
-            <input
-                type="text"
-                id="firstnameInput"
-                class="form-control"
-                aria-describedby="firstnameHelp"
-            />
+        <div class="grid">
+            <div>
+                <label for="companyInput" class="block mb-1 text-sm">Firma</label>
+                <input
+                    type="email"
+                    id="companyInput"
+                    class="p-2 w-full bg-white rounded-md"
+                    aria-describedby="companyHelp"
+                />
+            </div>
         </div>
-        <div class="col-md-5">
-            <label for="lastnameInput" class="form-label">Nachname*</label>
-            <input
-                type="text"
-                id="lastnameInput"
-                class="form-control"
-                aria-describedby="lastnameHelp"
-            />
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label for="emailInput" class="block mb-1 text-sm">Email*</label>
+                <input
+                    type="email"
+                    id="emailInput"
+                    class="p-2 w-full bg-white rounded-md"
+                    aria-describedby="emailHelp"
+                />
+            </div>
+            <div>
+                <label for="phoneInput" class="block mb-1 text-sm">Telefon*</label>
+                <input
+                    type="email"
+                    id="phoneInput"
+                    class="p-2 w-full bg-white rounded-md"
+                    aria-describedby="phoneHelp"
+                />
+            </div>
         </div>
-    </div>
-    <div class="row align-items-center">
-        <div class="col-12">
-            <label for="companyInput" class="form-label">Firma</label>
-            <input
-                type="email"
-                id="companyInput"
-                class="form-control"
-                aria-describedby="companyHelp"
-            />
+        <div class="grid">
+            <div>
+                <label for="textInput" class="block mb-1 text-sm">Anfrage*</label>
+                <textarea
+                    id="textInput"
+                    class="p-2 w-full bg-white rounded-md"
+                    rows="6"
+                    placeholder="Ihre Anfrage..."
+                ></textarea>
+            </div>
+            <span class="text-sm font-light">* Pflichtfelder</span>
         </div>
-    </div>
-    <div class="row align-items-center">
-        <div class="col-md-6">
-            <label for="emailInput" class="form-label">Email*</label>
-            <input
-                type="email"
-                id="emailInput"
-                class="form-control"
-                aria-describedby="emailHelp"
-            />
-        </div>
-        <div class="col-md-6">
-            <label for="phoneInput" class="form-label">Telefon*</label>
-            <input
-                type="email"
-                id="phoneInput"
-                class="form-control"
-                aria-describedby="phoneHelp"
-            />
-        </div>
-    </div>
-    <div class="row align-items-center">
-        <div class="col-12">
-            <label for="textInput" class="form-label">Anfrage*</label>
-            <textarea
-                id="textInput"
-                class="form-control"
-                rows="6"
-                placeholder="Ihre Anfrage..."
-            ></textarea>
-        </div>
-    </div>
-    <div>
-        <span class="necessary-notice">* Pflichtfelder</span>
-        <div style="text-align: center">
-            <a
-                id="contact-form-submit"
-                class="contact-form-button"
-                onclick="handleSubmit()"
-                >Absenden</a
-            >
+        <div>
+            <div class="text-center mb-4">
+                <a
+                    id="contact-form-submit"
+                    class="px-4 py-2 bg-gold rounded-md cursor-pointer"
+                    style="color: #212322"
+                    onclick="handleSubmit()">
+                    Absenden
+                </a>
+            </div>
         </div>
     </div>
 </form>
-
-<style>
-    .contact-form {
-        max-width: 800px;
-        margin: 4em auto;
-        padding: 1em;
-        background-color: var(--color-grey-5);
-    }
-
-    .contact-form div[class*="col-"] {
-        margin-bottom: 1em;
-    }
-
-    .contact-form label {
-        font-size: 0.8em;
-        position: relative;
-        left: 0.5em;
-    }
-
-    .contact-form-input-error {
-        box-shadow: 0 0 0 1px red;
-    }
-
-    .contact-form input,
-    select,
-    textarea {
-        border-radius: 12px !important;
-        border: none !important;
-    }
-
-    .contact-form-button {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: button;
-        text-decoration: none;
-        cursor: pointer;
-
-        background-color: #b18d2f;
-        color: #1f2125;
-        font-size: 1em;
-        padding: 0.4em 1.5em;
-        border-radius: 6px;
-        margin-bottom: 1.5em;
-        margin-top: 1.5em;
-        min-width: 80px;
-    }
-
-    .contact-form-button:hover {
-        color: #1f2125;
-        background-color: #9e7d29;
-    }
-
-    .button-disabled {
-        color: currentColor;
-        cursor: not-allowed;
-        opacity: 0.5;
-        text-decoration: none;
-    }
-
-    @media only screen and (min-width: 845px) {
-        div[class*=" col-"] {
-            margin-bottom: 0em;
-        }
-
-        .necessary-notice {
-            position: absolute;
-            margin-top: 70px;
-            font-size: 0.8em;
-        }
-    }
-</style>
