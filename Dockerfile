@@ -1,7 +1,11 @@
-FROM nginx:alpine
-COPY ./themes/hand-theme/nginx.conf /etc/nginx/conf.d/default.conf
-RUN apk add --no-cache hugo
+FROM node:18.5.0-alpine AS builder
 COPY . /tmp/hugo
 WORKDIR /tmp/hugo
+RUN npm install
+RUN npm run tw-build
+RUN apk add --no-cache hugo
 RUN hugo
-RUN cp -r /tmp/hugo/public/* /usr/share/nginx/html
+
+FROM nginx
+COPY ./themes/hand-theme/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /tmp/hugo/public/ /usr/share/nginx/html/
