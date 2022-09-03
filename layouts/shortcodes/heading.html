@@ -3,9 +3,9 @@
 {{- $h1 := .Get "h1" -}}
 {{- $invert := .Get "invert" -}}
 {{ if eq $h1 "true" }}
-<h1 class="mb-2 better-times text-7xl md:text-9xl text-center text-gold md:rotate-[-7deg]">{{ $title }}</h1>
+    <h1 class="mb-2 better-times text-7xl md:text-9xl text-center text-gold md:rotate-[-7deg]">{{ $title }}</h1>
 {{ else }}
-<span class="mb-2 better-times text-7xl md:text-9xl text-center text-gold md:rotate-[-7deg] block">{{ $title }}</span>
+    <span class="mb-2 better-times text-7xl md:text-9xl text-center text-gold md:rotate-[-7deg] block">{{ $title }}</span>
 {{ end }}
 <div class="mb-10 text-xl md:text-3xl text-center font-bold{{ if $invert }} text-white{{ end }}">
     <span class="md:relative md:left-10">{{ $subtitle }}</span>
