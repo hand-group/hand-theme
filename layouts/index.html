@@ -18,14 +18,14 @@
                     </div>
                     <div class="flex flex-col md:flex-row md:justify-center gap-2">
                         {{ if .Params.primaryButton }}
-                            <button class="px-4 py-2 bg-gold text-black font-bold border-2 border-gold rounded-md hover:bg-gold-dark hover:border-gold-dark duration-300">
+                            <a href="{{ .Params.primaryButton.link }}" class="px-4 py-2 bg-gold text-black font-bold border-2 border-gold rounded-md hover:bg-gold-dark hover:border-gold-dark duration-300">
                                 {{ .Params.primaryButton.text }}
-                            </button>
+                            </a>
                         {{ end }}
                         {{ if .Params.secondaryButton }}
-                            <button class="px-4 py-2 bg-black text-gold font-bold border-2 border-gold rounded-md hover:bg-gold hover:text-black duration-300">
+                            <a href="{{ .Params.secondaryButton.link }}" class="px-4 py-2 bg-black text-gold font-bold border-2 border-gold rounded-md hover:bg-gold hover:text-black duration-300">
                                 {{ .Params.secondaryButton.text }}
-                            </button>
+                            </a>
                         {{ end }}
                     </div>
                 </div>
