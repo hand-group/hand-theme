@@ -9,7 +9,7 @@
             </a>
 
             <label for="toggle-navbar" class="z-50 md:hidden absolute top-10 right-7 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <svg id="mobile-navbar-button" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </label>
@@ -21,7 +21,7 @@
                         {{ $text := print .name | safeHTML }}
                         {{ if eq .type "button"}}
                             <div class="mb-6 md:mb-0">
-                                <a class="py-2 px-4 text-black font-bold bg-gold rounded-lg hover:bg-gold-dark" href="{{ .url }}">
+                                <a class="py-2 px-4 text-black font-bold bg-gold rounded-md hover:bg-gold-dark" href="{{ .url }}">
                                     {{ $text }}
                                 </a>
                             </div>
@@ -80,10 +80,9 @@
     }
 
     document.getElementById("header-overlay").addEventListener("mouseover", () => {
-        const overlay = document.getElementById("header-overlay")
+        document.getElementById("header-overlay").style.display = "none"
         const elements = document.getElementsByClassName("expanded-links")
         for (let e of elements) e.style.display = "none"
-        overlay.style.display = "none"
     })
 </script>
 

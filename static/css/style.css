@@ -45,6 +45,23 @@ body {
     color: #b28d2f;
 }
 
+.content li {
+    margin-left: 16px;
+    margin-bottom: 12px;
+}
+
+.content li::marker {
+    font-weight: 600;
+}
+
+.content ol li {
+    list-style-type: decimal;
+}
+
+.content ul li {
+    list-style-type: disc;
+}
+
 .content hr {
     margin: 2em 0;
 }
