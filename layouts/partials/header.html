@@ -68,6 +68,8 @@
 
 <script>
     function expandLinks(name) {
+        const elements = document.getElementsByClassName("expanded-links")
+        for (let e of elements) e.style.display = "none"
         const overlay = document.getElementById("header-overlay")
         const element = document.getElementById(`links-${name}`)
         if (element.style.display === "block") {

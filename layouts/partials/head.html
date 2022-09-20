@@ -20,6 +20,6 @@
     {{ partial "gtag.html" . }}
     {{ partial "metaPixel.html" . }}
 
-    {{ $title := print .Site.Title " | " .Title }}
+    {{ $title := print .Site.Data.meta.name " | " .Title }}
     <title>{{ $title }}</title>
 </head>

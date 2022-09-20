@@ -23,8 +23,8 @@ module.exports = {
                 }
             },
             fontFamily: {
-                sans: "Montserrat Helvetica Arial sans-serif",
-                bettertimes: "Better Times Helvetica Arial sans-serif"
+                sans: "Montserrat Helvetica Intel sans-serif",
+                bettertimes: "Better Times Helvetica Intel sans-serif"
             }
         },
     },
