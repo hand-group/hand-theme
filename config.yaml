@@ -1,7 +1,40 @@
 baseURL: "https://partyloewe.de/"
 languageCode: "de-DE"
-title: "Der Party Löwe"
 theme: "hand-theme"
+
+menu:
+  main:
+    - name: Locations
+      url: /eventlocations
+      weight: 1
+    - name: Über uns
+      weight: 2
+      params:
+        links:
+          - name: Eventfamilie
+            description: Mehr über unsere Event Gruppe
+            url: /eventfamilie
+          - name: Karriere
+            description: Aktuelle Jobangebote in der Gruppe
+            url: /karriere
+          - name: Kontakt
+            description: Nehmen Sie mit uns Kontakt auf
+            url: /kontakt
+    - name: Event anfragen
+      url: /anfragen
+      weight: 3
+      params:
+        type: button
+  footer:
+    - name: Impressum
+      url: /impressum
+      weight: 1
+    - name: Datenschutz
+      url: /policy
+      weight: 2
+    - name: AGB
+      url: /agb
+      weight: 3
 
 markup:
   goldmark:
