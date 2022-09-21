@@ -1,8 +1,6 @@
 <script>
     function handleSubmit() {
         const button = document.getElementById("contact-form-submit")
-        button.innerHTML =
-            '<div class="spinner-border" style="height: 16px; width: 16px; font-size: .5em;" role="status"></div>'
 
         const inputs = [
             { name: "website" },
@@ -46,7 +44,7 @@
 
             if (check) {
                 fetch(
-                    "https://hand-backend.capr.hand.group/www/contact-form-submit",
+                    "https://strapi.hand.group/contactform",
                     {
                         method: "POST",
                         headers: {
@@ -68,7 +66,6 @@
                 throw "Missing data."
             }
         } catch (error) {
-            button.innerText = "Absenden"
             console.log(error)
         }
     }
@@ -154,7 +151,7 @@
                     class="px-4 py-2 bg-gold rounded-md cursor-pointer"
                     style="color: #212322"
                     onclick="handleSubmit()">
-                    Absenden
+                    Abschicken
                 </a>
             </div>
         </div>

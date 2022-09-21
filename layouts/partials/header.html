@@ -1,12 +1,16 @@
 <header class="z-50 fixed top-0 w-[100vw] bg-black border-b-2 border-gold shadow-lg">
     <div class="container mx-auto h-[100px] max-w-[1400px] px-10">
         <div class="flex flex-row justify-center md:justify-between">
-            <a id="badge" href="/" class="z-50 w-52 h-[140px] p-4 bg-white shadow-lg rounded-b-xl">
-                <img src="{{ .Site.Data.meta.logo }}" alt="{{ .Site.Data.meta.name }} Logo" class="max-w-[90%] h-2/3 mx-auto" />
-                {{ if .Site.Data.meta.madebyhand }}
-                    <img src="https://handgroup.b-cdn.net/logos/made_by_hand.svg" alt="Made by H.AND" class="h-3 mx-auto mt-6" />
-                {{ end }}
-            </a>
+            {{ if .Site.Data.meta.madebyhand }}
+                <a id="badge" href="/" class="z-50 w-52 h-[140px] p-4 bg-white shadow-lg rounded-b-xl">
+                    <img src="{{ .Site.Data.meta.logo }}" alt="{{ .Site.Data.meta.name }} Logo" class="max-w-[90%] max-h-[80px] mx-auto" />
+                    <img src="https://handgroup.b-cdn.net/logos/made_by_hand.svg" alt="Made by H.AND" class="h-3 mx-auto mt-4" />
+                </a>
+            {{ else }}
+                <a id="badge" href="/" class="z-50 w-52 h-[140px] p-6 bg-white shadow-lg rounded-b-xl">
+                    <img src="{{ .Site.Data.meta.logo }}" alt="{{ .Site.Data.meta.name }} Logo" class="max-w-[90%] h-full mx-auto" />
+                </a>
+            {{ end }}
 
             <label for="toggle-navbar" class="z-50 md:hidden absolute top-10 right-7 text-white">
                 <svg id="mobile-navbar-button" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
