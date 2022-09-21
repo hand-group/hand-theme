@@ -16,10 +16,10 @@ menu:
             url: /eventfamilie
           - name: Karriere
             description: Aktuelle Jobangebote in der Gruppe
-            url: /karriere
+            url: /career
           - name: Kontakt
             description: Nehmen Sie mit uns Kontakt auf
-            url: /kontakt
+            url: /contact
     - name: Event anfragen
       url: /anfragen
       weight: 3
