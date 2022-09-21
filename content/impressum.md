@@ -1,6 +1,6 @@
 ---
-title: "Impressum"
-headerImage: ""
+title: Impressum
+headerImage: 
 ---
 # Impressum
 

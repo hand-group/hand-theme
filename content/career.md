@@ -1,6 +1,6 @@
 ---
-title: "Karriere"
-headerImage: "https://handgroup.b-cdn.net/locations/schloss-herrenhausen/header3.jpeg"
+title: Karriere
+headerImage: https://handgroup.b-cdn.net/header/karriere.jpg
 ---
 
 {{<heading title="Gemeinsam" subtitle="Mehr erreichen" h1="false">}}
