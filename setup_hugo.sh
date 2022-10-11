@@ -40,6 +40,8 @@ then
 	echo "2. Update ${font_bold}data/meta.yaml${font_normal} file"
 	echo "3. Update ${font_bold}data/seo.yaml${font_normal} file"
 	echo "4. Add content and site specific layouts"
+	echo ""
+	echo "Call ${font_bold}npm run dev${font_normal} and ${font_bold}npm run tw-dev${font_normal} for development."
 
 	rm setup_hugo.sh
 else
