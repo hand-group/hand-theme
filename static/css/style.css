@@ -110,7 +110,7 @@ body {
 }
 
 
-/* Start Checkbox */
+/* START CHECKBOX */
 .switch input {
     opacity: 0;
     width: 0;
@@ -166,4 +166,33 @@ input:disabled + .slider {
 .slider.round:before {
     border-radius: 50%;
 }
-/* End Checkbox */
+/* END CHECKBOX */
+
+
+/* START LIGHTBOX */
+/* http://youmightnotneedjs.com/ */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lightbox:target {
+    outline: none;
+    display: block;
+}
+/* END LIGHTBOX*/
