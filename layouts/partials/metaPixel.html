@@ -1,5 +1,5 @@
 {{ if isset .Site.Data.seo "metaPixel" }}
-    <script>
+    <script class="cookie-marketing-script" type="text/plain">
         !(function (f, b, e, v, n, t, s) {
             if (f.fbq) return
             n = f.fbq = function () {
@@ -26,12 +26,4 @@
         fbq("init", "{{ .Site.Data.seo.metaPixel }}")
         fbq("track", "PageView")
     </script>
-    <noscript>
-        <img
-            height="1"
-            width="1"
-            style="display: none"
-            src="https://www.facebook.com/tr?id={{ .Site.Data.seo.metaPixel }}&ev=PageView&noscript=1"
-        />
-    </noscript>
 {{ end }}
