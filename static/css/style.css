@@ -189,6 +189,8 @@ input:disabled + .slider {
     margin-top: 2%;
     margin-left: auto;
     margin-right: auto;
+    border: 2px solid white;
+    border-radius: 1rem;
 }
 
 .lightbox:target {
