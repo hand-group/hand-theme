@@ -30,7 +30,7 @@ menu:
       url: /impressum
       weight: 1
     - name: Datenschutz
-      url: /policy
+      url: /privacy
       weight: 2
     - name: AGB
       url: /agb
