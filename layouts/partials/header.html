@@ -47,6 +47,12 @@
                             </a>
                         {{ end }}
                     {{ end }}
+                    {{ if .Site.IsMultiLingual }}
+                        <span class="mb-4 md:mb-0">
+                            <a href="/" class='hover:text-gold duration-300 {{ if not (hasPrefix .Page.URL "/en/") }}text-gold{{ end }}'>DE</a> | 
+                            <a href="/en" class='hover:text-gold duration-300 {{ if hasPrefix .Page.URL "/en/" }}text-gold{{ end }}'>EN</a>
+                        </span>
+                    {{ end }}
                 </nav>
             </div>
         </div>
@@ -68,7 +74,7 @@
         {{ end }}
     {{ end }}
 </header>
-<div id="header-overlay" class="z-40 hidden absolute top-0 left-0 w-[100vw] h-[99999px] bg-black opacity-50"></div>
+<div id="header-overlay" class="z-40 hidden fixed top-0 left-0 w-[100vw] h-[100vh] bg-black opacity-50"></div>
 
 <script>
     function expandLinks(name) {
