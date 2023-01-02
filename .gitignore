@@ -1,3 +1,5 @@
 node_modules
 resources
 tw-build.css
+.hugo_build.lock
+public
