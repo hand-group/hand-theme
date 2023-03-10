@@ -1,10 +1,3 @@
 {{ if .Params.headerImage }}
-  <div>
-    <img src="{{ .Params.headerImage }}" alt="Eventlocations Header" class="w-full h-64 md:h-96 object-cover" />
-    <div class="w-fit md:max-w-[1400px] absolute top-[337px] md:top-[464px] left-2 md:left-10">
-      <span class="px-4 py-2 bg-black rounded-lg text-md text-gold font-bold tracking-wider inline-block">
-        {{ upper .Params.title }}
-      </span>
-    </div>
-  </div>
+  <img src="{{ .Params.headerImage }}" alt="Header Image" class="w-full h-64 md:h-96 object-cover" />
 {{ end }}
