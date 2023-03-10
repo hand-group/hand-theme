@@ -1,12 +1,12 @@
 <footer class="h-[240px] md:h-[200px] p-10 bg-black border-t-2 border-gold text-white text-sm font-light leading-6 tracking-wider">
     <div class="h-full container mx-auto max-w-[1400px] flex flex-col md:flex-row gap-6 justify-between">
         <div>
-            <span class="block font-semibold">{{ .Site.Data.meta.legalname }}</span>
+            <span class="block font-semibold">{{ .Site.Data.company.legalname }}</span>
             <p class="text-sm leading-6">
-                {{ .Site.Data.meta.street }}<br>
-                {{ .Site.Data.meta.zip }} {{ .Site.Data.meta.city }}<br>
-                <a href="mailto:{{ .Site.Data.meta.email }}" class="hover:text-gold duration-300">{{ .Site.Data.meta.email }}</a> · 
-                <a href="tel:{{ .Site.Data.meta.phone }}" class="hover:text-gold duration-300">{{ .Site.Data.meta.phone }}</a>
+                {{ .Site.Data.company.street }}<br>
+                {{ .Site.Data.company.zip }} {{ .Site.Data.company.city }}<br>
+                <a href="mailto:{{ .Site.Data.company.email }}" class="hover:text-gold duration-300">{{ .Site.Data.company.email }}</a> · 
+                <a href="tel:{{ .Site.Data.company.phone }}" class="hover:text-gold duration-300">{{ .Site.Data.company.phone }}</a>
             </p>
         </div>
         <div class="flex flex-row gap-6 justify-center md:items-end">

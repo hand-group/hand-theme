@@ -2,6 +2,10 @@ baseURL: "https://partyloewe.de/"
 languageCode: "de-DE"
 theme: "hand-theme"
 
+params:
+  madebyhand: true
+  socialbuttons: true
+
 menu:
   main:
     - name: Locations

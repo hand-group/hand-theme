@@ -1,15 +1,7 @@
 {{ define "main" }}
-    <div class="content py-20">
-        {{ .Content }}
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
+    <div class="prose md:prose-lg mx-auto">
+      {{ .Content }}
     </div>
-
-    {{ if .Params.gmaps }}
-        <iframe
-            allowfullscreen=""
-            loading="lazy"
-            src="https://www.google.com/maps/embed/v1/place?key={{ .Site.Data.seo.gmapsKey }}
-            &q={{ .Params.gmaps }}&zoom=14"
-            class="w-full h-80"
-        ></iframe>
-    {{ end }}
+  </main>
 {{ end }}

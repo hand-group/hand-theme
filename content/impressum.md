@@ -1,33 +1,33 @@
 ---
 title: Impressum
-headerImage: 
 ---
+
 # Impressum
 
 ## Für die Veröffentlichung und den Betrieb des Internetauftritts ist im Sinne des § 5 TMG verantwortlich:
 
-Der Party Löwe GmbH & Co. KG  
-Augsburger Straße 2  
-30880 Laatzen
+Muster GmbH  
+Musterstraße 1  
+12345 Musterort
 
 **Telefon**: +49511 82077777  
-**Email**: [info@partyloewe.de](mailto:info@partyloewe.de)  
-**Web**: [https://www.partyloewe.de/](https://www.partyloewe.de/ "https://www.partyloewe.de/")
+**Email**: [info@muster.de](mailto:info@muster.de)  
+**Web**: [https://www.muster.de/](https://www.muster.de/ "https://www.muster.de/")
 
-Geschäftsführer: Andreas Hüttmann 
+Geschäftsführer: Max Mustermann 
 
-USt-IdNr.: DE 278700612  
-Registernummer: HRA 202143
+USt-IdNr.: DE 123456789  
+Registernummer: HRA 123456
 
 Verantwortlich für den Inhalt nach § 18 Abs. 2 Medienstaatsvertrag (MStV): Herr Andreas Hüttmann (Anschrift s. o.) 
 
-***
+---
 
 Zur außergerichtlichen Beilegung von verbraucherrechtlichen Streitigkeiten hat die Europäische Union eine Online-Plattform („OS-Plattform“) eingerichtet, an die Sie sich wenden können.
 
 Die Plattform finden Sie unter: [https://webgate.ec.europa.eu/odr/](https://webgate.ec.europa.eu/odr/ "https://webgate.ec.europa.eu/odr/").
 
-***
+---
 
 ## Verpflichtung für Streitbeilegungsverfahren gemäß § 36 VSBG:
 

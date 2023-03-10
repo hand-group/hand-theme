@@ -1,105 +1,92 @@
-<header class="z-50 fixed top-0 w-[100vw] bg-black border-b-2 border-gold shadow-lg">
-    <div class="container mx-auto h-[100px] max-w-[1400px] px-10">
-        <div class="flex flex-row justify-center md:justify-between">
-            {{ if .Site.Data.meta.madebyhand }}
-                <a id="badge" class="w-52 h-[140px] p-4 bg-white shadow-lg rounded-b-xl" style="z-index: 1" href='/{{ if in .Permalink "/en/" }}en{{ end }}'>
-                    <img src="{{ .Site.Data.meta.logo }}" alt="{{ .Site.Data.meta.name }} Logo" class="max-w-[90%] max-h-[80px] mx-auto" />
-                    <img src="https://handgroup.b-cdn.net/logos/made_by_hand.svg" alt="Made by H.AND" class="h-3 mx-auto mt-4" />
-                </a>
-            {{ else }}
-                <a id="badge" class="z-50 w-52 h-[140px] p-6 bg-white shadow-lg rounded-b-xl" href='/{{ if in .Permalink "/en/" }}en{{ end }}'>
-                    <img src="{{ .Site.Data.meta.logo }}" alt="{{ .Site.Data.meta.name }} Logo" class="max-w-[90%] h-full mx-auto" />
-                </a>
-            {{ end }}
-
-            <label for="toggle-navbar" class="z-50 md:hidden absolute top-10 right-7 text-white">
-                <svg id="mobile-navbar-button" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </label>
-            <input id="toggle-navbar" type="checkbox" hidden />
-
-            <div class="hidden md:block pt-44 md:pt-0 w-full md:w-auto h-fit bg-black md:bg-transparent border-b-2 border-gold md:border-none shadow-lg md:shadow-none text-center absolute md:relative md:top-16">
-                <nav class="flex flex-col md:flex-row gap-6 text-white md:text-sm tracking-wider">
-                    {{ range .Site.Menus.main }}
-                        {{ $text := print .Name | safeHTML }}
-                        {{ if .Params.links }}
-                            <button onclick="expandLinks({{ .Name }})" class="hidden md:block duration-300 hover:text-gold">
-                                {{ $text }}
-                            </button>
-                            <div class="md:hidden flex flex-col gap-4 border-y border-gray-100 my-2">
-                                <span class="text-sm text-gold font-light">· {{ $text }} ·</span>
-                                {{ range .Params.links }}
-                                    <a class="hover:text-gold" href="{{ .url }}">
-                                        {{ .name }}
-                                    </a>
-                                {{ end }}
-                            </div>
-                        {{ else if eq .Params.type "button"}}
-                            <div class="mb-6 md:mb-0">
-                                <a class="py-2 px-4 text-black font-bold bg-gold rounded-md duration-300 hover:bg-gold-dark" href="{{ .URL }}">
-                                    {{ $text }}
-                                </a>
-                            </div>
-                        {{ else }}
-                            <a class="hover:text-gold duration-300" href="{{ .URL }}">
-                                {{ $text }}
-                            </a>
-                        {{ end }}
-                    {{ end }}
-                    {{ if .Site.IsMultiLingual }}
-                        <span class="mb-4 md:mb-0">
-                            <a href="/" class='hover:text-gold duration-300 {{ if not (in .Permalink "/en/") }}text-gold{{ end }}'>DE</a> | 
-                            <a href="/en" class='hover:text-gold duration-300 {{ if in .Permalink "/en/" }}text-gold{{ end }}'>EN</a>
-                        </span>
-                    {{ end }}
-                </nav>
-            </div>
-        </div>
-    </div>
-    {{ range .Site.Menus.main }}
-        {{ if .Params.links }}
-            <div id="links-{{ .Name }}" class="expanded-links hidden max-w-[1400px] mx-auto p-8 xl:pb-10 mt-8 xl:mt-0 container">
-                <div class="w-[900px] max-w-full ml-auto grid grid-cols-3 gap-x-4 gap-y-8">
-                    {{ range .Params.links }}
-                        <a class="text-white hover:text-gold decoration-white hover:decoration-gold duration-300" href="{{ .url }}">
-                            <div>
-                                <span class="block font-bold underline underline-offset-4 decoration-1 leading-8">{{ .name }}</span>
-                                <span class="text-sm text-white">{{ .description }}</span>
-                            </div>
-                        </a>
-                    {{ end }}
-                </div>
-            </div>
+<header class="z-20 h-[80px] lg:h-[100px] w-full bg-black transition-shadow duration-300 border-b border-gold">
+  <nav class="mx-auto h-full flex max-w-7xl items-center justify-center lg:justify-between p-6 lg:px-8" aria-label="Global">
+    <div class="w-[200px] lg:w-fit">
+      <a href="/" class="z-10 absolute top-0 px-6 py-4 min-w-[200px] bg-white rounded-b-lg shadow-lg">
+        <span class="sr-only">{{ .Site.Params.name }}</span>
+        {{ if .Site.Params.madebyhand }}
+          <img class="w-auto max-w-36 max-h-20 mx-auto" src="{{ .Site.Params.logo }}" alt="{{ .Site.Params.name }}" />
+          <img class="hidden lg:block h-3 mt-4 mx-auto" src="/images/made_by_hand.svg" alt="Made by HAND" />
+        {{ else }}
+          <img class="w-auto max-h-24 my-2 mx-auto" src="{{ .Site.Params.logo }}" alt="{{ .Site.Params.name }}" />
         {{ end }}
-    {{ end }}
+      </a>
+    </div>
+    <div class="absolute right-6 flex lg:hidden">
+      <button id="header-open-button" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+        <span class="sr-only">Menu öffnen</span>
+        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+    <div class="hidden lg:flex lg:gap-x-12 items-center relative top-4">
+      {{ range .Site.Menus.main }}
+        {{ $text := print .Name | safeHTML }}
+        {{ if .Params.links }}
+          <div class="relative">
+            <button type="button" class="header-flyout-button flex items-center gap-x-1 text-sm font-semibold leading-6 text-white hover:text-gray-200 duration-200" aria-expanded="false">
+              {{ $text }}
+              <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+              </svg>
+            </button>
+            <div class="header-flyout-menu border-b border-x border-gold opacity-0 invisible absolute -left-8 top-[33px] z-10 mt-3 w-56 rounded-b-xl bg-black p-2 shadow-lg ring-1 ring-gray-900/5">
+              {{ range .Params.links }}
+                <a href="{{ .url }}" class="block rounded-lg py-2 px-3 text-sm font-semibold leading-6 text-white hover:bg-[#2e302f] duration-200">{{ .name }}</a>
+              {{ end }}
+            </div>
+          </div>
+        {{ else if eq .Params.type "button"}}
+          <a href="{{ .URL }}" class="text-sm font-semibold leading-6 text-black py-1 px-3 rounded-md bg-gold hover:bg-gold-dark duration-200">{{ $text }} <span aria-hidden="true">&rarr;</span></a>
+        {{ else }}
+          <a href="{{ .URL }}" class="text-sm font-semibold leading-6 text-white hover:text-gray-200 duration-200">{{ $text }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </nav>
+
+  <div id="header-mobile-menu" class="hidden lg:hidden" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 z-10 backdrop-blur-sm"></div>
+    <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gold">
+      <div class="flex items-center justify-between">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">Der Party Löwe</span>
+        </a>
+        <button id="header-close-button" type="button" class="-m-2.5 rounded-md p-2.5 text-white">
+          <span class="sr-only">Menu schließen</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-gray-500/10">
+          <div class="space-y-2 py-6">
+            {{ range .Site.Menus.main }}
+              {{ $text := print .Name | safeHTML }}
+              {{ if .Params.links }}
+                <div class="-mx-3">
+                  <button type="button" class="header-submenu-button flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base text-white font-semibold leading-7 hover:bg-gray-600" aria-controls="disclosure-2" aria-expanded="false">
+                    {{ $text }}
+                    <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                  <div class="hidden mt-2 space-y-2" id="disclosure-2">
+                    {{ range .Params.links }}
+                      <a href="{{ .url }}" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-600">{{ .name }}</a>
+                    {{ end }}
+                  </div>
+                </div>
+              {{ else if eq .Params.type "button"}}
+                <a href="{{ .URL }}" class="-mx-3 block rounded-lg py-2.5 px-3 text-center font-semibold leading-7 text-black bg-gold hover:bg-gold-dark duration-200">{{ $text }}</a>
+              {{ else }}
+                <a href="{{ .URL }}" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-600">{{ $text }}</a>
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
-<div id="header-overlay" class="z-40 hidden fixed top-0 left-0 w-[100vw] h-[100vh] bg-black opacity-50"></div>
-
-<script>
-    function expandLinks(name) {
-        const elements = document.getElementsByClassName("expanded-links")
-        for (let e of elements) e.style.display = "none"
-        const overlay = document.getElementById("header-overlay")
-        const element = document.getElementById(`links-${name}`)
-        if (element.style.display === "block") {
-            element.style.display = "none"
-            overlay.style.display = "none"
-        } else {
-            element.style.display = "block"
-            overlay.style.display = "block"
-        }
-    }
-
-    document.getElementById("header-overlay").addEventListener("mouseover", () => {
-        document.getElementById("header-overlay").style.display = "none"
-        const elements = document.getElementsByClassName("expanded-links")
-        for (let e of elements) e.style.display = "none"
-    })
-</script>
-
-<style>
-    #toggle-navbar:checked + div {
-        display: block !important;
-    }
-</style>

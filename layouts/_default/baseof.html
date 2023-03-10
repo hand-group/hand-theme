@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
+  <head>
     {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" . -}}
-        <div class="min-h-[calc(100vh-240px)] md:min-h-[calc(100vh-200px)] pt-[100px]">
-            {{- partial "headerImage.html" . -}}
-            {{- block "main" . }}{{- end }}
-        </div>
-        {{- partial "footer.html" . -}}
-        {{- partial "cookie-banner.html" . -}}
-        {{- partial "script.html" . -}}
-    </body>
+  </head>
+  <body>
+    {{- partial "header.html" . -}}
+    <div class="min-h-[calc(100vh-240px)] md:min-h-[calc(100vh-80px)]">
+      {{- partial "headerImage.html" . -}}
+      {{- block "main" . }}{{- end }}
+    </div>
+    {{- partial "footer.html" . -}}
+    {{- partial "cookie-banner.html" . -}}
+    {{- partial "script.html" . -}}
+  </body>
 </html>

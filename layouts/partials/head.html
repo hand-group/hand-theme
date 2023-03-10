@@ -1,24 +1,53 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<title>
+  {{ if .IsHome }}
+    {{ .Title }}
+  {{ else }}
+    {{ .Title }} | {{ .Site.Title }}
+  {{ end }}
+</title>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/style.css">
+<!-- Meta Tags Start -->
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:type " content="website">
+{{ if .IsHome }}
+  <meta name="title" content="{{ .Title }}">
+  <meta property="og:title" content="{{ .Title }}">
+{{ else }}
+  <meta name="title" content="{{ .Title }} | {{ .Site.Title }}">
+  <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+{{ end }}
+<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:image" content="{{ .Site.BaseURL }}images/marry-jane.jpeg" />
+<meta property="og:image:width" content="1000" />
+<meta property="og:image:height" content="750" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }} | {{ .Site.Params.slogan }}">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:label1" content="Geschätzte Lesezeit" />
+<meta name="twitter:data1" content="3 Minuten" />
+<!-- Meta Tags End -->
 
-    <!-- Tailwind -->
-    <link rel="stylesheet" href="/css/tw-build.css">
+<!-- Tailwind Start -->
+{{ $styles := resources.Get "css/styles.scss" | toCSS | postCSS (dict "config" "./assets/css/postcss.config.js") }}
+{{ if .Site.IsServer }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+{{ else }}
+  {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ end }}
+<!-- Tailwind End -->
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="/css/fonts.css" />
+<!-- Fonts Start -->
+<link rel="stylesheet" href="/fonts/fonts.css" />
+<!-- Fonts End -->
 
-    <!-- Animate on scroll -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<!-- Bootstrap Start -->
+<link rel="stylesheet" href="/css/bootstrap.css">
+<!-- Bootstrap End -->
 
-    {{ partial "gtag.html" . }}
-    {{ partial "metaPixel.html" . }}
-
-    {{ $title := print .Site.Data.meta.name " | " .Title }}
-    <title>{{ $title }}</title>
-</head>
+<!-- Animate on Scroll Start -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<!-- Animate on Scroll End -->
