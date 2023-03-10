@@ -30,6 +30,13 @@
 <meta name="twitter:data1" content="3 Minuten" />
 <!-- Meta Tags End -->
 
+<!-- Favicons Start -->
+<link rel="icon" type="image/x-icon" href="/favicons/favicon.ico" />
+<link rel="icon" href="/favicons/32x32.png" sizes="32x32" />
+<link rel="icon" href="/favicons/192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/favicons/180x180.png" />
+<!-- Favicons End -->
+
 <!-- Tailwind Start -->
 {{ $styles := resources.Get "css/styles.scss" | toCSS | postCSS (dict "config" "./assets/css/postcss.config.js") }}
 {{ if .Site.IsServer }}

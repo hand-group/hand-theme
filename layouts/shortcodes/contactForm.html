@@ -1,159 +1,78 @@
-<script>
-    function handleSubmit() {
-        const button = document.getElementById("contact-form-submit")
-
-        const inputs = [
-            { name: "website" },
-            {
-                name: "salutation",
-                required: true,
-                check: (value) => Boolean(value),
-            },
-            {
-                name: "firstname",
-                required: true,
-                check: (value) => value.length >= 2,
-            },
-            {
-                name: "lastname",
-                required: true,
-                check: (value) => value.length >= 2,
-            },
-            { name: "company" },
-            { name: "phone", required: true, check: (value) => Boolean(value) },
-            {
-                name: "email",
-                required: true,
-                check: (value) => value.includes("@"),
-            },
-            { name: "text", required: true, check: (value) => Boolean(value) },
-        ]
-
-        try {
-            let check = true,
-                data = {}
-
-            inputs.forEach((input) => {
-                const element = document.getElementById(`${input.name}Input`)
-                if (input.required && !input.check(element.value)) {
-                    check = false
-                } else {
-                    data[input.name] = element.value
-                }
-            })
-
-            if (check) {
-                fetch(
-                    "https://www-backend.hand.group/contactform/submit",
-                    {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(data),
-                    }
-                ).then((response) => {
-                    if (response.status === 200) {
-                        setTimeout(
-                            () => (button.innerText = "Abgeschickt"),
-                            1000
-                        )
-                    } else {
-                        throw "Something went wrong."
-                    }
-                })
-            } else {
-                throw "Missing data."
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    }
-</script>
-
-<form class="max-w-[700px] p-4 mx-auto bg-gray-50 rounded-md">
-    <input type="hidden" id="websiteInput" value="{{ .Site.Data.meta.www }}" />
-    <div class="flex flex-col gap-4">
-        <div class="grid grid-cols-5 gap-4">
-            <div class="col-span-1">
-                <label for="salutationInput" class="block mb-1 text-sm">Anrede</label>
-                <select id="salutationInput" class="p-2 w-full bg-white rounded-md">
-                    <option>Herr</option>
-                    <option>Frau</option>
-                </select>
-            </div>
-            <div class="col-span-2">
-                <label for="firstnameInput" class="block mb-1 text-sm">Vorname*</label>
-                <input
-                    type="text"
-                    id="firstnameInput"
-                    class="p-2 w-full bg-white rounded-md"
-                    aria-describedby="firstnameHelp"
-                />
-            </div>
-            <div class="col-span-2">
-                <label for="lastnameInput" class="block mb-1 text-sm">Nachname*</label>
-                <input
-                    type="text"
-                    id="lastnameInput"
-                    class="p-2 w-full bg-white rounded-md"
-                    aria-describedby="lastnameHelp"
-                />
-            </div>
-        </div>
-        <div class="grid">
-            <div>
-                <label for="companyInput" class="block mb-1 text-sm">Firma</label>
-                <input
-                    type="email"
-                    id="companyInput"
-                    class="p-2 w-full bg-white rounded-md"
-                    aria-describedby="companyHelp"
-                />
-            </div>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-            <div>
-                <label for="emailInput" class="block mb-1 text-sm">Email*</label>
-                <input
-                    type="email"
-                    id="emailInput"
-                    class="p-2 w-full bg-white rounded-md"
-                    aria-describedby="emailHelp"
-                />
-            </div>
-            <div>
-                <label for="phoneInput" class="block mb-1 text-sm">Telefon*</label>
-                <input
-                    type="email"
-                    id="phoneInput"
-                    class="p-2 w-full bg-white rounded-md"
-                    aria-describedby="phoneHelp"
-                />
-            </div>
-        </div>
-        <div class="grid">
-            <div>
-                <label for="textInput" class="block mb-1 text-sm">Anfrage*</label>
-                <textarea
-                    id="textInput"
-                    class="p-2 w-full bg-white rounded-md"
-                    rows="6"
-                    placeholder="Ihre Anfrage..."
-                ></textarea>
-            </div>
-            <span class="text-sm font-light">* Pflichtfelder</span>
-        </div>
-        <div>
-            <div class="text-center mb-4">
-                <a
-                    id="contact-form-submit"
-                    class="px-4 py-2 bg-gold rounded-md cursor-pointer"
-                    style="color: #212322"
-                    onclick="handleSubmit()">
-                    Abschicken
-                </a>
-            </div>
-        </div>
+<form name="contact" method="POST" action="/contact/success" data-netlify="true">
+  <div class="grid grid-cols-12 gap-4">
+    <div class="col-span-2">
+      <label for="salutation" class="block mb-1 text-sm">Anrede</label>
+      <select id="salutation" name="salutation" class="p-2 w-full bg-gray-100 border-0 rounded-md">
+        <option>Herr</option>
+        <option>Frau</option>
+      </select>
     </div>
+    <div class="col-span-5">
+      <label for="firstname" class="block mb-1 text-sm">Vorname*</label>
+      <input
+        type="text"
+        id="firstname"
+        name="firstname"
+        class="p-2 w-full bg-gray-100 border-0 rounded-md"
+        required
+      />
+    </div>
+    <div class="col-span-5">
+      <label for="lastname" class="block mb-1 text-sm">Nachname*</label>
+      <input
+        type="text"
+        id="lastname"
+        name="lastname"
+        class="p-2 w-full bg-gray-100 border-0 rounded-md"
+        required
+      />
+    </div>
+    <div class="col-span-12">
+      <label for="company" class="block mb-1 text-sm">Firma</label>
+      <input
+        type="text"
+        id="company"
+        name="company"
+        class="p-2 w-full bg-gray-100 border-0 rounded-md"
+      />
+    </div>
+    <div class="col-span-6">
+      <label for="email" class="block mb-1 text-sm">Email*</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="p-2 w-full bg-gray-100 border-0 rounded-md"
+        required
+      />
+    </div>
+    <div class="col-span-6">
+      <label for="phone" class="block mb-1 text-sm">Telefon*</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        class="p-2 w-full bg-gray-100 border-0 rounded-md"
+      />
+    </div>
+    <div class="col-span-12">
+      <label for="message" class="block mb-1 text-sm">Anfrage*</label>
+      <textarea
+        id="message"
+        name="message"
+        class="p-2 w-full bg-gray-100 border-0 rounded-md"
+        rows="6"
+        placeholder="Ihre Anfrage..."
+        required
+      ></textarea>
+      <span class="text-sm font-light">* Pflichtfelder</span>
+    </div>
+    <div class="col-span-12">
+      <input type="checkbox" id="privacy" name="privacy" required />
+      <label for="privacy" class="text-sm">Ich stimme zu, dass meine Angaben aus dem oben stehenden Formular zur Beantwortung meiner Anfrage erhoben und verarbeitet werden.</label>
+    </div>
+    <button class="col-start-5 col-span-4 px-5 py-1 bg-gold rounded-md text-black no-underline cursor-pointer hover:bg-gold-dark duration-200">
+      Abschicken
+    </button>
+  </div>
 </form>
