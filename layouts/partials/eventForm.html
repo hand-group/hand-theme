@@ -1,0 +1,302 @@
+<div class="max-w-5xl mx-auto px-4">
+  <form id="eventForm" name="event" method="POST" action="/eventanfrage/success" data-netlify="true">
+    <div class="p-4 md:p-6 bg-gray-100 rounded-xl shadow-md">
+
+      <div id="step0" class="step flex flex-col gap-8" style="display: flex">
+        <div>
+          <span class="block text-2xl font-bold mb-2">Schritt 1/3 - Eckdaten</span>
+          <span class="text-lg font-light">Geben Sie uns ein paar Eckdaten zu Ihrem Event mit</span>
+        </div>
+        <hr class="-my-1" />
+        <div class="flex flex-col md:flex-row justify-between items-center gap-2">
+          <label for="event-type" class="text-2xl">
+            Was ist der Anlass des Events?
+          </label>
+          <select id="event-type" name="Eventtyp" required class="w-48 border-gold rounded-lg">
+            <option>Bitte wählen...</option>
+            <option>Firmenfeier</option>
+            <option>Geburtstag</option>
+            <option>Firmenfeier</option>
+            <option>Messe</option>
+            <option>Trauerfeier</option>
+            <option>Tagung</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-center gap-2">
+          <label for="guests" class="text-2xl">
+            Mit wie vielen Gästen planen Sie?
+          </label>
+          <select id="guests" name="Gäste" required class="w-48 border-gold rounded-lg">
+            <option>Bitte wählen...</option>
+            <option>unter 50 Personen</option>
+            <option>50 Personen</option>
+            <option>60 Personen</option>
+            <option>70 Personen</option>
+            <option>80 Personen</option>
+            <option>90 Personen</option>
+            <option>100 Personen</option>
+            <option>110 Personen</option>
+            <option>120 Personen</option>
+            <option>130 Personen</option>
+            <option>140 Personen</option>
+            <option>150 Personen</option>
+            <option>160 Personen</option>
+            <option>170 Personen</option>
+            <option>180 Personen</option>
+            <option>190 Personen</option>
+            <option>200 Personen</option>
+            <option>250 Personen</option>
+            <option>300 Personen</option>
+            <option>350 Personen</option>
+            <option>400 Personen</option>
+            <option>450 Personen</option>
+            <option>500 Personen</option>
+            <option>600 Personen</option>
+            <option>700 Personen</option>
+            <option>800 Personen</option>
+            <option>900 Personen</option>
+            <option>1000 Personen</option>
+            <option>1500 Personen</option>
+            <option>2000 Personen</option>
+            <option>2500 Personen</option>
+            <option>3000 Personen</option>
+            <option>3500 Personen</option>
+            <option>4000 Personen</option>
+            <option>4500 Personen</option>
+            <option>5000 Personen</option>
+            <option>über 5000 Personen</option>
+          </select>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-center gap-2">
+          <label for="date" class="text-2xl">
+            Wann soll das Event stattfinden?
+          </label>
+          <input type="date" id="date" name="Datum" required class="w-48 border-gold rounded-lg" />
+        </div>
+        <hr class="-my-1" />
+        <div class="text-center">
+          <button type="button" onclick="nextStep()" class="px-6 py-1 font-medium bg-gold rounded-md hover:bg-gold-dark duration-200">
+            Nächster Schritt
+          </button>
+        </div>
+      </div>
+
+      <div id="step1" class="step flex flex-col gap-8" style="display: none">
+        <div>
+          <span class="block text-2xl font-bold mb-2">Schritt 2/3 - Eventlocation</span>
+          <span class="text-lg font-light">Wo möchten Sie feiern? Wir haben da etwas für Sie...</span>
+        </div>
+        <hr class="-my-1" />
+        <div class="grid grid-cols-10 gap-4">
+          <div class="col-span-10 md:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="group p-2 md:p-6 bg-white rounded-md">
+              <input type="checkbox" id="georgen-terrassen" name="Locations" value="Georgen Terrassen" class="rounded-md checked:bg-gold accent-gold" />
+              <label for="georgen-terrassen">
+                <img src="https://handgroup.b-cdn.net/logos/georgenterrassen_positiv.png" alt="Georgen Terrassen" class="max-w-[90%] mx-auto group-hover:scale-105 duration-200" />
+              </label>
+            </div>
+            <div class="group p-2 md:p-6 bg-white rounded-md">
+              <input type="checkbox" id="yachtclub" name="Locations" value="Yachtclub" class="rounded-md checked:bg-gold accent-gold" />
+              <label for="yachtclub">
+                <img src="https://handgroup.b-cdn.net/logos/yachtclub_positiv.png" alt="Yachtclub" class="group-hover:scale-105 duration-200" />
+              </label>
+            </div>
+            <div class="group p-2 md:p-6 bg-white rounded-md">
+              <input type="checkbox" id="ralveshof" name="Locations" value="Ralveshof" class="rounded-md checked:bg-gold accent-gold" />
+              <label for="ralveshof">
+                <img src="https://handgroup.b-cdn.net/logos/ralveshof_positiv.png" alt="Ralveshof" class="group-hover:scale-105 duration-200" />
+              </label>
+            </div>
+            <div class="group p-2 md:p-6 bg-white rounded-md">
+              <input type="checkbox" id="marthas-garten" name="Locations" value="Marthas Garten" class="rounded-md checked:bg-gold accent-gold" />
+              <label for="marthas-garten">
+                <img src="https://handgroup.b-cdn.net/logos/marthas_positiv.png" alt="Marthas Garten" class="max-w-[60%] mx-auto group-hover:scale-105 duration-200" />
+              </label>
+            </div>
+            <div class="group p-2 md:p-6 bg-white rounded-md">
+              <input type="checkbox" id="kokenhof" name="Locations" value="Kokenhof" class="rounded-md checked:bg-gold accent-gold" />
+              <label for="kokenhof">
+                <img src="https://handgroup.b-cdn.net/logos/kokenhof_positiv.png" alt="Kokenhof" class="mt-10 group-hover:scale-105 duration-200" />
+              </label>
+            </div>
+            <div class="group p-2 md:p-6 bg-white rounded-md">
+              <input type="checkbox" id="schloss-herrenhausen" name="Locations" value="Schloss Herrenhausen" class="rounded-md checked:bg-gold accent-gold" />
+              <label for="schloss-herrenhausen">
+                <img src="https://handgroup.b-cdn.net/logos/schlossherrenhausen_positiv.png" alt="Schloss Herrenhausen" class="max-w-[70%] mx-auto group-hover:scale-105 duration-200" />
+              </label>
+            </div>
+          </div>
+
+          <div class="col-span-10 md:col-span-3 flex flex-col gap-4">
+            <div class="px-4 py-2 bg-white rounded-md">
+              <label for="inselresort-wilhelmstein" class="flex items-center gap-2">
+                <input type="checkbox" id="inselresort-wilhelmstein" name="Locations" value="Inselresort Wilhelmstein" class="rounded-md checked:bg-gold accent-gold" />
+                Inselresort Wilhelmstein
+              </label>
+            </div>
+            <div class="px-4 py-2 bg-white rounded-md">
+              <label for="cavallo" class="flex items-center gap-2">
+                <input type="checkbox" id="cavallo" name="Locations" value="Cavallo" class="rounded-md checked:bg-gold accent-gold" />
+                Cavallo
+              </label>
+            </div>
+            <div class="px-4 py-2 bg-white rounded-md">
+              <label for="classic-car-loft" class="flex items-center gap-2">
+                <input type="checkbox" id="classic-car-loft" name="Locations" value="Classic Car Loft" class="rounded-md checked:bg-gold accent-gold" />
+                Classic Car Loft
+              </label>
+            </div>
+            <div class="px-4 py-2 bg-white rounded-md">
+              <label for="helmkehof" class="flex items-center gap-2">
+                <input type="checkbox" id="helmkehof" name="Locations" value="Helmkehof" class="rounded-md checked:bg-gold accent-gold" />
+                Helmkehof
+              </label>
+            </div>
+            <div class="px-4 py-2 bg-white rounded-md">
+              <label for="rittergut-eckerde" class="flex items-center gap-2">
+                <input type="checkbox" id="rittergut-eckerde" name="Locations" value="Rittergut Eckerde" class="rounded-md checked:bg-gold accent-gold" />
+                Rittergut Eckerde
+              </label>
+            </div>
+            <div class="px-4 py-2 bg-white rounded-md">
+              <label for="rittergut-remeringhausen" class="flex items-center gap-2">
+                <input type="checkbox" id="rittergut-remeringhausen" name="Locations" value="Rittergut Remeringhausen" class="rounded-md checked:bg-gold accent-gold" />
+                Rittergut Remeringhausen
+              </label>
+            </div>
+            <div class="px-4 py-2 bg-white rounded-md">
+              <label for="eigene-raeumlichkeiten" class="flex items-center gap-2">
+                <input type="checkbox" id="eigene-raeumlichkeiten" name="Locations" value="Eigene Räumlichkeiten" class="rounded-md checked:bg-gold accent-gold" />
+                Eigene Räumlichkeiten
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr class="-my-1" />
+        <div class="flex flex-row justify-center gap-6">
+          <button type="button" onclick="prevStep()" class="px-6 py-1 font-medium border border-gold rounded-md hover:bg-gray-200 duration-200">
+            Zurück
+          </button>
+          <button type="button" onclick="nextStep()" class="px-6 py-1 font-medium bg-gold rounded-md hover:bg-gold-dark duration-200">
+            Nächster Schritt
+          </button>
+        </div>
+      </div>
+
+      <div id="step2" class="step flex flex-col gap-8" style="display: none">
+        <div>
+          <span class="block text-2xl font-bold mb-2">Schritt 3/3 - Kontaktdaten</span>
+          <span class="text-lg font-light">Damit wir Sie erreichen können, benötigen wir noch Ihre Kontaktdaten</span>
+        </div>
+        <hr class="-my-1" />
+        <div class="grid md:grid-cols-12 gap-4">
+          <label for="salutation" class="md:col-span-2">
+            <span class="block text-sm mb-1 ml-1">Anrede</span>
+            <select id="salutation" name="Anrede" class="w-full border-0 rounded-md">
+              <option>Herr</option>
+              <option>Frau</option>
+              <option>Divers</option>
+            </select>
+          </label>
+          <label for="firstname" class="md:col-span-5">
+            <span class="block text-sm mb-1 ml-1">Vorname*</span>
+            <input type="text" id="firstname" name="Vorname" required class="w-full border-0 rounded-md" />
+          </label>
+          <label for="lastname" class="md:col-span-5">
+            <span class="block text-sm mb-1 ml-1">Nachname*</span>
+            <input type="text" id="lastname" name="Nachname" required class="w-full border-0 rounded-md" />
+          </label>
+          <label for="company" class="md:col-span-12">
+            <span class="block text-sm mb-1 ml-1">Ggf. Unternehmen</span>
+            <input type="text" id="company" name="Unternehmen" class="w-full border-0 rounded-md" />
+          </label>
+          <label for="email" class="md:col-span-6">
+            <span class="block text-sm mb-1 ml-1">Email*</span>
+            <input type="text" id="email" name="Email" required class="w-full border-0 rounded-md" />
+          </label>
+          <label for="phone" class="md:col-span-6">
+            <span class="block text-sm mb-1 ml-1">Telefon</span>
+            <input type="text" id="phone" name="Telefon" class="w-full border-0 rounded-md" />
+          </label>
+          <label for="street" class="md:col-span-4">
+            <span class="block text-sm mb-1 ml-1">Straße*</span>
+            <input type="text" id="street" name="Straße" required class="w-full border-0 rounded-md" />
+          </label>
+          <label for="zip" class="md:col-span-4">
+            <span class="block text-sm mb-1 ml-1">PLZ*</span>
+            <input type="text" id="zip" name="PLZ" required class="w-full border-0 rounded-md" />
+          </label>
+          <label for="city" class="md:col-span-4">
+            <span class="block text-sm mb-1 ml-1">Ort*</span>
+            <input type="text" id="city" name="Ort" required class="w-full border-0 rounded-md" />
+          </label>
+          <label for="message" class="md:col-span-12">
+            <span class="block text-sm mb-1 ml-1">Nachricht</span>
+            <textarea id="message" name="Nachricht" rows="6" required class="w-full border-0 rounded-md"></textarea>
+          </label>
+        </div>
+        <hr class="-my-1" />
+        <div class="flex flex-row justify-center gap-6">
+          <button type="button" onclick="prevStep()" class="px-6 py-1 font-medium border border-gold rounded-md hover:bg-gray-200 duration-200">
+            Zurück
+          </button>
+          <button type="submit" class="px-6 py-1 font-medium bg-gold rounded-md hover:bg-gold-dark duration-200">
+            Anfrage abschicken
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  let currentStep = 0
+
+  function prevStep() {
+    document.getElementById(`step${currentStep}`).style.display = "none"
+    document.getElementById(`step${currentStep - 1}`).style.display = "flex"
+    currentStep--
+  }
+
+  function nextStep() {
+    // Validation Start
+    let checkFailed = false
+    if (currentStep === 0) {
+      const eventType = document.getElementById("event-type")
+      const guests = document.getElementById("guests")
+      const date = document.getElementById("date")
+      
+      if (eventType.value === "Bitte wählen...") {
+        eventType.style.borderColor = "red"
+        checkFailed = true
+      } else eventType.style.borderColor = "#b28d2f"
+
+      if (guests.value === "Bitte wählen...") {
+        guests.style.borderColor = "red"
+        checkFailed = true
+      } else guests.style.borderColor = "#b28d2f"
+
+      if (!date.value) {
+        date.style.borderColor = "red"
+        checkFailed = true
+      } else date.style.borderColor = "#b28d2f"
+    }
+
+    if (currentStep === 1) {
+      const locations = document.querySelectorAll("input[name=Locations]")
+      let locationsSelected = false
+      for (const location of locations) {
+        if (location.checked) locationsSelected = true
+      }
+      if (!locationsSelected) checkFailed = true
+    }
+
+    if (checkFailed) return
+    // Validation End
+
+    document.getElementById(`step${currentStep}`).style.display = "none"
+    document.getElementById(`step${currentStep + 1}`).style.display = "flex"
+    currentStep++
+  }
+</script>
