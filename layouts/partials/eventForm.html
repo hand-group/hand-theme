@@ -9,9 +9,7 @@
         </div>
         <hr class="-my-1" />
         <div class="flex flex-col md:flex-row justify-between items-center gap-2">
-          <label for="event-type" class="text-2xl">
-            Was ist der Anlass des Events?
-          </label>
+          <label for="event-type" class="text-2xl">Was ist der Anlass des Events?</label>
           <select id="event-type" name="Eventtyp" required class="w-48 border-gold rounded-lg">
             <option>Bitte wählen...</option>
             <option>Firmenfeier</option>
@@ -24,9 +22,7 @@
           </select>
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center gap-2">
-          <label for="guests" class="text-2xl">
-            Mit wie vielen Gästen planen Sie?
-          </label>
+          <label for="guests" class="text-2xl">Mit wie vielen Gästen planen Sie?</label>
           <select id="guests" name="Gäste" required class="w-48 border-gold rounded-lg">
             <option>Bitte wählen...</option>
             <option>unter 50 Personen</option>
@@ -69,9 +65,7 @@
           </select>
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center gap-2">
-          <label for="date" class="text-2xl">
-            Wann soll das Event stattfinden?
-          </label>
+          <label for="date" class="text-2xl">Wann soll das Event stattfinden?</label>
           <input type="date" id="date" name="Datum" required class="w-48 border-gold rounded-lg" />
         </div>
         <hr class="-my-1" />
@@ -86,6 +80,7 @@
         <div>
           <span class="block text-2xl font-bold mb-2">Schritt 2/3 - Eventlocation</span>
           <span class="text-lg font-light">Wo möchten Sie feiern? Wir haben da etwas für Sie...</span>
+          <label for="Locations" class="hidden">Eventlocations</label>
         </div>
         <hr class="-my-1" />
         <div class="grid grid-cols-10 gap-4">
@@ -191,50 +186,50 @@
         </div>
         <hr class="-my-1" />
         <div class="grid md:grid-cols-12 gap-4">
-          <label for="salutation" class="md:col-span-2">
-            <span class="block text-sm mb-1 ml-1">Anrede</span>
+          <div class="md:col-span-2">
+            <label for="salutation" class="block text-sm mb-1 ml-1">Anrede</label>
             <select id="salutation" name="Anrede" class="w-full border-0 rounded-md">
               <option>Herr</option>
               <option>Frau</option>
               <option>Divers</option>
             </select>
-          </label>
-          <label for="firstname" class="md:col-span-5">
-            <span class="block text-sm mb-1 ml-1">Vorname*</span>
+          </div>
+          <div class="md:col-span-5">
+            <label for="firstname" class="block text-sm mb-1 ml-1">Vorname*</label>
             <input type="text" id="firstname" name="Vorname" required class="w-full border-0 rounded-md" />
-          </label>
-          <label for="lastname" class="md:col-span-5">
-            <span class="block text-sm mb-1 ml-1">Nachname*</span>
+          </div>
+          <div class="md:col-span-5">
+            <label for="lastname" class="block text-sm mb-1 ml-1">Nachname*</label>
             <input type="text" id="lastname" name="Nachname" required class="w-full border-0 rounded-md" />
-          </label>
-          <label for="company" class="md:col-span-12">
-            <span class="block text-sm mb-1 ml-1">Ggf. Unternehmen</span>
+          </div>
+          <div class="md:col-span-12">
+            <label for="company" class="block text-sm mb-1 ml-1">Ggf. Unternehmen</label>
             <input type="text" id="company" name="Unternehmen" class="w-full border-0 rounded-md" />
-          </label>
-          <label for="email" class="md:col-span-6">
-            <span class="block text-sm mb-1 ml-1">Email*</span>
+          </div>
+          <div class="md:col-span-6">
+            <label for="email" class="block text-sm mb-1 ml-1">Email*</label>
             <input type="text" id="email" name="Email" required class="w-full border-0 rounded-md" />
-          </label>
-          <label for="phone" class="md:col-span-6">
-            <span class="block text-sm mb-1 ml-1">Telefon</span>
+          </div>
+          <div class="md:col-span-6">
+            <label for="phone" class="block text-sm mb-1 ml-1">Telefon</label>
             <input type="text" id="phone" name="Telefon" class="w-full border-0 rounded-md" />
-          </label>
-          <label for="street" class="md:col-span-4">
-            <span class="block text-sm mb-1 ml-1">Straße*</span>
+          </div>
+          <div class="md:col-span-4">
+            <label for="street" class="block text-sm mb-1 ml-1">Straße*</label>
             <input type="text" id="street" name="Straße" required class="w-full border-0 rounded-md" />
-          </label>
-          <label for="zip" class="md:col-span-4">
-            <span class="block text-sm mb-1 ml-1">PLZ*</span>
+          </div>
+          <div class="md:col-span-4">
+            <label for="zip" class="block text-sm mb-1 ml-1">PLZ*</label>
             <input type="text" id="zip" name="PLZ" required class="w-full border-0 rounded-md" />
-          </label>
-          <label for="city" class="md:col-span-4">
-            <span class="block text-sm mb-1 ml-1">Ort*</span>
+          </div>
+          <div class="md:col-span-4">
+            <label for="city" class="block text-sm mb-1 ml-1">Ort*</label>
             <input type="text" id="city" name="Ort" required class="w-full border-0 rounded-md" />
-          </label>
-          <label for="message" class="md:col-span-12">
-            <span class="block text-sm mb-1 ml-1">Nachricht</span>
+          </div>
+          <div class="md:col-span-12">
+            <label for="message" class="block text-sm mb-1 ml-1">Nachricht</label>
             <textarea id="message" name="Nachricht" rows="6" required class="w-full border-0 rounded-md"></textarea>
-          </label>
+          </div>
         </div>
         <hr class="-my-1" />
         <div class="flex flex-row justify-center gap-6">
