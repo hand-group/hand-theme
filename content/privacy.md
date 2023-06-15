@@ -16,11 +16,12 @@ ___
 
 **Verantwortlicher für die Verarbeitung Ihrer personenbezogenen Daten im Sinne der Europäischen Datenschutz-Grundverordnung ist:**
 
-Schloss Herrenhausen Veranstaltungs- und Betriebs GmbH  
-Herrenhäuser Straße 5  
-30419 Hannover  
+Muster GmbH  
+Musterstraße 1  
+12345 Musterort
 
-**Email**: info@schloss-herrenhausen.de
+**Telefon**: 0123 4567890  
+**Email**: info@muster.de
 
 ___
 
