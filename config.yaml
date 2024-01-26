@@ -11,9 +11,6 @@ menu:
       weight: 2
       params:
         links:
-          - name: Eventfamilie
-            description: Mehr über unsere Event Gruppe
-            url: /eventfamilie
           - name: Karriere
             description: Aktuelle Jobangebote in der Gruppe
             url: /career
